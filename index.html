@@ -14,25 +14,23 @@
       darkMode: 'class',
       theme: {
         extend: {
-          fontFamily: {
-            'sans': ['Inter', ...defaultTheme.fontFamily.sans],
-          },
+
           colors: {
             primarydark: '#121212',
             secondarydark: '#1a1c1e',
 
+          },
+          fontSize: {
+            'title': ['4.5rem', {
+              fontWeight: '500',
+
+            }],
+            'subtitle': ['0.5rem', {
+              fontWeight: '700',
+            }],
           }
         },
       },
-      fontSize: {
-        'title': ['1.5rem', {
-          fontWeight: '500',
-
-        }],
-        'subtitle': ['1.875rem', {
-          fontWeight: '700',
-        }],
-      }
     }
   </script>
 </head>
@@ -46,7 +44,7 @@
     :class="{'dark': darkMode === true}" class="bg-white dark:bg-primarydark dark:text-gray-100 relative h-screen">
 
     <!-- left sidebar -->
-    <div class="bg-red-500 h-full w-56 absolute top-0 left-0 z-[100]">
+    <div class="h-full w-56 absolute top-0 left-0 z-[100]">
       <div
         class="w-56 h-screen flex border-2 border-transparent border-r-[#1A282B] flex-col justify-between bg-primarydark">
         <div>
@@ -328,8 +326,8 @@
         <div class="w-64 flex gap-2">
           <img src="./assets/profile.webp" class="object-cover w-[50px] h-[50px] rounded-full " alt="">
           <div>
-            <p class="text-md">Ibrahim Musthafa</p>
-            <p class="class=" text-xs">ibrahimmustafa@nimsuae.com</p>
+            <p class="text-title">Ibrahim Musthafa</p>
+            <p class="text-subtitle">ibrahimmustafa@nimsuae.com</p>
           </div>
       </nav>
     </div>
