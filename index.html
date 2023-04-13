@@ -26,13 +26,14 @@
       theme: {
         extend: {
           fontFamily: {
-            pmfont: ['Inter', 'ui-sans-serif', ]
+            pmfont: ['Inter', 'ui-sans-serif',]
           },
           colors: {
             pmdark: '#121212',
             scdark: '#1a1c1e',
-            pmwhite: '#ffffff',
-            scwhite: '#efeff0',
+            pmlight: '#ffffff',
+            sclight: '#efeff0',
+            accent: '#45c072',
           },
           fontSize: {
             'title': ['1rem', {
@@ -57,11 +58,11 @@
     class="bg-white dark:bg-pmdark font-pmfont dark:text-gray-100 relative h-screen">
 
     <!-- left sidebar -->
-    <div class="h-full hidden lg:block w-56 absolute top-0 left-0 z-[100]">
+    <div class="h-full hidden xl:block absolute top-0 left-0 z-[100]">
       <div
-        class="w-56 h-screen flex border-2 border-transparent border-r-[#1A282B] flex-col justify-between dark:bg-pmdark">
+        class="w-[256px] !dark:bg-orange-800  h-screen flex border-2 border-transparent border-r-[#1A282B] flex-col justify-between dark:bg-pmdark">
         <div>
-          <div class="px-6 pt-6">
+          <div class="px-6 pt-6 ">
             <div class="flex items-center justify-between">
               <!-- logo -->
               <a href="#" class="flex justify-center items-center gap-4 text-lg ">
@@ -308,7 +309,8 @@
         class="dark:bg-pmdark h-full w-full flex justify-between items-center border-2 border-transparent border-b-[#1A282B]">
 
         <!-- search & toggle -->
-        <div class="flex justify-between px-4">
+        <div class="flex bg-red-800 w-full  justify-between px-4">
+          <!-- search bar  -->
           <div class="relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
               <svg class="w-4 h-4 text-gray-500 stroke-current" fill="none" viewBox="0 0 24 24">
@@ -322,8 +324,70 @@
               placeholder="search" />
           </div>
 
-          <input id="inputBox" class="dark:bg-scdark border border-black" value="100" type="number" step="5" min="0"
-            max="100" placeholder="progress">
+          <!-- institution dropdown selection -->
+          <div class="pt-10 inline-block text-left dropdown">
+            <span class="rounded-md shadow-sm">
+
+              <button
+                class="flex w-48 items-center px-4 py-2 justify-between dark:text-gray-200 transition duration-150 ease-in-out dark:bg-scdark border border-gray-800 rounded-md dark:hover:text-white focus:outline-none focus:border-green-900 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+                type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                  <path fill="gray"
+                    d="M21 10h-2V4h1V2H4v2h1v6H3a1 1 0 0 0-1 1v9h20v-9a1 1 0 0 0-1-1zm-7 8v-4h-4v4H7V4h10v14h-3z" />
+                  <path fill="gray" d="M9 6h2v2H9zm4 0h2v2h-2zm-4 4h2v2H9zm4 0h2v2h-2z" />
+                </svg>
+                <span class="text-subtitle">NIMS, Sharjah</span>
+                <svg width="10" height="18" viewBox="0 0 6 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M2.62584 0.518068L0.528497 3.42208C0.308054 3.72731 0.526148 4.15385 0.902657 4.15385H5.09734C5.47385 4.15385 5.69194 3.72731 5.4715 3.42208L3.37416 0.518067C3.18993 0.262984 2.81007 0.262985 2.62584 0.518068Z"
+                    fill="#717781" />
+                  <path
+                    d="M2.62584 11.7896L0.528497 8.8856C0.308054 8.58037 0.526148 8.15383 0.902657 8.15383H5.09734C5.47385 8.15383 5.69194 8.58037 5.4715 8.8856L3.37416 11.7896C3.18993 12.0447 2.81007 12.0447 2.62584 11.7896Z"
+                    fill="#717781" />
+                </svg>
+              </button>
+
+            </span>
+
+            <!-- dropdown list -->
+            <div
+              class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
+              <div
+                class="absolute right-0 w-48 mt-2 origin-top-right dark:text-white dark:bg-pmdark bg-white border border-gray-200 dark:border-gray-800 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
+                aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
+                <div class="px-4 py-3">
+                  <p class="text-sm text-accent leading-5">Currently Selected</p>
+                  <p class="text-sm font-medium leading-5 dark:text-white text-gray-900 truncate">NIMS Uae</p>
+                </div>
+                <div class="py-1">
+                  <a href="javascript:void(0)" tabindex="0"
+                    class=" flex justify-between w-full px-4 py-2 text-sm leading-5 text-left" role="menuitem">NIMS
+                    Sharjah</a>
+                  <a href="javascript:void(0)" tabindex="1"
+                    class=" flex justify-between w-full px-4 py-2 text-sm leading-5 text-left" role="menuitem">TCS
+                    Ajman</a>
+                  <span role="menuitem" tabindex="-1"
+                    class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left  cursor-not-allowed opacity-50"
+                    aria-disabled="true">NIMS Al Ain (soon)</span>
+                  <span role="menuitem" tabindex="-1"
+                    class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left  cursor-not-allowed opacity-50"
+                    aria-disabled="true">Oxford Calicut (soon)</span>
+                  <span role="menuitem" tabindex="-1"
+                    class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left  cursor-not-allowed opacity-50"
+                    aria-disabled="true">Oxford Tvm (soon)</span>
+                </div>
+                <div class="py-1">
+                  <a href="javascript:void(0)" tabindex="3"
+                    class=" flex justify-between w-full px-4 py-2 text-sm leading-5 text-left" role="menuitem">All
+                    School</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <input id="inputBox" class="dark:bg-scdark border border-black" value="100" type="number" step="5" min="0"
+            max="100" placeholder="progress"> -->
 
           <!-- light & dark toggle button -->
           <div class="flex items-center justify-center space-x-2">
@@ -340,18 +404,20 @@
         </div>
 
         <!-- profile section -->
-        <div class="w-64 flex gap-2">
-          <img src="./assets/profile.webp" class="object-cover w-[50px] h-[50px] rounded-full " alt="">
+        <div class="w-[22rem] flex gap-4 items-center">
+          <img src="./assets/profile.webp" class="object-cover w-[40px] h-[40px] rounded-full " alt="">
           <div>
-            <p class="text-title">Ibrahim Musthafa</p>
-            <p class="text-subtitle">ibrahimmustafa@nimsuae.com</p>
+            <p class="text-subtitle">Ibrahim Musthafa</p>
+            <p class="text-small text-gray-400  text-subTitleCol">ibrahimmustafa@nimsuae.com</p>
           </div>
+          <img src="/assets/logout.svg" alt="" class="w-[20px] h-[20px]">
+        </div>
       </nav>
     </div>
 
     <!-- right sidebar | live tracking -->
     <div
-      class="z-[80] hidden lg:block pt-14 dark:bg-pmdark border-2 border-l-[#1A282B] top-0 right-0 absolute w-64 h-full">
+      class="z-[80] hidden xl:block pt-14 dark:bg-pmdark border-2 border-black border-l-[#1A282B] top-0 right-0 absolute w-[22rem] h-full">
       right
       sidebar
       <div class="">Tracking Bus</div>
@@ -361,12 +427,12 @@
     <div class="lg:pl-56 pt-14 lg:pr-64 dark:bg-pmdark dark:text-gray-100 w-full h-full overflow-y-scroll">
 
       <!-- Main section - components  -->
-      <div class="flex justify-center">
+      <div class="">
 
         <!-- two meters -->
         <div class="flex ">
 
-          <!-- students registerd meter -->
+          <!-- meter 1 | students registered  -->
           <div class="flex">
 
             <!-- maintenance meter -->
@@ -377,7 +443,7 @@
               </div>
 
               <div class="relative">
-                <svg width="168" height="166" viewBox="0 0 108 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="138" height="136" viewBox="0 0 108 106" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M102.485 49.5C102.485 76.2764 80.5568 98 53.4854 98C26.4139 98 4.48535 76.2764 4.48535 49.5C4.48535 22.7236 26.4139 1 53.4854 1C80.5568 1 102.485 22.7236 102.485 49.5Z"
                     stroke="url(#paint0_linear_216_490)" stroke-width="2" />
@@ -571,7 +637,7 @@
                 </svg>
 
                 <!-- Maintenance data -->
-                <div class="text-center text-gray-500 absolute top-[47px] left-[55px]">
+                <div class="text-center text-gray-500 absolute top-[36px] left-[40px]">
                   <p class="text-xs">Amount</p>
                   <p class="text-lg text-white">14,000</p>
                   <p class="text-xs">AED</p>
@@ -580,238 +646,238 @@
               </div>
             </div>
 
-            <div class="w-[310px]">
+            <div class="bg-green-800">
               <!-- Vacancy guage meter -->
-              <div class=" relative flex items-center justify-center w-fit scale-[80%]">
+              <div class="bg-red-800 relative">
 
-                <svg width="335" height="335" viewBox="0 0 573 584" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g filter="url(#filter0_di_151_19034)">
-                    <circle cx="286.5" cy="286.5" r="276.129" fill="#131918" />
-                  </g>
-                  <circle cx="286.5" cy="286.5" r="281.314" stroke="url(#paint0_linear_151_19034)"
-                    stroke-width="10.371" />
-                  <g filter="url(#filter1_di_151_19034)">
-                    <circle cx="283.223" cy="277.399" r="85.5611" transform="rotate(90 283.223 277.399)"
-                      fill="#1A1D20" />
-                  </g>
-                  <circle cx="283.287" cy="278.713" r="137.027" transform="rotate(90 283.287 278.713)" stroke="#102C32"
-                    stroke-width="3.37059" />
-                  <g filter="url(#filter2_d_151_19034)">
-                    <circle cx="283.909" cy="277.056" r="42.3889" transform="rotate(85 283.909 277.056)"
-                      fill="url(#paint1_radial_151_19034)" />
-                  </g>
-                  <circle cx="283.826" cy="277.281" r="14.9354" transform="rotate(85.142 283.826 277.281)"
-                    fill="#45C072" />
-                  <path
-                    d="M180.685 421.413C150.883 399.476 128.739 368.718 117.39 333.496C106.042 298.273 106.063 260.373 117.452 225.164C128.841 189.955 151.02 159.222 180.847 137.319C210.673 115.416 246.636 103.453 283.64 103.125C320.644 102.797 356.812 114.12 387.023 135.491C417.233 156.863 439.953 187.198 451.964 222.199C463.975 257.201 464.669 295.095 453.946 330.513C443.223 365.93 421.628 397.076 392.22 419.538L378.931 402.14C404.688 382.467 423.602 355.189 432.993 324.169C442.384 293.149 441.777 259.961 431.257 229.305C420.738 198.65 400.839 172.081 374.38 153.364C347.921 134.646 316.243 124.729 283.834 125.016C251.425 125.303 219.928 135.781 193.804 154.964C167.681 174.148 148.256 201.065 138.282 231.902C128.307 262.739 128.288 295.933 138.228 326.782C148.167 357.63 167.562 384.569 193.663 403.782L180.685 421.413Z"
-                    fill="#23312C" />
-                  <path
-                    d="M172.309 432.234C172.056 432.582 171.569 432.659 171.223 432.405C139.12 408.866 115.188 375.86 102.798 338.015C90.3273 299.924 90.184 258.871 102.388 220.694C114.593 182.517 138.524 149.159 170.778 125.366C203.032 101.572 241.967 88.5543 282.046 88.1629C322.124 87.7714 361.306 100.027 394.019 123.186C426.731 146.344 451.309 179.228 464.257 217.159C477.205 255.091 477.863 296.139 466.139 334.467C454.491 372.546 431.208 406.013 399.571 430.174C399.229 430.435 398.741 430.368 398.482 430.025L395.944 426.674C395.684 426.331 395.752 425.843 396.094 425.582C426.765 402.153 449.337 369.703 460.631 332.782C472.001 295.613 471.362 255.805 458.806 219.02C446.249 182.235 422.414 150.346 390.69 127.887C358.967 105.428 320.969 93.543 282.102 93.9227C243.235 94.3023 205.476 106.927 174.197 130.001C142.918 153.075 119.711 185.424 107.875 222.448C96.0394 259.471 96.1783 299.284 108.272 336.223C120.285 372.916 143.487 404.919 174.61 427.746C174.956 428 175.034 428.486 174.781 428.834L172.309 432.234Z"
-                    fill="url(#paint2_linear_151_19034)" />
-                  <line opacity="0.5" x1="425.476" y1="138.119" x2="433.932" y2="129.208" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="138.643" y1="135.603" x2="130.837" y2="126.117" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="138.954" y1="422.962" x2="129.668" y2="431.004" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="101.184" y1="188.938" x2="90.6345" y2="182.644" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="83.3851" y1="248.402" x2="71.7182" y2="244.556" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="84.594" y1="310.644" x2="72.7038" y2="313.733" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="102.273" y1="371.544" x2="91.659" y2="377.728" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="374.074" y1="100.363" x2="381.046" y2="90.2486" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="314.267" y1="78.1684" x2="318.151" y2="66.5139" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="251.285" y1="79.7211" x2="249.606" y2="67.5515" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="190.914" y1="99.212" x2="185.729" y2="88.0751" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="431.913" y1="421.528" x2="440.321" y2="430.484" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="468.165" y1="369.606" x2="478.899" y2="375.581" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="486.763" y1="310.968" x2="499.036" y2="311.501" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="483.846" y1="247.351" x2="495.642" y2="243.919" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="465.24" y1="186.908" x2="475.879" y2="180.765" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line x1="161.717" y1="444.382" x2="154.043" y2="453.975" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="118.552" y1="161.293" x2="108.748" y2="153.89" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="399.786" y1="116.492" x2="407.39" y2="106.844" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="452.579" y1="397.225" x2="462.868" y2="403.937" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="408.641" y1="439.955" x2="415.86" y2="449.894" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="445.996" y1="160.208" x2="455.089" y2="151.947" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="475.743" y1="215.108" x2="487.2" y2="210.676" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="486.678" y1="278.044" x2="498.963" y2="278.044" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="479.103" y1="340.516" x2="490.89" y2="343.98" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="162.803" y1="116.504" x2="154.818" y2="107.169" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="220.24" y1="86.8492" x2="215.861" y2="75.3713" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="281.07" y1="76.4558" x2="281.07" y2="64.171" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="343.771" y1="85.498" x2="349.446" y2="74.6026" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="119.437" y1="397.665" x2="109.828" y2="405.319" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="91.7321" y1="340.679" x2="80.6513" y2="345.983" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="82.1801" y1="279.439" x2="69.8954" y2="279.412" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="90.3808" y1="219.162" x2="79.0821" y2="214.34" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <defs>
-                    <filter id="filter0_di_151_19034" x="5.34058e-05" y="10.3711" width="573" height="573"
-                      filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha" />
-                      <feOffset dy="10.371" />
-                      <feGaussianBlur stdDeviation="5.18552" />
-                      <feComposite in2="hardAlpha" operator="out" />
-                      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_151_19034" />
-                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_151_19034" result="shape" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha" />
-                      <feOffset />
-                      <feGaussianBlur stdDeviation="1.29638" />
-                      <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-                      <feColorMatrix type="matrix"
-                        values="0 0 0 0 0.00633681 0 0 0 0 0.125469 0 0 0 0 0.304167 0 0 0 0.5 0" />
-                      <feBlend mode="normal" in2="shape" result="effect2_innerShadow_151_19034" />
-                    </filter>
-                    <filter id="filter1_di_151_19034" x="187.291" y="181.467" width="191.864" height="191.864"
-                      filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha" />
-                      <feOffset />
-                      <feGaussianBlur stdDeviation="5.18552" />
-                      <feComposite in2="hardAlpha" operator="out" />
-                      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_151_19034" />
-                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_151_19034" result="shape" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha" />
-                      <feOffset />
-                      <feGaussianBlur stdDeviation="2.59276" />
-                      <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-                      <feColorMatrix type="matrix"
-                        values="0 0 0 0 0.370833 0 0 0 0 0.370833 0 0 0 0 0.370833 0 0 0 0.25 0" />
-                      <feBlend mode="normal" in2="shape" result="effect2_innerShadow_151_19034" />
-                    </filter>
-                    <filter id="filter2_d_151_19034" x="231.147" y="224.294" width="105.525" height="105.525"
-                      filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha" />
-                      <feOffset />
-                      <feGaussianBlur stdDeviation="5.18552" />
-                      <feComposite in2="hardAlpha" operator="out" />
-                      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22 0" />
-                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_151_19034" />
-                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_151_19034" result="shape" />
-                    </filter>
-                    <linearGradient id="paint0_linear_151_19034" x1="125.749" y1="601.781" x2="493.38" y2="43.6142"
-                      gradientUnits="userSpaceOnUse">
-                      <stop />
-                      <stop offset="0.146131" stop-color="#364243" />
-                      <stop offset="0.236314" stop-color="#212D2E" />
-                      <stop offset="0.350227" stop-color="#273A3A" />
-                      <stop offset="0.460801" stop-color="#2C3E3F" />
-                      <stop offset="0.652435" stop-color="#272E2E" />
-                      <stop offset="0.720306" stop-color="#464F4F" />
-                      <stop offset="1" stop-color="#1C2123" />
-                    </linearGradient>
-                    <radialGradient id="paint1_radial_151_19034" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                      gradientTransform="translate(283.909 277.056) rotate(90) scale(42.3889)">
-                      <stop stop-color="#292B2C" />
-                      <stop offset="1" stop-color="#2F3436" />
-                    </radialGradient>
-                    <linearGradient id="paint2_linear_151_19034" x1="423.405" y1="111.677" x2="146.958" y2="426.417"
-                      gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#408DA4" />
-                      <stop offset="1" stop-color="#397170" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-
-
-                <svg class="absolute z-40 progress-ring top-[40px] left-[46px]" width="240" height="240">
-                  <linearGradient id="aGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="20%" stop-color="#07963A" />
-                    <stop offset="30%" stop-color="#6AD68A" />
-                    <stop offset="40%" stop-color="#78E799" />
-                    <stop offset="70%" stop-color="#FF8F41" />
-                    <stop offset="80%" stop-color="#FF3434" />
-                    <stop offset="90%" stop-color="#FF3434" />
-                  </linearGradient>
-
-                  <circle id="round-progress" stroke="url(#aGradient)" stroke-width="11" fill="transparent" r="95"
-                    cx="120" cy="120" />
-                </svg>
-                <!-- 
-                <svg class="absolute z-20 top-[43px] left-[46px]" width="240" height="240">
-                  <circle  stroke="green" stroke-width="11" fill="transparent" r="100"
-                    cx="120" cy="120" />
-                </svg> -->
-
-                <div class="absolute bottom-[28px] text-center">
-                  <p id="vacancy" class="text-lg font-bold leading-4 text-white">200</p>
-                  <p class="text-sm text-gray-500">vacancy</p>
-                </div>
-
-                <div id="target"
-                  class="target progress-ring__circle absolute top-[85px] left-[91px] transition-all duration-300 ease-in flex h-[150px] w-[150px] items-center justify-center rounded-fill animate-[wiggle_1s_ease-in-out_infinite] animate-sphin">
-
-
-                  <div
-                    class="flex justify-center items-center   absolute z-[10] h-[50px] w-[50px] rounded-full bg-[#292b2c] ">
-                    <div class="h-[22px] w-[22px] rounded-full bg-[#45c072]"></div>
-                  </div>
-
-
-                  <svg id="target" class="ml-[22px] mt-[-38px] scale-[180%]" xmlns="http://www.w3.org/2000/svg"
-                    width="50" height="62" viewBox="0 0 50 62" fill="none">
-                    <g filter="url(#filter0_d_104_17270)">
-                      <path
-                        d="M39.0985 11.6899L19.7609 48.8168C18.5751 51.0935 15.7237 51.9118 13.5111 50.6105L13.1571 50.4022C10.8158 49.0252 10.2268 45.8992 11.9065 43.7646L37.8039 10.8538C38.0605 10.5277 38.5287 10.462 38.8651 10.7049C39.1766 10.9298 39.2759 11.3492 39.0985 11.6899Z"
-                        fill="#45C072" />
+                <!-- meter -->
+                <div class="relative flex justify-center">
+                  <svg width="270" height="270" viewBox="0 0 573 584" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_di_151_19034)">
+                      <circle cx="286.5" cy="286.5" r="276.129" fill="#131918" />
                     </g>
+                    <circle cx="286.5" cy="286.5" r="281.314" stroke="url(#paint0_linear_151_19034)"
+                      stroke-width="10.371" />
+                    <g filter="url(#filter1_di_151_19034)">
+                      <circle cx="283.223" cy="277.399" r="85.5611" transform="rotate(90 283.223 277.399)"
+                        fill="#1A1D20" />
+                    </g>
+                    <circle cx="283.287" cy="278.713" r="137.027" transform="rotate(90 283.287 278.713)"
+                      stroke="#102C32" stroke-width="3.37059" />
+                    <g filter="url(#filter2_d_151_19034)">
+                      <circle cx="283.909" cy="277.056" r="42.3889" transform="rotate(85 283.909 277.056)"
+                        fill="url(#paint1_radial_151_19034)" />
+                    </g>
+                    <circle cx="283.826" cy="277.281" r="14.9354" transform="rotate(85.142 283.826 277.281)"
+                      fill="#45C072" />
+                    <path
+                      d="M180.685 421.413C150.883 399.476 128.739 368.718 117.39 333.496C106.042 298.273 106.063 260.373 117.452 225.164C128.841 189.955 151.02 159.222 180.847 137.319C210.673 115.416 246.636 103.453 283.64 103.125C320.644 102.797 356.812 114.12 387.023 135.491C417.233 156.863 439.953 187.198 451.964 222.199C463.975 257.201 464.669 295.095 453.946 330.513C443.223 365.93 421.628 397.076 392.22 419.538L378.931 402.14C404.688 382.467 423.602 355.189 432.993 324.169C442.384 293.149 441.777 259.961 431.257 229.305C420.738 198.65 400.839 172.081 374.38 153.364C347.921 134.646 316.243 124.729 283.834 125.016C251.425 125.303 219.928 135.781 193.804 154.964C167.681 174.148 148.256 201.065 138.282 231.902C128.307 262.739 128.288 295.933 138.228 326.782C148.167 357.63 167.562 384.569 193.663 403.782L180.685 421.413Z"
+                      fill="#23312C" />
+                    <path
+                      d="M172.309 432.234C172.056 432.582 171.569 432.659 171.223 432.405C139.12 408.866 115.188 375.86 102.798 338.015C90.3273 299.924 90.184 258.871 102.388 220.694C114.593 182.517 138.524 149.159 170.778 125.366C203.032 101.572 241.967 88.5543 282.046 88.1629C322.124 87.7714 361.306 100.027 394.019 123.186C426.731 146.344 451.309 179.228 464.257 217.159C477.205 255.091 477.863 296.139 466.139 334.467C454.491 372.546 431.208 406.013 399.571 430.174C399.229 430.435 398.741 430.368 398.482 430.025L395.944 426.674C395.684 426.331 395.752 425.843 396.094 425.582C426.765 402.153 449.337 369.703 460.631 332.782C472.001 295.613 471.362 255.805 458.806 219.02C446.249 182.235 422.414 150.346 390.69 127.887C358.967 105.428 320.969 93.543 282.102 93.9227C243.235 94.3023 205.476 106.927 174.197 130.001C142.918 153.075 119.711 185.424 107.875 222.448C96.0394 259.471 96.1783 299.284 108.272 336.223C120.285 372.916 143.487 404.919 174.61 427.746C174.956 428 175.034 428.486 174.781 428.834L172.309 432.234Z"
+                      fill="url(#paint2_linear_151_19034)" />
+                    <line opacity="0.5" x1="425.476" y1="138.119" x2="433.932" y2="129.208" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="138.643" y1="135.603" x2="130.837" y2="126.117" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="138.954" y1="422.962" x2="129.668" y2="431.004" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="101.184" y1="188.938" x2="90.6345" y2="182.644" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="83.3851" y1="248.402" x2="71.7182" y2="244.556" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="84.594" y1="310.644" x2="72.7038" y2="313.733" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="102.273" y1="371.544" x2="91.659" y2="377.728" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="374.074" y1="100.363" x2="381.046" y2="90.2486" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="314.267" y1="78.1684" x2="318.151" y2="66.5139" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="251.285" y1="79.7211" x2="249.606" y2="67.5515" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="190.914" y1="99.212" x2="185.729" y2="88.0751" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="431.913" y1="421.528" x2="440.321" y2="430.484" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="468.165" y1="369.606" x2="478.899" y2="375.581" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="486.763" y1="310.968" x2="499.036" y2="311.501" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="483.846" y1="247.351" x2="495.642" y2="243.919" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="465.24" y1="186.908" x2="475.879" y2="180.765" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line x1="161.717" y1="444.382" x2="154.043" y2="453.975" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="118.552" y1="161.293" x2="108.748" y2="153.89" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="399.786" y1="116.492" x2="407.39" y2="106.844" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="452.579" y1="397.225" x2="462.868" y2="403.937" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="408.641" y1="439.955" x2="415.86" y2="449.894" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="445.996" y1="160.208" x2="455.089" y2="151.947" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="475.743" y1="215.108" x2="487.2" y2="210.676" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="486.678" y1="278.044" x2="498.963" y2="278.044" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="479.103" y1="340.516" x2="490.89" y2="343.98" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="162.803" y1="116.504" x2="154.818" y2="107.169" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="220.24" y1="86.8492" x2="215.861" y2="75.3713" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="281.07" y1="76.4558" x2="281.07" y2="64.171" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="343.771" y1="85.498" x2="349.446" y2="74.6026" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="119.437" y1="397.665" x2="109.828" y2="405.319" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="91.7321" y1="340.679" x2="80.6513" y2="345.983" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="82.1801" y1="279.439" x2="69.8954" y2="279.412" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="90.3808" y1="219.162" x2="79.0821" y2="214.34" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
                     <defs>
-                      <filter id="filter0_d_104_17270" x="0.945312" y="0.558411" width="48.2412" height="60.6719"
+                      <filter id="filter0_di_151_19034" x="5.34058e-05" y="10.3711" width="573" height="573"
+                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                          result="hardAlpha" />
+                        <feOffset dy="10.371" />
+                        <feGaussianBlur stdDeviation="5.18552" />
+                        <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_151_19034" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_151_19034" result="shape" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                          result="hardAlpha" />
+                        <feOffset />
+                        <feGaussianBlur stdDeviation="1.29638" />
+                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                        <feColorMatrix type="matrix"
+                          values="0 0 0 0 0.00633681 0 0 0 0 0.125469 0 0 0 0 0.304167 0 0 0 0.5 0" />
+                        <feBlend mode="normal" in2="shape" result="effect2_innerShadow_151_19034" />
+                      </filter>
+                      <filter id="filter1_di_151_19034" x="187.291" y="181.467" width="191.864" height="191.864"
                         filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                         <feFlood flood-opacity="0" result="BackgroundImageFix" />
                         <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                           result="hardAlpha" />
                         <feOffset />
-                        <feGaussianBlur stdDeviation="5" />
+                        <feGaussianBlur stdDeviation="5.18552" />
                         <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_151_19034" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_151_19034" result="shape" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                          result="hardAlpha" />
+                        <feOffset />
+                        <feGaussianBlur stdDeviation="2.59276" />
+                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
                         <feColorMatrix type="matrix"
-                          values="0 0 0 0 0.301961 0 0 0 0 0.635294 0 0 0 0 0.345098 0 0 0 0.25 0" />
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_104_17270" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_104_17270" result="shape" />
+                          values="0 0 0 0 0.370833 0 0 0 0 0.370833 0 0 0 0 0.370833 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="shape" result="effect2_innerShadow_151_19034" />
                       </filter>
+                      <filter id="filter2_d_151_19034" x="231.147" y="224.294" width="105.525" height="105.525"
+                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                          result="hardAlpha" />
+                        <feOffset />
+                        <feGaussianBlur stdDeviation="5.18552" />
+                        <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_151_19034" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_151_19034" result="shape" />
+                      </filter>
+                      <linearGradient id="paint0_linear_151_19034" x1="125.749" y1="601.781" x2="493.38" y2="43.6142"
+                        gradientUnits="userSpaceOnUse">
+                        <stop />
+                        <stop offset="0.146131" stop-color="#364243" />
+                        <stop offset="0.236314" stop-color="#212D2E" />
+                        <stop offset="0.350227" stop-color="#273A3A" />
+                        <stop offset="0.460801" stop-color="#2C3E3F" />
+                        <stop offset="0.652435" stop-color="#272E2E" />
+                        <stop offset="0.720306" stop-color="#464F4F" />
+                        <stop offset="1" stop-color="#1C2123" />
+                      </linearGradient>
+                      <radialGradient id="paint1_radial_151_19034" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                        gradientTransform="translate(283.909 277.056) rotate(90) scale(42.3889)">
+                        <stop stop-color="#292B2C" />
+                        <stop offset="1" stop-color="#2F3436" />
+                      </radialGradient>
+                      <linearGradient id="paint2_linear_151_19034" x1="423.405" y1="111.677" x2="146.958" y2="426.417"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#408DA4" />
+                        <stop offset="1" stop-color="#397170" />
+                      </linearGradient>
                     </defs>
                   </svg>
 
-                </div>
+                  <!-- progress bar -->
+                  <div class="absolute left-[14px] top-[9px] ">
+                    <svg class="z-40 progress-ring" width="240" height="240">
+                      <linearGradient id="aGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="20%" stop-color="#07963A" />
+                        <stop offset="30%" stop-color="#6AD68A" />
+                        <stop offset="40%" stop-color="#78E799" />
+                        <stop offset="70%" stop-color="#FF8F41" />
+                        <stop offset="80%" stop-color="#FF3434" />
+                        <stop offset="90%" stop-color="#FF3434" />
+                      </linearGradient>
 
+                      <circle id="round-progress" stroke="url(#aGradient)" stroke-width="10" fill="transparent" r="77"
+                        cx="120" cy="120" />
+                    </svg>
+                  </div>
+
+                  <!-- vacancy text -->
+                  <div class="absolute bottom-[24px]  text-center">
+                    <p id="vacancy" class="text-lg font-bold leading-4 text-white">200</p>
+                    <p class="text-sm text-gray-500">vacancy</p>
+                  </div>
+
+                  <!-- needle -->
+                  <div id="target"
+                    class="target progress-ring__circle absolute top-[52px] left-[58px] transition-all duration-300 ease-in flex h-[152px] w-[152px] items-center justify-center rounded-fill animate-[wiggle_1s_ease-in-out_infinite] animate-spjin">
+
+                    <div
+                      class="flex justify-center items-center absolute z-[10] h-[40px] w-[40px] rounded-full bg-[#292b2c] ">
+                      <div class="h-[16px] w-[16px] rounded-full bg-[#45c072]"></div>
+                    </div>
+
+                    <svg id="target" class="ml-[22px] mt-[-38px] scale-[140%]" xmlns="http://www.w3.org/2000/svg"
+                      width="50" height="62" viewBox="0 0 50 62" fill="none">
+                      <g filter="url(#filter0_d_104_17270)">
+                        <path
+                          d="M39.0985 11.6899L19.7609 48.8168C18.5751 51.0935 15.7237 51.9118 13.5111 50.6105L13.1571 50.4022C10.8158 49.0252 10.2268 45.8992 11.9065 43.7646L37.8039 10.8538C38.0605 10.5277 38.5287 10.462 38.8651 10.7049C39.1766 10.9298 39.2759 11.3492 39.0985 11.6899Z"
+                          fill="#45C072" />
+                      </g>
+                      <defs>
+                        <filter id="filter0_d_104_17270" x="0.945312" y="0.558411" width="48.2412" height="60.6719"
+                          filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                          <feColorMatrix in="SourceAlpha" type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                          <feOffset />
+                          <feGaussianBlur stdDeviation="5" />
+                          <feComposite in2="hardAlpha" operator="out" />
+                          <feColorMatrix type="matrix"
+                            values="0 0 0 0 0.301961 0 0 0 0 0.635294 0 0 0 0 0.345098 0 0 0 0.25 0" />
+                          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_104_17270" />
+                          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_104_17270" result="shape" />
+                        </filter>
+                      </defs>
+                    </svg>
+
+                  </div>
+
+                </div>
               </div>
 
               <!-- students count -->
@@ -824,9 +890,9 @@
               </div>
 
               <!-- progress text box -->
-              <div class="p-4 rounded-lg bg-scdark flex justify-center mt-2 items-center ">
+              <div class="p-4 w-[200px] rounded-lg bg-scdark flex justify-center mt-4 items-center ">
 
-                <p class="text-subtitle w-[90%] text-center">Good Progress. <span class="font-bold text-green-500">2%
+                <p class="text-subtitle text-center">Good Progress. <span class="font-bold text-green-500">2%
                     more</span> students subscribed this week than last week</p>
               </div>
             </div>
@@ -834,281 +900,285 @@
           </div>
 
           <!-- School display & selection  -->
-          <div class="flex flex-col items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <g transform="rotate(-90 12 12)">
-                <path fill="limegreen"
-                  d="M13.3 17.275q-.3-.3-.288-.725t.313-.725L16.15 13H5q-.425 0-.713-.288T4 12q0-.425.288-.713T5 11h11.15L13.3 8.15q-.3-.3-.3-.713t.3-.712q.3-.3.713-.3t.712.3L19.3 11.3q.15.15.213.325t.062.375q0 .2-.063.375t-.212.325l-4.6 4.6q-.275.275-.687.275t-.713-.3Z" />
-              </g>
-            </svg>
-            <p class="text-title">NIMS</p>
-            <p>SHARJAH</p>
+          <div class="flex flex-col relative items-center justify-between">
+
+            <!-- Institution text display -->
+            <div class="flex flex-col pb-40 items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24">
+                <g transform="rotate(-90 12 12)">
+                  <path fill="limegreen"
+                    d="M13.3 17.275q-.3-.3-.288-.725t.313-.725L16.15 13H5q-.425 0-.713-.288T4 12q0-.425.288-.713T5 11h11.15L13.3 8.15q-.3-.3-.3-.713t.3-.712q.3-.3.713-.3t.712.3L19.3 11.3q.15.15.213.325t.062.375q0 .2-.063.375t-.212.325l-4.6 4.6q-.275.275-.687.275t-.713-.3Z" />
+                </g>
+              </svg>
+              <p class="text-title">NIMS</p>
+              <p class="text-subtitle">SHARJAH</p>
+            </div>
 
           </div>
 
-          <!-- aed collected meter -->
+          <!-- meter 2 | aed collected meter -->
           <div class="flex">
 
-            <div class="w-[310px]">
+            <!-- maintenance meter -->
+            <div class="bg-green-800">
               <!-- Vacancy guage meter -->
-              <div class=" relative flex items-center justify-center w-fit scale-[80%]">
+              <div class="bg-red-800 relative">
 
-                <svg width="335" height="335" viewBox="0 0 573 584" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g filter="url(#filter0_di_151_19034)">
-                    <circle cx="286.5" cy="286.5" r="276.129" fill="#131918" />
-                  </g>
-                  <circle cx="286.5" cy="286.5" r="281.314" stroke="url(#paint0_linear_151_19034)"
-                    stroke-width="10.371" />
-                  <g filter="url(#filter1_di_151_19034)">
-                    <circle cx="283.223" cy="277.399" r="85.5611" transform="rotate(90 283.223 277.399)"
-                      fill="#1A1D20" />
-                  </g>
-                  <circle cx="283.287" cy="278.713" r="137.027" transform="rotate(90 283.287 278.713)" stroke="#102C32"
-                    stroke-width="3.37059" />
-                  <g filter="url(#filter2_d_151_19034)">
-                    <circle cx="283.909" cy="277.056" r="42.3889" transform="rotate(85 283.909 277.056)"
-                      fill="url(#paint1_radial_151_19034)" />
-                  </g>
-                  <circle cx="283.826" cy="277.281" r="14.9354" transform="rotate(85.142 283.826 277.281)"
-                    fill="#45C072" />
-                  <path
-                    d="M180.685 421.413C150.883 399.476 128.739 368.718 117.39 333.496C106.042 298.273 106.063 260.373 117.452 225.164C128.841 189.955 151.02 159.222 180.847 137.319C210.673 115.416 246.636 103.453 283.64 103.125C320.644 102.797 356.812 114.12 387.023 135.491C417.233 156.863 439.953 187.198 451.964 222.199C463.975 257.201 464.669 295.095 453.946 330.513C443.223 365.93 421.628 397.076 392.22 419.538L378.931 402.14C404.688 382.467 423.602 355.189 432.993 324.169C442.384 293.149 441.777 259.961 431.257 229.305C420.738 198.65 400.839 172.081 374.38 153.364C347.921 134.646 316.243 124.729 283.834 125.016C251.425 125.303 219.928 135.781 193.804 154.964C167.681 174.148 148.256 201.065 138.282 231.902C128.307 262.739 128.288 295.933 138.228 326.782C148.167 357.63 167.562 384.569 193.663 403.782L180.685 421.413Z"
-                    fill="#23312C" />
-                  <path
-                    d="M172.309 432.234C172.056 432.582 171.569 432.659 171.223 432.405C139.12 408.866 115.188 375.86 102.798 338.015C90.3273 299.924 90.184 258.871 102.388 220.694C114.593 182.517 138.524 149.159 170.778 125.366C203.032 101.572 241.967 88.5543 282.046 88.1629C322.124 87.7714 361.306 100.027 394.019 123.186C426.731 146.344 451.309 179.228 464.257 217.159C477.205 255.091 477.863 296.139 466.139 334.467C454.491 372.546 431.208 406.013 399.571 430.174C399.229 430.435 398.741 430.368 398.482 430.025L395.944 426.674C395.684 426.331 395.752 425.843 396.094 425.582C426.765 402.153 449.337 369.703 460.631 332.782C472.001 295.613 471.362 255.805 458.806 219.02C446.249 182.235 422.414 150.346 390.69 127.887C358.967 105.428 320.969 93.543 282.102 93.9227C243.235 94.3023 205.476 106.927 174.197 130.001C142.918 153.075 119.711 185.424 107.875 222.448C96.0394 259.471 96.1783 299.284 108.272 336.223C120.285 372.916 143.487 404.919 174.61 427.746C174.956 428 175.034 428.486 174.781 428.834L172.309 432.234Z"
-                    fill="url(#paint2_linear_151_19034)" />
-                  <line opacity="0.5" x1="425.476" y1="138.119" x2="433.932" y2="129.208" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="138.643" y1="135.603" x2="130.837" y2="126.117" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="138.954" y1="422.962" x2="129.668" y2="431.004" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="101.184" y1="188.938" x2="90.6345" y2="182.644" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="83.3851" y1="248.402" x2="71.7182" y2="244.556" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="84.594" y1="310.644" x2="72.7038" y2="313.733" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="102.273" y1="371.544" x2="91.659" y2="377.728" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="374.074" y1="100.363" x2="381.046" y2="90.2486" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="314.267" y1="78.1684" x2="318.151" y2="66.5139" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="251.285" y1="79.7211" x2="249.606" y2="67.5515" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="190.914" y1="99.212" x2="185.729" y2="88.0751" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="431.913" y1="421.528" x2="440.321" y2="430.484" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="468.165" y1="369.606" x2="478.899" y2="375.581" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="486.763" y1="310.968" x2="499.036" y2="311.501" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="483.846" y1="247.351" x2="495.642" y2="243.919" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line opacity="0.5" x1="465.24" y1="186.908" x2="475.879" y2="180.765" stroke="#204F3A"
-                    stroke-width="3.88914" stroke-linecap="round" />
-                  <line x1="161.717" y1="444.382" x2="154.043" y2="453.975" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="118.552" y1="161.293" x2="108.748" y2="153.89" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="399.786" y1="116.492" x2="407.39" y2="106.844" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="452.579" y1="397.225" x2="462.868" y2="403.937" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="408.641" y1="439.955" x2="415.86" y2="449.894" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="445.996" y1="160.208" x2="455.089" y2="151.947" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="475.743" y1="215.108" x2="487.2" y2="210.676" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="486.678" y1="278.044" x2="498.963" y2="278.044" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="479.103" y1="340.516" x2="490.89" y2="343.98" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="162.803" y1="116.504" x2="154.818" y2="107.169" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="220.24" y1="86.8492" x2="215.861" y2="75.3713" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="281.07" y1="76.4558" x2="281.07" y2="64.171" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="343.771" y1="85.498" x2="349.446" y2="74.6026" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="119.437" y1="397.665" x2="109.828" y2="405.319" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="91.7321" y1="340.679" x2="80.6513" y2="345.983" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="82.1801" y1="279.439" x2="69.8954" y2="279.412" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <line x1="90.3808" y1="219.162" x2="79.0821" y2="214.34" stroke="#3094A5" stroke-width="3.88914"
-                    stroke-linecap="round" />
-                  <defs>
-                    <filter id="filter0_di_151_19034" x="5.34058e-05" y="10.3711" width="573" height="573"
-                      filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha" />
-                      <feOffset dy="10.371" />
-                      <feGaussianBlur stdDeviation="5.18552" />
-                      <feComposite in2="hardAlpha" operator="out" />
-                      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_151_19034" />
-                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_151_19034" result="shape" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha" />
-                      <feOffset />
-                      <feGaussianBlur stdDeviation="1.29638" />
-                      <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-                      <feColorMatrix type="matrix"
-                        values="0 0 0 0 0.00633681 0 0 0 0 0.125469 0 0 0 0 0.304167 0 0 0 0.5 0" />
-                      <feBlend mode="normal" in2="shape" result="effect2_innerShadow_151_19034" />
-                    </filter>
-                    <filter id="filter1_di_151_19034" x="187.291" y="181.467" width="191.864" height="191.864"
-                      filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha" />
-                      <feOffset />
-                      <feGaussianBlur stdDeviation="5.18552" />
-                      <feComposite in2="hardAlpha" operator="out" />
-                      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_151_19034" />
-                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_151_19034" result="shape" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha" />
-                      <feOffset />
-                      <feGaussianBlur stdDeviation="2.59276" />
-                      <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-                      <feColorMatrix type="matrix"
-                        values="0 0 0 0 0.370833 0 0 0 0 0.370833 0 0 0 0 0.370833 0 0 0 0.25 0" />
-                      <feBlend mode="normal" in2="shape" result="effect2_innerShadow_151_19034" />
-                    </filter>
-                    <filter id="filter2_d_151_19034" x="231.147" y="224.294" width="105.525" height="105.525"
-                      filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-                        result="hardAlpha" />
-                      <feOffset />
-                      <feGaussianBlur stdDeviation="5.18552" />
-                      <feComposite in2="hardAlpha" operator="out" />
-                      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22 0" />
-                      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_151_19034" />
-                      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_151_19034" result="shape" />
-                    </filter>
-                    <linearGradient id="paint0_linear_151_19034" x1="125.749" y1="601.781" x2="493.38" y2="43.6142"
-                      gradientUnits="userSpaceOnUse">
-                      <stop />
-                      <stop offset="0.146131" stop-color="#364243" />
-                      <stop offset="0.236314" stop-color="#212D2E" />
-                      <stop offset="0.350227" stop-color="#273A3A" />
-                      <stop offset="0.460801" stop-color="#2C3E3F" />
-                      <stop offset="0.652435" stop-color="#272E2E" />
-                      <stop offset="0.720306" stop-color="#464F4F" />
-                      <stop offset="1" stop-color="#1C2123" />
-                    </linearGradient>
-                    <radialGradient id="paint1_radial_151_19034" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                      gradientTransform="translate(283.909 277.056) rotate(90) scale(42.3889)">
-                      <stop stop-color="#292B2C" />
-                      <stop offset="1" stop-color="#2F3436" />
-                    </radialGradient>
-                    <linearGradient id="paint2_linear_151_19034" x1="423.405" y1="111.677" x2="146.958" y2="426.417"
-                      gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#408DA4" />
-                      <stop offset="1" stop-color="#397170" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-
-
-                <svg class="absolute z-40 progress-ring top-[40px] left-[46px]" width="240" height="240">
-                  <linearGradient id="aGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="20%" stop-color="#07963A" />
-                    <stop offset="30%" stop-color="#6AD68A" />
-                    <stop offset="40%" stop-color="#78E799" />
-                    <stop offset="70%" stop-color="#FF8F41" />
-                    <stop offset="80%" stop-color="#FF3434" />
-                    <stop offset="90%" stop-color="#FF3434" />
-                  </linearGradient>
-
-                  <circle id="round-progress" stroke="url(#aGradient)" stroke-width="11" fill="transparent" r="95"
-                    cx="120" cy="120" />
-                </svg>
-                <!-- 
-                <svg class="absolute z-20 top-[43px] left-[46px]" width="240" height="240">
-                  <circle  stroke="green" stroke-width="11" fill="transparent" r="100"
-                    cx="120" cy="120" />
-                </svg> -->
-
-                <div class="absolute bottom-[28px] text-center">
-                  <p id="vacancy" class="text-lg font-bold leading-4 text-white">200</p>
-                  <p class="text-sm text-gray-500">vacancy</p>
-                </div>
-
-                <div id="target"
-                  class="target progress-ring__circle absolute top-[85px] left-[91px] transition-all duration-300 ease-in flex h-[150px] w-[150px] items-center justify-center rounded-fill animate-[wiggle_1s_ease-in-out_infinite] animate-sphin">
-
-
-                  <div
-                    class="flex justify-center items-center   absolute z-[10] h-[50px] w-[50px] rounded-full bg-[#292b2c] ">
-                    <div class="h-[22px] w-[22px] rounded-full bg-[#45c072]"></div>
-                  </div>
-
-
-                  <svg id="target" class="ml-[22px] mt-[-38px] scale-[180%]" xmlns="http://www.w3.org/2000/svg"
-                    width="50" height="62" viewBox="0 0 50 62" fill="none">
-                    <g filter="url(#filter0_d_104_17270)">
-                      <path
-                        d="M39.0985 11.6899L19.7609 48.8168C18.5751 51.0935 15.7237 51.9118 13.5111 50.6105L13.1571 50.4022C10.8158 49.0252 10.2268 45.8992 11.9065 43.7646L37.8039 10.8538C38.0605 10.5277 38.5287 10.462 38.8651 10.7049C39.1766 10.9298 39.2759 11.3492 39.0985 11.6899Z"
-                        fill="#45C072" />
+                <!-- meter -->
+                <div class="relative flex justify-center">
+                  <svg width="270" height="270" viewBox="0 0 573 584" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_di_151_19034)">
+                      <circle cx="286.5" cy="286.5" r="276.129" fill="#131918" />
                     </g>
+                    <circle cx="286.5" cy="286.5" r="281.314" stroke="url(#paint0_linear_151_19034)"
+                      stroke-width="10.371" />
+                    <g filter="url(#filter1_di_151_19034)">
+                      <circle cx="283.223" cy="277.399" r="85.5611" transform="rotate(90 283.223 277.399)"
+                        fill="#1A1D20" />
+                    </g>
+                    <circle cx="283.287" cy="278.713" r="137.027" transform="rotate(90 283.287 278.713)"
+                      stroke="#102C32" stroke-width="3.37059" />
+                    <g filter="url(#filter2_d_151_19034)">
+                      <circle cx="283.909" cy="277.056" r="42.3889" transform="rotate(85 283.909 277.056)"
+                        fill="url(#paint1_radial_151_19034)" />
+                    </g>
+                    <circle cx="283.826" cy="277.281" r="14.9354" transform="rotate(85.142 283.826 277.281)"
+                      fill="#45C072" />
+                    <path
+                      d="M180.685 421.413C150.883 399.476 128.739 368.718 117.39 333.496C106.042 298.273 106.063 260.373 117.452 225.164C128.841 189.955 151.02 159.222 180.847 137.319C210.673 115.416 246.636 103.453 283.64 103.125C320.644 102.797 356.812 114.12 387.023 135.491C417.233 156.863 439.953 187.198 451.964 222.199C463.975 257.201 464.669 295.095 453.946 330.513C443.223 365.93 421.628 397.076 392.22 419.538L378.931 402.14C404.688 382.467 423.602 355.189 432.993 324.169C442.384 293.149 441.777 259.961 431.257 229.305C420.738 198.65 400.839 172.081 374.38 153.364C347.921 134.646 316.243 124.729 283.834 125.016C251.425 125.303 219.928 135.781 193.804 154.964C167.681 174.148 148.256 201.065 138.282 231.902C128.307 262.739 128.288 295.933 138.228 326.782C148.167 357.63 167.562 384.569 193.663 403.782L180.685 421.413Z"
+                      fill="#23312C" />
+                    <path
+                      d="M172.309 432.234C172.056 432.582 171.569 432.659 171.223 432.405C139.12 408.866 115.188 375.86 102.798 338.015C90.3273 299.924 90.184 258.871 102.388 220.694C114.593 182.517 138.524 149.159 170.778 125.366C203.032 101.572 241.967 88.5543 282.046 88.1629C322.124 87.7714 361.306 100.027 394.019 123.186C426.731 146.344 451.309 179.228 464.257 217.159C477.205 255.091 477.863 296.139 466.139 334.467C454.491 372.546 431.208 406.013 399.571 430.174C399.229 430.435 398.741 430.368 398.482 430.025L395.944 426.674C395.684 426.331 395.752 425.843 396.094 425.582C426.765 402.153 449.337 369.703 460.631 332.782C472.001 295.613 471.362 255.805 458.806 219.02C446.249 182.235 422.414 150.346 390.69 127.887C358.967 105.428 320.969 93.543 282.102 93.9227C243.235 94.3023 205.476 106.927 174.197 130.001C142.918 153.075 119.711 185.424 107.875 222.448C96.0394 259.471 96.1783 299.284 108.272 336.223C120.285 372.916 143.487 404.919 174.61 427.746C174.956 428 175.034 428.486 174.781 428.834L172.309 432.234Z"
+                      fill="url(#paint2_linear_151_19034)" />
+                    <line opacity="0.5" x1="425.476" y1="138.119" x2="433.932" y2="129.208" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="138.643" y1="135.603" x2="130.837" y2="126.117" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="138.954" y1="422.962" x2="129.668" y2="431.004" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="101.184" y1="188.938" x2="90.6345" y2="182.644" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="83.3851" y1="248.402" x2="71.7182" y2="244.556" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="84.594" y1="310.644" x2="72.7038" y2="313.733" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="102.273" y1="371.544" x2="91.659" y2="377.728" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="374.074" y1="100.363" x2="381.046" y2="90.2486" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="314.267" y1="78.1684" x2="318.151" y2="66.5139" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="251.285" y1="79.7211" x2="249.606" y2="67.5515" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="190.914" y1="99.212" x2="185.729" y2="88.0751" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="431.913" y1="421.528" x2="440.321" y2="430.484" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="468.165" y1="369.606" x2="478.899" y2="375.581" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="486.763" y1="310.968" x2="499.036" y2="311.501" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="483.846" y1="247.351" x2="495.642" y2="243.919" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line opacity="0.5" x1="465.24" y1="186.908" x2="475.879" y2="180.765" stroke="#204F3A"
+                      stroke-width="3.88914" stroke-linecap="round" />
+                    <line x1="161.717" y1="444.382" x2="154.043" y2="453.975" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="118.552" y1="161.293" x2="108.748" y2="153.89" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="399.786" y1="116.492" x2="407.39" y2="106.844" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="452.579" y1="397.225" x2="462.868" y2="403.937" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="408.641" y1="439.955" x2="415.86" y2="449.894" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="445.996" y1="160.208" x2="455.089" y2="151.947" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="475.743" y1="215.108" x2="487.2" y2="210.676" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="486.678" y1="278.044" x2="498.963" y2="278.044" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="479.103" y1="340.516" x2="490.89" y2="343.98" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="162.803" y1="116.504" x2="154.818" y2="107.169" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="220.24" y1="86.8492" x2="215.861" y2="75.3713" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="281.07" y1="76.4558" x2="281.07" y2="64.171" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="343.771" y1="85.498" x2="349.446" y2="74.6026" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="119.437" y1="397.665" x2="109.828" y2="405.319" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="91.7321" y1="340.679" x2="80.6513" y2="345.983" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="82.1801" y1="279.439" x2="69.8954" y2="279.412" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
+                    <line x1="90.3808" y1="219.162" x2="79.0821" y2="214.34" stroke="#3094A5" stroke-width="3.88914"
+                      stroke-linecap="round" />
                     <defs>
-                      <filter id="filter0_d_104_17270" x="0.945312" y="0.558411" width="48.2412" height="60.6719"
+                      <filter id="filter0_di_151_19034" x="5.34058e-05" y="10.3711" width="573" height="573"
+                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                          result="hardAlpha" />
+                        <feOffset dy="10.371" />
+                        <feGaussianBlur stdDeviation="5.18552" />
+                        <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_151_19034" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_151_19034" result="shape" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                          result="hardAlpha" />
+                        <feOffset />
+                        <feGaussianBlur stdDeviation="1.29638" />
+                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
+                        <feColorMatrix type="matrix"
+                          values="0 0 0 0 0.00633681 0 0 0 0 0.125469 0 0 0 0 0.304167 0 0 0 0.5 0" />
+                        <feBlend mode="normal" in2="shape" result="effect2_innerShadow_151_19034" />
+                      </filter>
+                      <filter id="filter1_di_151_19034" x="187.291" y="181.467" width="191.864" height="191.864"
                         filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
                         <feFlood flood-opacity="0" result="BackgroundImageFix" />
                         <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
                           result="hardAlpha" />
                         <feOffset />
-                        <feGaussianBlur stdDeviation="5" />
+                        <feGaussianBlur stdDeviation="5.18552" />
                         <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_151_19034" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_151_19034" result="shape" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                          result="hardAlpha" />
+                        <feOffset />
+                        <feGaussianBlur stdDeviation="2.59276" />
+                        <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
                         <feColorMatrix type="matrix"
-                          values="0 0 0 0 0.301961 0 0 0 0 0.635294 0 0 0 0 0.345098 0 0 0 0.25 0" />
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_104_17270" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_104_17270" result="shape" />
+                          values="0 0 0 0 0.370833 0 0 0 0 0.370833 0 0 0 0 0.370833 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="shape" result="effect2_innerShadow_151_19034" />
                       </filter>
+                      <filter id="filter2_d_151_19034" x="231.147" y="224.294" width="105.525" height="105.525"
+                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                          result="hardAlpha" />
+                        <feOffset />
+                        <feGaussianBlur stdDeviation="5.18552" />
+                        <feComposite in2="hardAlpha" operator="out" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_151_19034" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_151_19034" result="shape" />
+                      </filter>
+                      <linearGradient id="paint0_linear_151_19034" x1="125.749" y1="601.781" x2="493.38" y2="43.6142"
+                        gradientUnits="userSpaceOnUse">
+                        <stop />
+                        <stop offset="0.146131" stop-color="#364243" />
+                        <stop offset="0.236314" stop-color="#212D2E" />
+                        <stop offset="0.350227" stop-color="#273A3A" />
+                        <stop offset="0.460801" stop-color="#2C3E3F" />
+                        <stop offset="0.652435" stop-color="#272E2E" />
+                        <stop offset="0.720306" stop-color="#464F4F" />
+                        <stop offset="1" stop-color="#1C2123" />
+                      </linearGradient>
+                      <radialGradient id="paint1_radial_151_19034" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                        gradientTransform="translate(283.909 277.056) rotate(90) scale(42.3889)">
+                        <stop stop-color="#292B2C" />
+                        <stop offset="1" stop-color="#2F3436" />
+                      </radialGradient>
+                      <linearGradient id="paint2_linear_151_19034" x1="423.405" y1="111.677" x2="146.958" y2="426.417"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#408DA4" />
+                        <stop offset="1" stop-color="#397170" />
+                      </linearGradient>
                     </defs>
                   </svg>
 
-                </div>
+                  <!-- progress bar -->
+                  <div class="absolute left-[14px] top-[9px] ">
+                    <svg class="z-40 progress-ring" width="240" height="240">
+                      <linearGradient id="aGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="20%" stop-color="#07963A" />
+                        <stop offset="30%" stop-color="#6AD68A" />
+                        <stop offset="40%" stop-color="#78E799" />
+                        <stop offset="70%" stop-color="#FF8F41" />
+                        <stop offset="80%" stop-color="#FF3434" />
+                        <stop offset="90%" stop-color="#FF3434" />
+                      </linearGradient>
 
+                      <circle id="round-progress" stroke="url(#aGradient)" stroke-width="10" fill="transparent" r="77"
+                        cx="120" cy="120" />
+                    </svg>
+                  </div>
+
+                  <!-- vacancy text -->
+                  <div class="absolute bottom-[24px]  text-center">
+                    <p id="vacancy" class="text-lg font-bold leading-4 text-white">200</p>
+                    <p class="text-sm text-gray-500">vacancy</p>
+                  </div>
+
+                  <!-- needle -->
+                  <div id="target"
+                    class="target progress-ring__circle absolute top-[52px] left-[58px] transition-all duration-300 ease-in flex h-[152px] w-[152px] items-center justify-center rounded-fill animate-[wiggle_1s_ease-in-out_infinite] animate-spjin">
+
+                    <div
+                      class="flex justify-center items-center absolute z-[10] h-[40px] w-[40px] rounded-full bg-[#292b2c] ">
+                      <div class="h-[16px] w-[16px] rounded-full bg-[#45c072]"></div>
+                    </div>
+
+                    <svg id="target" class="ml-[22px] mt-[-38px] scale-[140%]" xmlns="http://www.w3.org/2000/svg"
+                      width="50" height="62" viewBox="0 0 50 62" fill="none">
+                      <g filter="url(#filter0_d_104_17270)">
+                        <path
+                          d="M39.0985 11.6899L19.7609 48.8168C18.5751 51.0935 15.7237 51.9118 13.5111 50.6105L13.1571 50.4022C10.8158 49.0252 10.2268 45.8992 11.9065 43.7646L37.8039 10.8538C38.0605 10.5277 38.5287 10.462 38.8651 10.7049C39.1766 10.9298 39.2759 11.3492 39.0985 11.6899Z"
+                          fill="#45C072" />
+                      </g>
+                      <defs>
+                        <filter id="filter0_d_104_17270" x="0.945312" y="0.558411" width="48.2412" height="60.6719"
+                          filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                          <feColorMatrix in="SourceAlpha" type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                          <feOffset />
+                          <feGaussianBlur stdDeviation="5" />
+                          <feComposite in2="hardAlpha" operator="out" />
+                          <feColorMatrix type="matrix"
+                            values="0 0 0 0 0.301961 0 0 0 0 0.635294 0 0 0 0 0.345098 0 0 0 0.25 0" />
+                          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_104_17270" />
+                          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_104_17270" result="shape" />
+                        </filter>
+                      </defs>
+                    </svg>
+
+                  </div>
+
+                </div>
               </div>
 
               <!-- students count -->
               <div class="text-2xl flex flex-col justify-center items-center">
                 <div class=" flex gap-2">
-                  <p class=" font-bold text-green-500" id="currentStudents">27k</p>
-                  <p id="totalStudents" class="text-gray-500 font-bold"><span>/ </span>50k</p>
+                  <p class=" font-bold text-green-500" id="currentStudents">1000</p>
+                  <p id="totalStudents" class="text-gray-500 font-bold"><span>/ </span>1200</p>
                 </div>
-                <p class="text-sm text-gray-500">AED Collected</p>
+                <p class="text-sm text-gray-500">students registered</p>
               </div>
 
               <!-- progress text box -->
-              <div class="p-4 rounded-lg bg-scdark flex justify-center mt-2 items-center ">
+              <div class="p-4 w-[200px] rounded-lg bg-scdark flex justify-center mt-4 items-center ">
 
-                <p class="text-sm w-[90%] text-center">Need Improvement. <span class="font-bold text-red-500">-3%
-                    unpaid</span> arrear pending this week than last week</p>
+                <p class="text-subtitle text-center">Good Progress. <span class="font-bold text-green-500">2%
+                    more</span> students subscribed this week than last week</p>
               </div>
             </div>
 
-            <!-- maintenance meter -->
             <div class=" flex flex-col justify-center gap-6">
               <div class="flex flex-col items-center">
                 <a href="#"><img src="/assets/maintenance.svg" alt=""></a>
-                <p>Fuel Summary</p>
+                <p>Maintenance</p>
               </div>
 
               <div class="relative">
-                <svg width="168" height="166" viewBox="0 0 108 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="138" height="136" viewBox="0 0 108 106" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M102.485 49.5C102.485 76.2764 80.5568 98 53.4854 98C26.4139 98 4.48535 76.2764 4.48535 49.5C4.48535 22.7236 26.4139 1 53.4854 1C80.5568 1 102.485 22.7236 102.485 49.5Z"
                     stroke="url(#paint0_linear_216_490)" stroke-width="2" />
@@ -1302,7 +1372,7 @@
                 </svg>
 
                 <!-- Maintenance data -->
-                <div class="text-center text-gray-500 absolute top-[47px] left-[55px]">
+                <div class="text-center text-gray-500 absolute top-[36px] left-[40px]">
                   <p class="text-xs">Amount</p>
                   <p class="text-lg text-white">14,000</p>
                   <p class="text-xs">AED</p>
@@ -1316,16 +1386,16 @@
         </div>
 
       </div>
+
     </div>
+
     <script src="/script.js"></script>
 </body>
 
 <style>
   .progress-ring {
-    /* transform: rotat2e(210deg); */
     transition: 0.35s stroke-dashoffset;
     transform: rotate(126deg);
-    /* transform: scale(85%); */
   }
 
   .progress-ring__circle {
