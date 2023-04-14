@@ -35,17 +35,20 @@
             pmfont: ['Inter', 'ui-sans-serif',]
           },
           colors: {
-            pmdark: '#121212',
-            scdark: '#1a1c1e',
-            pmlight: '#ffffff',
-            sclight: '#efeff0',
-            accent: '#45c072',
+            pmdark: '#121212', /*(primary dark)*/
+            scdark: '#1a1c1e', /*(secondary dark)*/
+            pmlight: '#ffffff', /*(primary light)*/
+            sclight: '#efeff0', /*(secondary light )*/
+            subtitleclr: '#8c8d8e', /*(grayish sub text)*/
+            accent: '#45c072', /*(Green color)*/
+
           },
           fontSize: {
             'title': ['1rem', {
               fontWeight: '600',
             }],
             'subtitle': ['0.8rem'],
+            'subtitleclr': ['0.8rem'],
             'small': ['0.6rem'],
           }
         },
@@ -64,7 +67,7 @@
     class="bg-white dark:bg-pmdark font-pmfont  dark:text-gray-100 relative h-screen">
 
     <!-- left sidebar -->
-    <div class="fixed z-[100] xl:w-[256px]">
+    <div class="hidden 2xl:block fixed z-[100] xl:w-[256px]">
       <div class="h-screen flex border-2 border-transparent border-r-[#1A282B] flex-col justify-between dark:bg-pmdark">
         <div>
           <div class="px-6 pt-6 ">
@@ -309,7 +312,7 @@
 
     <!--top navbar-->
     <div
-      class="pl-[256px]  bg-white items-center grid grid-cols-[1fr_320px] fixed z-[90] top-0 left-0 dark:bg-pmdark w-full h-[65px] border-2 dark:border-gray-800 border-b-[#1A282B]">
+      class="2xl:pl-[256px]  bg-white items-center grid grid-cols-[1fr_320px] fixed z-[90] top-0 left-0 dark:bg-pmdark w-full h-[65px] border-2 dark:border-gray-800 border-b-[#1A282B]">
 
       <!-- search & toggle -->
       <div class="flex relative justify-between items-center ">
@@ -391,8 +394,11 @@
           </div>
         </div>
 
-        <input id="inputBox" class="dark:bg-gray-800 dark:text-white border border-black" value="100" type="number"
-          step="5" min="0" max="100" placeholder="progress">
+        <input id="inputBox" class="hidden xl:block dark:bg-gray-700 p-1 dark:text-white border border-black"
+          value="100" type="number" step="5" min="0" max="100" placeholder="progress">
+
+        <input id="inputBoxArrear" class="hidden xl:block dark:bg-gray-700 p-1 dark:text-white border border-black"
+          value="60" type="number" step="5" min="0" max="100" placeholder="arrear">
 
         <!-- light & dark toggle button -->
         <div class="mr-8 flex items-center justify-center space-x-2">
@@ -428,22 +434,22 @@
 
     <!-- right sidebar | Trips live status -->
     <div
-      class="fixed right-0 top-0 w-[320px] mt-[65px] dark:bg-pmdark border-2 overflow-y-scroll h-full border-black border-l-[#1A282B] dark:text-white px-4 py-2">
+      class="hidden xl:block fixed z-[120] right-0 top-0 w-[320px] mt-[65px] dark:bg-pmdark border-2 overflow-y-scroll h-full justify-between pb-[74px] flex flex-col border-black border-l-[#1A282B] dark:text-white px-4 pt-2">
 
       <!-- Last update time -->
       <div class="flex items-center justify-between">
         <div>
           <p>Trips - Live Status</p>
-          <p class="text-small text-red-600">Techno Alliance </p>
+          <p class="text-subtitle text-red-600">Techno Alliance </p>
         </div>
         <div>
           <p class="text-right text-accent text-subtitle">On Route</p>
-          <p class="text-small">Last update : <span>1 min</span> ago</p>
+          <p class="text-subtitle">Updated : <span>1 min</span> ago</p>
         </div>
       </div>
 
       <!-- School count list -->
-      <div class="flex items-center mt-4 justify-between">
+      <div class="flex mt-6 items-center justify-between">
         <div class="flex items-center gap-2 justify-between">
           <div class="h-[10px] w-[10px] dark:bg-red-500 rounded-full"></div>
           <p class="text-subtitle">NIMS : <span class="text-title" id="tripsCount">28</span></p>
@@ -456,7 +462,7 @@
       </div>
 
       <!-- Bus dropdown selection & next btn -->
-      <div class="mt-4">
+      <div class="mt-6">
         <div class="flex justify-between">
           <div class="inline-block text-left dropdown">
             <span class="rounded-md shadow-sm">
@@ -524,7 +530,7 @@
       </div>
 
       <!-- Route animation -->
-      <div class="mt-4">
+      <div class="mt-6">
         <p class="text-subtitle">Route</p>
         <div class="flex justify-center mt-2 items-center">
           <div class="h-[14px] w-[15px] bg-white rounded-full border-[3px] border-green-500 "></div>
@@ -544,7 +550,7 @@
       </div>
 
       <!-- Crew -->
-      <div class="mt-4">
+      <div class="mt-6">
         <p class="text-subtitle">Crew</p>
         <div class="flex justify-between gap-2 mt-2">
           <div class="flex items-center w-full rounded-lg  gap-2 bg-scdark p-3">
@@ -573,7 +579,7 @@
       </div>
 
       <!-- Timing -->
-      <div class="mt-4">
+      <div class="mt-6">
         <p class="text-subtitle">Timing</p>
         <div class="text-small flex w-full justify-between mt-2">
           <p>08:00</p>
@@ -589,9 +595,8 @@
         </div>
       </div>
 
-
       <!-- Map -->
-      <div class="mt-4">
+      <div class="mt-6">
         <p class="text-subtitle">Map</p>
         <!-- map integration -->
         <div class="mt-2 w-full h-[140px] overflow-hidden rounded-lg relative bg-red-800">
@@ -601,9 +606,8 @@
         </div>
       </div>
 
-
       <!-- Live camera -->
-      <div class="mt-4">
+      <div class="mt-6">
         <p class="text-subtitle">Live Camera</p>
         <div>
           <div class="w-full flex justify-between overflow-hidden rounded-lg mt-2 bg-scdark">
@@ -621,23 +625,28 @@
             </div>
           </div>
         </div>
-        <div class="relative">
-          <video class="mt-4 rounded-lg" width="320" height="240" loop autoplay muted>
+        <div class="relative mt-4 ">
+          <video class=" rounded-lg" width="320" height="240" loop autoplay muted>
             <source src="/assets/camera1.mp4" type="video/mp4">
             <source src="/assets/camera1.mp4" type="video/ogg">
             Your browser does not support the video tag.
           </video>
-          <div class="absolute top-2 right-2 bg-green-500 px-4 rounded-full text-subtitle">Call</div>
+          <div class="absolute bottom-2 left-2 bg-green-500 px-4 rounded-full text-subtitle">Call</div>
+          <div class="flex absolute top-2 right-2 items-center gap-2">
+            <p class="text-small">LIVE</p>
+            <div class="bg-red-500 h-[8px] w-[8px] mb-1 rounded-full "></div>
+          </div>
         </div>
       </div>
 
     </div>
 
     <!-- Main section -->
-    <div class="dark:bg-pmdark dark:text-gray-100 w-full h-full pl-[256px] pt-[65px] pr-[320px]">
+    <div
+      class="dark:bg-pmdark dark:text-gray-100 w-full overflow-y-scroll h-full 2xl:pl-[256px] pt-[65px] xl:pr-[320px]">
 
       <!-- two meters -->
-      <div class="flex mt-10 justify-evenly w-full">
+      <div class="hidden lg:flex mt-6 justify-evenly w-full">
 
         <!-- meter 1 | students registered  -->
         <div class="flex">
@@ -1097,7 +1106,7 @@
             </div>
 
             <!-- progress text box -->
-            <div class="p-4 w-[260px] rounded-lg bg-scdark flex justify-center mt-4 items-center ">
+            <div class="p-4 w-[260px] mt-4 rounded-lg bg-scdark flex justify-center items-center ">
 
               <p class="text-subtitle text-center">Good Progress. <span class="font-bold text-green-500">2%
                   more</span> students subscribed this week than last week</p>
@@ -1121,7 +1130,7 @@
         <!-- meter 2 | aed collected meter -->
         <div class="flex">
 
-          <!-- maintenance meter -->
+          <!-- Arrear meter -->
           <div class="flex flex-col items-center">
             <!-- Vacancy guage meter -->
             <div class="relative">
@@ -1297,7 +1306,7 @@
 
                 <!-- progress bar -->
                 <div class="absolute left-[14px] top-[9px] ">
-                  <svg class="z-40 progress-ring" width="240" height="240">
+                  <svg class="z-40 progress-ring-arrear" width="240" height="240">
                     <linearGradient id="aGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="20%" stop-color="#07963A" />
                       <stop offset="30%" stop-color="#6AD68A" />
@@ -1307,28 +1316,28 @@
                       <stop offset="90%" stop-color="#FF3434" />
                     </linearGradient>
 
-                    <circle id="round-progress" stroke="url(#aGradient)" stroke-width="10" fill="transparent" r="77"
-                      cx="120" cy="120" />
+                    <circle id="round-progress-arrear" stroke="url(#aGradient)" stroke-width="10" fill="transparent"
+                      r="77" cx="120" cy="120" />
                   </svg>
                 </div>
 
                 <!-- vacancy text -->
                 <div class="absolute bottom-[24px]  text-center">
-                  <p id="vacancy" class="text-lg font-bold leading-4 text-white">33<span class="text-subtitle"> K</span>
+                  <p id="arrear" class="text-lg font-bold leading-4 text-white">33<span class="text-subtitle"> K</span>
                   </p>
                   <p class="text-sm text-gray-500">Arrear</p>
                 </div>
 
                 <!-- needle -->
-                <div id="target"
-                  class="target progress-ring__circle absolute top-[52px] left-[58px] transition-all duration-300 ease-in flex h-[152px] w-[152px] items-center justify-center rounded-fill animate-[wiggle_1s_ease-in-out_infinite] animate-spjin">
+                <div id="target-arrear"
+                  class="target-arrear progress-ring__circle-arrear absolute top-[52px] left-[58px] transition-all duration-300 ease-in flex h-[152px] w-[152px] items-center justify-center rounded-fill animate-[wiggle_1s_ease-in-out_infinite] animate-spjin">
 
                   <div
                     class="flex justify-center items-center absolute z-[10] h-[40px] w-[40px] rounded-full bg-[#292b2c] ">
                     <div class="h-[16px] w-[16px] rounded-full bg-[#45c072]"></div>
                   </div>
 
-                  <svg id="target" class="ml-[22px] mt-[-38px] scale-[140%]" xmlns="http://www.w3.org/2000/svg"
+                  <svg id="target-arrear" class="ml-[22px] mt-[-38px] scale-[140%]" xmlns="http://www.w3.org/2000/svg"
                     width="50" height="62" viewBox="0 0 50 62" fill="none">
                     <g filter="url(#filter0_d_104_17270)">
                       <path
@@ -1367,13 +1376,14 @@
             </div>
 
             <!-- progress text box -->
-            <div class="p-4 w-[280px] rounded-lg bg-scdark flex justify-center mt-4 items-center ">
+            <div class="p-4 mt-4 w-[280px] rounded-lg bg-scdark flex justify-center items-center ">
 
               <p class="text-subtitle text-center">Needs Improvement. <span class="font-bold text-red-500">-3%
                   arrear</span> pending, not paid</p>
             </div>
           </div>
 
+          <!-- maintenance meter -->
           <div class=" flex flex-col justify-center gap-6">
             <div class="flex flex-col items-center">
               <a href="#"><img src="/assets/maintenance.svg" alt=""></a>
@@ -1587,6 +1597,258 @@
 
       </div>
 
+      <!--All cards -->
+      <div class="">
+
+        <!-- seperator -->
+        <div class="w-full mt-6">
+          <div class="h-[2px] w-full bg-black"></div>
+          <div class="h-[2px] w-full bg-gray-800"></div>
+        </div>
+
+        <!-- cards -->
+        <div class="p-6 grid md:grid-cols-2 lg:grid-cols-3 flex-col gap-6">
+
+          <!-- No of vehicles -->
+          <div
+            class="min-h-[300px] border border-[#e4e4e4] flex flex-col justify-between dark:border-[#333333] p-4 dark:bg-scdark bg-sclight">
+
+            <div class="flex items-center justify-center">
+              <img src="./assets/bus.svg" alt="bus" class="w-[200px]">
+            </div>
+
+            <div class="h-[2px] w-full dark:bg-gray-800 bg-gray-500 "></div>
+
+            <div class="flex items-center justify-between">
+              <p class="text-title">No of vehicles</p>
+              <button class="text-subtitleclr dark:text-accent !text-accent ">View all</button>
+            </div>
+
+            <div>
+              <div class="flex justify-between pb-">
+                <div class="flex items-center gap-2">
+                  <div class="h-[12px] w-[12px] rounded-full bg-orange-700"></div>
+                  <p class="text-subtitle">NIMS</p>
+                </div>
+
+                <div class="flex items-baseline gap-2">
+                  <p class="text-title">12</p>
+                  <p class="text-subtitleclr">Buses</p>
+                </div>
+              </div>
+
+              <div class="flex justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="h-[12px] w-[12px] rounded-full bg-yellow-400"></div>
+                  <p class="text-subtitle !dark:text-">TOTAL</p>
+                </div>
+
+                <div class="flex items-baseline gap-2">
+                  <p class="text-title">85</p>
+                  <p class="text-subtitleclr">Buses</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unauthorized travel -->
+          <div class="min-h-[300px] border border-[#e4e4e4] dark:border-[#333333] dark:bg-scdark bg-sclight">
+            <div class="flex items-center justify-between">
+              <p class="text-title w-3">Unauthorized Travel</p>
+              <button class="text-subtitleclr dark:text-accent !text-accent ">View all</button>
+            </div>
+            <div class="flex items-center justify-between ">
+              <div class="flex gap-2">
+                <div class="flex  pt-1 justify-start items-start"><img src="./assets/calndr icon.svg" alt=""></div>
+                <div>
+                  <p class="text-subtitleclr text-subtitlecolor">Last Update: <br>
+                    <!-- Unauthorized travel last update time -->
+                    <span id="uaLastUpdate">7</span>
+                    min ago
+                  </p>
+                </div>
+
+              </div>
+              <img class="h-[40px] w-[40px]" src="./assets/redicon.svg" alt="">
+            </div>
+            <div class="h-[1px] w-full dark:bg-[#333333]  "></div>
+            <div class="">
+              <div class="flex justify-between ">
+                <div class="flex items-center gap-2">
+                  <div class="h-[12px] w-[12px] rounded-full bg-orange-700"></div>
+                  <p class="text-subtitle">NIMS</p>
+                </div>
+
+                <div class="flex items-baseline gap-2">
+                  <p class="text-title">12</p>
+                  <p class="text-subtitleclr">Buses</p>
+                </div>
+              </div>
+
+              <div class="flex justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="h-[12px] w-[12px] rounded-full bg-yellow-400"></div>
+                  <p class="text-subtitle">TOTAL</p>
+                </div>
+
+                <div class="flex items-baseline gap-2">
+                  <p class="text-title">85</p>
+                  <p class="text-subtitleclr">Buses</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="min-h-[300px] bg-gray-700">statistics</div>
+
+          <div class="min-h-[300px] bg-gray-700">
+            <!-- Routes -->
+
+            <div
+              class="w-[250px] border border-[#e4e4e4] dark:border-[#333333] p-4 dark:bg-scdark bg-sclight flex flex-col justify-between">
+              <div class="flex items-center justify-between">
+                <p class="text-title w-3">Routes</p>
+                <button class="text-subtitleclr dark:text-accent !text-accent ">View all</button>
+              </div>
+
+              <div class="flex items-center justify-between ">
+                <div class="flex gap-2">
+                  <div class="flex  pt-1 justify-start items-start"><img src="./assets/calndr icon.svg" alt=""></div>
+                  <div>
+                    <p class="text-subtitleclr text-subtitlecolor">Last Update:
+
+                      <span id="uaLastUpdate">7</span>
+                      min ago
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="">
+                <div class="flex justify-between ">
+                  <div class="flex items-center gap-2">
+                    <div class="h-[12px] w-[12px] rounded-full bg-orange-700"></div>
+                    <p class="text-subtitle">NIMS</p>
+                  </div>
+
+                  <div class="flex items-baseline gap-2">
+                    <p class="text-title">12</p>
+                    <p class="text-subtitleclr">Buses</p>
+                  </div>
+                </div>
+
+                <div class="flex justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="h-[12px] w-[12px] rounded-full bg-yellow-400"></div>
+                    <p class="text-subtitle">TOTAL</p>
+                  </div>
+
+                  <div class="flex items-baseline gap-2">
+                    <p class="text-title">85</p>
+                    <p class="text-subtitleclr">Buses</p>
+                  </div>
+                </div>
+              </div>
+              <div class="h-[1px] w-full dark:bg-[#333333]  "></div>
+              <div class="h-8 flex flex-col relative justify-center items-center">
+                <div class="w-full bg-gray-100 rounded-full h-2.5 dark:bg-gray-700">
+                  <div class="bg-green-600 h-2.5 rounded-full z-20 absolute" style="width: 45%"></div>
+                  <div class="flex items-center justify-between px-1 ">
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between font-light text-[12px] px-1">
+                <div>0</div>
+                <div>10</div>
+                <div>20</div>
+                <div>30</div>
+                <div>40</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="min-h-[300px] bg-gray-700">
+            <div
+              class="w-[250px] border border-[#e4e4e4] dark:border-[#333333] p-4 dark:bg-scdark bg-sclight flex flex-col justify-between">
+              <div class="flex items-center justify-between">
+                <p class="text-title ">Vehicle in garage</p>
+                <button class="text-subtitleclr dark:text-accent !text-accent ">View all</button>
+              </div>
+
+              <!-- insidebox -->
+
+              <div class="w-[215px]  p-4 dark:bg-[#232323] bg-fuchsia-100 flex flex-col justify-between rounded-lg">
+                <div>
+                  <div class="flex justify-between ">
+                    <div class="flex items-center gap-2">
+                      <div class="h-[12px] w-[12px] rounded-full bg-orange-700"></div>
+                      <p class="text-subtitle">NIMS</p>
+                    </div>
+
+                    <div class="flex items-baseline gap-2">
+                      <p class="text-title">12</p>
+                      <p class="text-subtitleclr">Buses</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-subtitle"><span>4</span> Vehicles</p>
+                    <p class="text-subtitleclr">in maintanence</p>
+                  </div>
+                  <img class="w-[60px] h-[60px]" src="./assets/maintanence-schedule.svg" alt="">
+                </div>
+
+
+                <div class="h-[1px] w-full dark:bg-slate-200 bg-gray-500 my"></div>
+
+
+                <div>
+                  <div class="flex justify-between ">
+                    <div class="flex items-center gap-2">
+                      <div class="h-[12px] w-[12px] rounded-full bg-yellow-400"></div>
+                      <p class="text-subtitleclr">Total</p>
+                    </div>
+
+                    <div class="flex items-baseline gap-2">
+                      <p class="text-title">12</p>
+                      <p class="text-subtitleclr">Vehicles</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="min-h-[300px] bg-gray-700">documents renewal</div>
+        </div>
+
+        <!-- help us tickets -->
+        <div class="p-6 grid md:grid-cols-1 gap-4">
+          <div class="min-h-[300px] w-full bg-gray-400">Help us tickets</div>
+        </div>
+
+      </div>
+
     </div>
   </div>
 
@@ -1602,6 +1864,18 @@
   }
 
   .progress-ring__circle {
+    transition: 0.35s stroke-dashoffset;
+    /* // axis compensation */
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+
+  .progress-ring-arrear {
+    transition: 0.35s stroke-dashoffset;
+    transform: rotate(126deg);
+  }
+
+  .progress-ring__circle-arrear {
     transition: 0.35s stroke-dashoffset;
     /* // axis compensation */
     transform: rotate(-90deg);

@@ -1,0 +1,38 @@
+    <!--All cards -->
+    <div class="2xl:flex-row flex flex-wrap gap-4 justify-center">
+      <div class="flex-col flex justify-center w-full md:flex-row flex-wrap w-fit p-4 bg-red-800 gap-4">
+
+        <div class="flex flex-col gap-4">
+          <div class="min-w-[300px] min-h-[300px] bg-gray-800">
+            no of vehicles
+          </div>
+          <div class="min-w-[300px] min-h-[300px] bg-gray-600">
+            routes
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <div class="min-w-[300px] min-h-[300px] bg-gray-800">
+            unauthorised travel
+          </div>
+          <div class="min-w-[300px] min-h-[300px] bg-gray-600">
+            vehicle in garage
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <div class="min-w-[300px] min-h-[300px] bg-gray-800">
+            membership statistics
+          </div>
+          <div class="min-w-[300px] min-h-[300px] bg-gray-600">
+            documents renewals
+          </div>
+        </div>
+
+      </div>
+
+      <!-- helpus tickets -->
+      <div class="w-full xl:w-auto min-h-[400px] bg-gray-800">
+        help us tisdfsdfsdfsdfsdfsdfsdfsadfsdfsdckets
+      </div>
+    </div>
