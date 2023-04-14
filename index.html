@@ -29,6 +29,10 @@
             navMove: {
               '0%': { transform: 'translateX(0px)' },
               '100%': { transform: 'translateX(218px)' },
+            },
+            busMove: {
+              '0%': { translateX: '-20%', left: '20%' },
+              '100%': { translateX: '-50%', left: '50%' },
             }
           },
           fontFamily: {
@@ -1376,10 +1380,10 @@
             </div>
 
             <!-- progress text box -->
-            <div class="p-4 mt-4 w-[280px] rounded-lg bg-scdark flex justify-center items-center ">
+            <div class="p-4 w-[260px] mt-4 rounded-lg bg-scdark flex justify-center items-center "">
 
-              <p class="text-subtitle text-center">Needs Improvement. <span class="font-bold text-red-500">-3%
-                  arrear</span> pending, not paid</p>
+              <p class=" text-subtitle text-center">Needs Improvement! <span class="font-bold text-red-500">-3%
+                arrear</span> still pending, not paid</p>
             </div>
           </div>
 
@@ -1598,36 +1602,37 @@
       </div>
 
       <!--All cards -->
-      <div class="">
+      <div>
 
         <!-- seperator -->
-        <div class="w-full mt-6">
+        <div class="w-full mt-4">
           <div class="h-[2px] w-full bg-black"></div>
           <div class="h-[2px] w-full bg-gray-800"></div>
         </div>
 
         <!-- cards -->
-        <div class="p-6 grid md:grid-cols-2 lg:grid-cols-3 flex-col gap-6">
+        <div class="px-6 py-4 grid md:grid-cols-2 lg:grid-cols-3 flex-col gap-6">
 
           <!-- No of vehicles -->
           <div
-            class="min-h-[300px] border border-[#e4e4e4] flex flex-col justify-between dark:border-[#333333] p-4 dark:bg-scdark bg-sclight">
+            class="min-h-[220px] border border-[#e4e4e4] flex flex-col justify-between dark:border-[#333333] p-4 dark:bg-scdark bg-sclight rounded-lg overflow-hidden">
 
-            <div class="flex items-center justify-center">
-              <img src="./assets/bus.svg" alt="bus" class="w-[200px]">
+            <div class="flex items-center w-full h-[80px] relative">
+              <img src="./assets/bus.svg" alt="bus"
+                class=" animate-[busMove_2s_ease-out] top-50% left-[50%] -translate-x-[50%] absolute w-[210px]">
             </div>
 
             <div class="h-[2px] w-full dark:bg-gray-800 bg-gray-500 "></div>
 
             <div class="flex items-center justify-between">
-              <p class="text-title">Noufal khan</p>
+              <p class="text-title">No of Vehicles</p>
               <button class="text-subtitleclr dark:text-accent !text-accent ">View all</button>
             </div>
 
             <div>
               <div class="flex justify-between pb-">
                 <div class="flex items-center gap-2">
-                  <div class="h-[12px] w-[12px] rounded-full bg-orange-700"></div>
+                  <div class="h-[10px] w-[10px] rounded-full bg-orange-700"></div>
                   <p class="text-subtitle">NIMS</p>
                 </div>
 
@@ -1639,7 +1644,7 @@
 
               <div class="flex justify-between">
                 <div class="flex items-center gap-2">
-                  <div class="h-[12px] w-[12px] rounded-full bg-yellow-400"></div>
+                  <div class="h-[10px] w-[10px] rounded-full bg-yellow-400"></div>
                   <p class="text-subtitle !dark:text-">TOTAL</p>
                 </div>
 
@@ -1652,11 +1657,14 @@
           </div>
 
           <!-- Unauthorized travel -->
-          <div class="min-h-[300px] border border-[#e4e4e4] dark:border-[#333333] dark:bg-scdark bg-sclight">
+          <div
+            class="min-h-[220px] p-4 flex flex-col justify-between border border-[#e4e4e4] dark:border-[#333333] dark:bg-scdark bg-sclight">
+
             <div class="flex items-center justify-between">
               <p class="text-title w-3">Unauthorized Travel</p>
               <button class="text-subtitleclr dark:text-accent !text-accent ">View all</button>
             </div>
+
             <div class="flex items-center justify-between ">
               <div class="flex gap-2">
                 <div class="flex  pt-1 justify-start items-start"><img src="./assets/calndr icon.svg" alt=""></div>
@@ -1671,11 +1679,13 @@
               </div>
               <img class="h-[40px] w-[40px]" src="./assets/redicon.svg" alt="">
             </div>
+
             <div class="h-[1px] w-full dark:bg-[#333333]  "></div>
+
             <div class="">
               <div class="flex justify-between ">
                 <div class="flex items-center gap-2">
-                  <div class="h-[12px] w-[12px] rounded-full bg-orange-700"></div>
+                  <div class="h-[10px] w-[10px] rounded-full bg-orange-700"></div>
                   <p class="text-subtitle">NIMS</p>
                 </div>
 
@@ -1687,7 +1697,7 @@
 
               <div class="flex justify-between">
                 <div class="flex items-center gap-2">
-                  <div class="h-[12px] w-[12px] rounded-full bg-yellow-400"></div>
+                  <div class="h-[10px] w-[10px] rounded-full bg-yellow-400"></div>
                   <p class="text-subtitle">TOTAL</p>
                 </div>
 
@@ -1700,36 +1710,105 @@
 
           </div>
 
-          <div class="min-h-[300px] bg-gray-700">statistics</div>
+          <!-- Membership Statistics -->
+          <div
+            class="min-h-[220px] p-4 flex flex-col justify-between border border-[#e4e4e4] dark:border-[#333333] dark:bg-scdark bg-sclight">
+            Membership Statistics</div>
 
-          <div class="min-h-[300px] bg-gray-700">
-            <!-- Routes -->
+          <!-- Routes -->
+          <div
+            class="min-h-[220px] p-4 flex flex-col justify-between border border-[#e4e4e4] dark:border-[#333333] dark:bg-scdark bg-sclight">
+            <div class="flex items-center justify-between">
+              <p class="text-title w-3">Routes</p>
+              <button class="text-subtitleclr dark:text-accent !text-accent ">View all</button>
+            </div>
 
-            <div
-              class="w-[250px] border border-[#e4e4e4] dark:border-[#333333] p-4 dark:bg-scdark bg-sclight flex flex-col justify-between">
-              <div class="flex items-center justify-between">
-                <p class="text-title w-3">Routes</p>
-                <button class="text-subtitleclr dark:text-accent !text-accent ">View all</button>
+            <div class="flex items-center justify-between ">
+              <div class="flex gap-2">
+                <div class="flex  pt-1 justify-start items-start"><img src="./assets/calndr icon.svg" alt=""></div>
+                <div>
+                  <p class="text-subtitleclr text-subtitlecolor">Last Update:
+
+                    <span id="uaLastUpdate">7</span>
+                    min ago
+                  </p>
+                </div>
+
               </div>
+            </div>
 
-              <div class="flex items-center justify-between ">
-                <div class="flex gap-2">
-                  <div class="flex  pt-1 justify-start items-start"><img src="./assets/calndr icon.svg" alt=""></div>
-                  <div>
-                    <p class="text-subtitleclr text-subtitlecolor">Last Update:
+            <div class="">
+              <div class="flex justify-between ">
+                <div class="flex items-center gap-2">
+                  <div class="h-[10px] w-[10px] rounded-full bg-orange-700"></div>
+                  <p class="text-subtitle">NIMS</p>
+                </div>
 
-                      <span id="uaLastUpdate">7</span>
-                      min ago
-                    </p>
-                  </div>
-
+                <div class="flex items-baseline gap-2">
+                  <p class="text-title">12</p>
+                  <p class="text-subtitleclr">Buses</p>
                 </div>
               </div>
 
-              <div class="">
+              <div class="flex justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="h-[10px] w-[10px] rounded-full bg-yellow-400"></div>
+                  <p class="text-subtitle">TOTAL</p>
+                </div>
+
+                <div class="flex items-baseline gap-2">
+                  <p class="text-title">85</p>
+                  <p class="text-subtitleclr">Buses</p>
+                </div>
+              </div>
+            </div>
+            <div class="h-[1px] w-full dark:bg-[#333333]  "></div>
+            <div class="h-8 flex flex-col relative justify-center items-center">
+              <div class="w-full bg-gray-100 rounded-full h-2.5 dark:bg-gray-700">
+                <div class="bg-green-600 h-2.5 rounded-full z-20 absolute" style="width: 45%"></div>
+                <div class="flex items-center justify-between px-1 ">
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                  <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between font-light text-[12px] px-1">
+              <div>0</div>
+              <div>10</div>
+              <div>20</div>
+              <div>30</div>
+              <div>40</div>
+            </div>
+
+          </div>
+
+          <!-- Vehicle in Garage -->
+          <div
+            class="min-h-[220px] p-4 flex flex-col justify-between border border-[#e4e4e4] dark:border-[#333333] dark:bg-scdark bg-sclight">
+
+            <div class="flex pb-6 items-center justify-between">
+              <p class="text-title ">Vehicle in garage</p>
+              <button class="text-subtitleclr dark:text-accent !text-accent ">View all</button>
+            </div>
+
+            <div class=" h-full p-4 dark:bg-[#232323] bg-fuchsia-100 flex flex-col justify-between rounded-lg">
+              <div>
                 <div class="flex justify-between ">
                   <div class="flex items-center gap-2">
-                    <div class="h-[12px] w-[12px] rounded-full bg-orange-700"></div>
+                    <div class="h-[10px] w-[10px] rounded-full bg-orange-700"></div>
                     <p class="text-subtitle">NIMS</p>
                   </div>
 
@@ -1738,113 +1817,48 @@
                     <p class="text-subtitleclr">Buses</p>
                   </div>
                 </div>
+              </div>
 
-                <div class="flex justify-between">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-subtitle"><span>4</span> Vehicles</p>
+                  <p class="text-subtitleclr">in maintanence</p>
+                </div>
+                <img class="w-[60px] h-[60px]" src="./assets/maintanence-schedule.svg" alt="">
+              </div>
+
+
+              <div class="h-[1px] w-full dark:bg-slate-200 bg-gray-500 my"></div>
+
+
+              <div>
+                <div class="flex justify-between ">
                   <div class="flex items-center gap-2">
-                    <div class="h-[12px] w-[12px] rounded-full bg-yellow-400"></div>
-                    <p class="text-subtitle">TOTAL</p>
+                    <div class="h-[10px] w-[10px] rounded-full bg-yellow-400"></div>
+                    <p class="text-subtitleclr">Total</p>
                   </div>
 
                   <div class="flex items-baseline gap-2">
-                    <p class="text-title">85</p>
-                    <p class="text-subtitleclr">Buses</p>
+                    <p class="text-title">12</p>
+                    <p class="text-subtitleclr">Vehicles</p>
                   </div>
                 </div>
               </div>
-              <div class="h-[1px] w-full dark:bg-[#333333]  "></div>
-              <div class="h-8 flex flex-col relative justify-center items-center">
-                <div class="w-full bg-gray-100 rounded-full h-2.5 dark:bg-gray-700">
-                  <div class="bg-green-600 h-2.5 rounded-full z-20 absolute" style="width: 45%"></div>
-                  <div class="flex items-center justify-between px-1 ">
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                    <div class="h-[15px] w-[1px] bg-slate-300 dark:bg-slate-600"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="flex items-center justify-between font-light text-[12px] px-1">
-                <div>0</div>
-                <div>10</div>
-                <div>20</div>
-                <div>30</div>
-                <div>40</div>
-              </div>
+
             </div>
+
           </div>
 
-          <div class="min-h-[300px] bg-gray-700">
-            <div
-              class="w-[250px] border border-[#e4e4e4] dark:border-[#333333] p-4 dark:bg-scdark bg-sclight flex flex-col justify-between">
-              <div class="flex items-center justify-between">
-                <p class="text-title ">Vehicle in garage</p>
-                <button class="text-subtitleclr dark:text-accent !text-accent ">View all</button>
-              </div>
-
-              <!-- insidebox -->
-
-              <div class="w-[215px]  p-4 dark:bg-[#232323] bg-fuchsia-100 flex flex-col justify-between rounded-lg">
-                <div>
-                  <div class="flex justify-between ">
-                    <div class="flex items-center gap-2">
-                      <div class="h-[12px] w-[12px] rounded-full bg-orange-700"></div>
-                      <p class="text-subtitle">NIMS</p>
-                    </div>
-
-                    <div class="flex items-baseline gap-2">
-                      <p class="text-title">12</p>
-                      <p class="text-subtitleclr">Buses</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="flex items-center justify-between">
-                  <div>
-                    <p class="text-subtitle"><span>4</span> Vehicles</p>
-                    <p class="text-subtitleclr">in maintanence</p>
-                  </div>
-                  <img class="w-[60px] h-[60px]" src="./assets/maintanence-schedule.svg" alt="">
-                </div>
-
-
-                <div class="h-[1px] w-full dark:bg-slate-200 bg-gray-500 my"></div>
-
-
-                <div>
-                  <div class="flex justify-between ">
-                    <div class="flex items-center gap-2">
-                      <div class="h-[12px] w-[12px] rounded-full bg-yellow-400"></div>
-                      <p class="text-subtitleclr">Total</p>
-                    </div>
-
-                    <div class="flex items-baseline gap-2">
-                      <p class="text-title">12</p>
-                      <p class="text-subtitleclr">Vehicles</p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="min-h-[300px] bg-gray-700">documents renewal</div>
+          <!-- Vehicle in Garage -->
+          <div
+            class="min-h-[220px] p-4 flex flex-col justify-between border border-[#e4e4e4] dark:border-[#333333] dark:bg-scdark bg-sclight">
+            documents renewal</div>
         </div>
 
         <!-- help us tickets -->
-        <div class="p-6 grid md:grid-cols-1 gap-4">
-          <div class="min-h-[300px] w-full bg-gray-400">Help us tickets</div>
+        <div class="px-6 w-full">
+          <div class="min-h-[300px] w-full border border-[#e4e4e4] dark:border-[#333333] dark:bg-scdark bg-sclight">Help
+            us tickets</div>
         </div>
 
       </div>
