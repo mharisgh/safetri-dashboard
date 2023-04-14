@@ -70,6 +70,23 @@ inputBoxArrear.addEventListener('change', function (e) {
     }
 });
 
+// card stack animation
+let stack = document.querySelector(".stack");
+let maindiv = document.getElementById('maindiv');
 
+[...stack.children].reverse().forEach(i => stack.append(i));
 
+maindiv.addEventListener("wheel", swap);
 
+function swap(event) {
+  let card = document.querySelector(".card:last-child");
+  let distanceToTop = card.getBoundingClientRect().top;
+  let direction = event.deltaY > 0 ? 1 : -1; // check scroll direction
+  if (distanceToTop > window.innerHeight / 2 * direction) return;
+  card.style.animation = "swap 700ms forwards";
+
+  setTimeout(() => {
+    card.style.animation = "";
+    stack.prepend(card);
+  }, 300);
+}
