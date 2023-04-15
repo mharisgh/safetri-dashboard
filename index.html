@@ -71,10 +71,13 @@
     class="bg-white dark:bg-pmdark font-pmfont  dark:text-gray-100 relative h-screen">
 
     <!-- left sidebar -->
-    <div class="hidden 2xl:block fixed z-[100] xl:w-[256px]">
-      <div class="h-screen flex border-2 border-transparent border-r-[#1A282B] flex-col justify-between dark:bg-pmdark">
-        <div>
-          <div class="px-6 pt-6 ">
+    <div id="leftMenu"
+      class="transition-all expandShrink h-screen duration-500 transform absolute hidden 2xl:block  z-[100] xl:w-[256px]">
+      
+      <!-- component -->
+        <aside class="w-[256px] border h-full border-black border-r-gray-700" aria-label="Sidebar">
+          <div class="px-3 py-4 overflow-y-auto rounded bg-gray-50 dark:bg-pmdark">
+            
             <div class="flex items-center justify-between">
               <!-- logo -->
               <a href="#" class="flex justify-center items-center gap-4 text-lg ">
@@ -82,9 +85,9 @@
                 <p class="text-white">Safe<span class="text-gray-400">Tri</span></p>
               </a>
               <!-- expand shrink btn -->
-              <button
-                class="flex items-center justify-center p-0.5 rounded bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500">
-                <svg class="w-3 h-3 text-gray-300 stroke-current" fill="none" viewBox="0 0 24 24">
+              <button onclick="closeLeftMenu()"
+                class="flex items-center  justify-center p-2 rounded bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500">
+                <svg class="w-4 h-4 text-gray-300 stroke-current" fill="none" viewBox="0 0 24 24">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M10.25 6.75L4.75 12L10.25 17.25"></path>
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -93,235 +96,166 @@
                 </svg>
               </button>
             </div>
+      
 
-          </div>
-          <div class="px-6 pt-4">
-            <div class="relative">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500 stroke-current" fill="none" viewBox="0 0 24 24">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                    d="M19.25 19.25L15.5 15.5M4.75 11C4.75 7.54822 7.54822 4.75 11 4.75C14.4518 4.75 17.25 7.54822 17.25 11C17.25 14.4518 14.4518 17.25 11 17.25C7.54822 17.25 4.75 14.4518 4.75 11Z">
-                  </path>
-                </svg>
-              </div>
-              <input type="text"
-                class="w-full rounded pl-8 pr-4 py-2.5 text-xs font-light bg-gray-800 text-gray-400 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800"
-                placeholder="search" />
-            </div>
-          </div>
-          <div class="px-6 pt-4">
-            <hr class="border-gray-700" />
-          </div>
-          <div class="px-6 pt-4">
-            <ul class="flex flex-col space-y-2">
-              <li class="relative text-gray-500 hover:text-white focus-within:text-white">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                  <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M4.75 6.75C4.75 5.64543 5.64543 4.75 6.75 4.75H17.25C18.3546 4.75 19.25 5.64543 19.25 6.75V17.25C19.25 18.3546 18.3546 19.25 17.25 19.25H6.75C5.64543 19.25 4.75 18.3546 4.75 17.25V6.75Z">
-                    </path>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M9.75 8.75V19"></path>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M5 8.25H19"></path>
-                  </svg>
-                </div>
+            <ul class="space-y-2">
+              <li>
                 <a href="#"
-                  class="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Dashboard</a>
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <svg
+                    class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                    <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                  </svg>
+                  <span class="ml-3">Dashboard</span>
+                </a>
               </li>
-              <li class="">
-                <div class="relative flex justify-between text-gray-500 hover:text-white focus-within:text-white">
-                  <div class="flex items-center w-full">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                      <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                          d="M7.75 19.25H16.25C17.3546 19.25 18.25 18.3546 18.25 17.25V9L14 4.75H7.75C6.64543 4.75 5.75 5.64543 5.75 6.75V17.25C5.75 18.3546 6.64543 19.25 7.75 19.25Z">
-                        </path>
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                          d="M18 9.25H13.75V5"></path>
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                          d="M9.75 15.25H14.25"></path>
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                          d="M9.75 12.25H14.25"></path>
-                      </svg>
-                    </div>
+              <li>
+                <button type="button"
+                  class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                  aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
+                  <svg
+                    class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>E-commerce</span>
+                  <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <ul id="dropdown-example" class="hidden py-2 space-y-2">
+                  <li>
                     <a href="#"
-                      class="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Vehicle
-                      Settings</a>
-                  </div>
-                  <button class="absolute right-0 flex items-center p-1" tabindex="-1">
-                    <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M15.25 10.75L12 14.25L8.75 10.75"></path>
-                    </svg>
-                  </button>
-                </div>
-                <div class="pt-2 pl-4">
-                  <ul class="flex flex-col pl-2 text-gray-500 border-l border-gray-700">
-                    <li>
-                      <a href="#"
-                        class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-1 focus:ring-gray-500 focus:text-white">Courses</a>
-                    </li>
-                    <li>
-                      <a href="#"
-                        class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-1 focus:ring-gray-500 focus:text-white">Categories</a>
-                    </li>
-                    <li>
-                      <a href="#"
-                        class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-1 focus:ring-gray-500 focus:text-white">Instructors</a>
-                    </li>
-                    <li>
-                      <a href="#"
-                        class="inline-block w-full px-4 py-2 text-xs rounded hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-1 focus:ring-gray-500 focus:text-white">Video
-                        Library</a>
-                    </li>
-                  </ul>
-                </div>
+                      class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">Products</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">Billing</a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11">Invoice</a>
+                  </li>
+                </ul>
               </li>
-              <li class="relative text-gray-500 hover:text-white focus-within:text-white">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                  <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                    <path d="M12 4.75L19.25 9L12 13.25L4.75 9L12 4.75Z" stroke="currentColor" stroke-width="1.5"
-                      stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M9.25 12L4.75 15L12 19.25L19.25 15L14.6722 12" stroke="currentColor" stroke-width="1.5"
-                      stroke-linecap="round" stroke-linejoin="round"></path>
-                  </svg>
-                </div>
+              <li>
                 <a href="#"
-                  class="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Design</a>
-              </li>
-              <li class="relative text-gray-500 hover:text-white focus-within:text-white">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                  <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                    <circle cx="15" cy="9" r="1" fill="currentColor"></circle>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M12 4.75H19.25V12L12.5535 18.6708C11.7544 19.4668 10.4556 19.445 9.68369 18.6226L5.28993 13.941C4.54041 13.1424 4.57265 11.8895 5.36226 11.1305L12 4.75Z">
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <svg
+                    class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
                     </path>
                   </svg>
-                </div>
-                <a href="#"
-                  class="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Market
-                  & sell</a>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
+                  <span
+                    class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+                </a>
               </li>
-              <li class="relative text-gray-500 hover:text-white focus-within:text-white">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                  <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M5.75 19.2502H6.25C6.80229 19.2502 7.25 18.8025 7.25 18.2502V15.75C7.25 15.1977 6.80229 14.75 6.25 14.75H5.75C5.19772 14.75 4.75 15.1977 4.75 15.75V18.2502C4.75 18.8025 5.19772 19.2502 5.75 19.2502Z">
+              <li>
+                <a href="#"
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <svg
+                    class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z">
                     </path>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M11.75 19.2502H12.25C12.8023 19.2502 13.25 18.8025 13.25 18.2502V12.75C13.25 12.1977 12.8023 11.75 12.25 11.75H11.75C11.1977 11.75 10.75 12.1977 10.75 12.75V18.2502C10.75 18.8025 11.1977 19.2502 11.75 19.2502Z">
-                    </path>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M17.75 19.2502H18.25C18.8023 19.2502 19.25 18.8025 19.25 18.2502V5.75C19.25 5.19772 18.8023 4.75 18.25 4.75H17.75C17.1977 4.75 16.75 5.19772 16.75 5.75V18.2502C16.75 18.8025 17.1977 19.2502 17.75 19.2502Z">
+                    <path
+                      d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z">
                     </path>
                   </svg>
-                </div>
-                <a href="#"
-                  class="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Reporting</a>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
+                  <span
+                    class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">3</span>
+                </a>
               </li>
-              <li class="relative text-gray-500 hover:text-white focus-within:text-white">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                  <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="7.25" stroke="currentColor" stroke-linecap="round"
-                      stroke-linejoin="round" stroke-width="1.5"></circle>
-                    <circle cx="12" cy="12" r="3.25" stroke="currentColor" stroke-linecap="round"
-                      stroke-linejoin="round" stroke-width="1.5"></circle>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M7 17L9.5 14.5"></path>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M17 17L14.5 14.5"></path>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M9.5 9.5L7 7"></path>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M14.5 9.5L17 7"></path>
-                  </svg>
-                </div>
+              <li>
                 <a href="#"
-                  class="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Support</a>
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <svg
+                    class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+                </a>
+              </li>
+              <li>
+                <a href="#"
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <svg
+                    class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Products</span>
+                </a>
+              </li>
+              <li>
+                <a href="#"
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <svg
+                    class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Sign In</span>
+                </a>
+              </li>
+              <li>
+                <a href="#"
+                  class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <svg
+                    class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span class="flex-1 ml-3 whitespace-nowrap">Sign Up</span>
+                </a>
               </li>
             </ul>
           </div>
-          <div class="px-6 pt-8">
-            <hr class="border-gray-700" />
-          </div>
-          <div class="px-6 pt-4 pb-8">
-            <ul>
-              <li class="relative text-gray-500 hover:text-white focus-within:text-white">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                  <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M13.1191 5.61336C13.0508 5.11856 12.6279 4.75 12.1285 4.75H11.8715C11.3721 4.75 10.9492 5.11856 10.8809 5.61336L10.7938 6.24511C10.7382 6.64815 10.4403 6.96897 10.0622 7.11922C10.006 7.14156 9.95021 7.16484 9.89497 7.18905C9.52217 7.3524 9.08438 7.3384 8.75876 7.09419L8.45119 6.86351C8.05307 6.56492 7.49597 6.60451 7.14408 6.9564L6.95641 7.14408C6.60452 7.49597 6.56492 8.05306 6.86351 8.45118L7.09419 8.75876C7.33841 9.08437 7.3524 9.52216 7.18905 9.89497C7.16484 9.95021 7.14156 10.006 7.11922 10.0622C6.96897 10.4403 6.64815 10.7382 6.24511 10.7938L5.61336 10.8809C5.11856 10.9492 4.75 11.372 4.75 11.8715V12.1285C4.75 12.6279 5.11856 13.0508 5.61336 13.1191L6.24511 13.2062C6.64815 13.2618 6.96897 13.5597 7.11922 13.9378C7.14156 13.994 7.16484 14.0498 7.18905 14.105C7.3524 14.4778 7.3384 14.9156 7.09419 15.2412L6.86351 15.5488C6.56492 15.9469 6.60451 16.504 6.9564 16.8559L7.14408 17.0436C7.49597 17.3955 8.05306 17.4351 8.45118 17.1365L8.75876 16.9058C9.08437 16.6616 9.52216 16.6476 9.89496 16.811C9.95021 16.8352 10.006 16.8584 10.0622 16.8808C10.4403 17.031 10.7382 17.3519 10.7938 17.7549L10.8809 18.3866C10.9492 18.8814 11.3721 19.25 11.8715 19.25H12.1285C12.6279 19.25 13.0508 18.8814 13.1191 18.3866L13.2062 17.7549C13.2618 17.3519 13.5597 17.031 13.9378 16.8808C13.994 16.8584 14.0498 16.8352 14.105 16.8109C14.4778 16.6476 14.9156 16.6616 15.2412 16.9058L15.5488 17.1365C15.9469 17.4351 16.504 17.3955 16.8559 17.0436L17.0436 16.8559C17.3955 16.504 17.4351 15.9469 17.1365 15.5488L16.9058 15.2412C16.6616 14.9156 16.6476 14.4778 16.811 14.105C16.8352 14.0498 16.8584 13.994 16.8808 13.9378C17.031 13.5597 17.3519 13.2618 17.7549 13.2062L18.3866 13.1191C18.8814 13.0508 19.25 12.6279 19.25 12.1285V11.8715C19.25 11.3721 18.8814 10.9492 18.3866 10.8809L17.7549 10.7938C17.3519 10.7382 17.031 10.4403 16.8808 10.0622C16.8584 10.006 16.8352 9.95021 16.8109 9.89496C16.6476 9.52216 16.6616 9.08437 16.9058 8.75875L17.1365 8.4512C17.4351 8.05308 17.3955 7.49599 17.0436 7.1441L16.8559 6.95642C16.504 6.60453 15.9469 6.56494 15.5488 6.86353L15.2412 7.09419C14.9156 7.33841 14.4778 7.3524 14.105 7.18905C14.0498 7.16484 13.994 7.14156 13.9378 7.11922C13.5597 6.96897 13.2618 6.64815 13.2062 6.24511L13.1191 5.61336Z">
-                    </path>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M13.25 12C13.25 12.6904 12.6904 13.25 12 13.25C11.3096 13.25 10.75 12.6904 10.75 12C10.75 11.3096 11.3096 10.75 12 10.75C12.6904 10.75 13.25 11.3096 13.25 12Z">
-                    </path>
-                  </svg>
-                </div>
-                <a href="#"
-                  class="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Settings</a>
-              </li>
-
-              <li class="relative text-gray-500 hover:text-white focus-within:text-white">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
-                  <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M4.75 5.75C4.75 5.19772 5.19772 4.75 5.75 4.75H9.25C9.80228 4.75 10.25 5.19772 10.25 5.75V9.25C10.25 9.80228 9.80228 10.25 9.25 10.25H5.75C5.19772 10.25 4.75 9.80228 4.75 9.25V5.75Z">
-                    </path>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M4.75 14.75C4.75 14.1977 5.19772 13.75 5.75 13.75H9.25C9.80228 13.75 10.25 14.1977 10.25 14.75V18.25C10.25 18.8023 9.80228 19.25 9.25 19.25H5.75C5.19772 19.25 4.75 18.8023 4.75 18.25V14.75Z">
-                    </path>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M13.75 5.75C13.75 5.19772 14.1977 4.75 14.75 4.75H18.25C18.8023 4.75 19.25 5.19772 19.25 5.75V9.25C19.25 9.80228 18.8023 10.25 18.25 10.25H14.75C14.1977 10.25 13.75 9.80228 13.75 9.25V5.75Z">
-                    </path>
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                      d="M13.75 14.75C13.75 14.1977 14.1977 13.75 14.75 13.75H18.25C18.8023 13.75 19.25 14.1977 19.25 14.75V18.25C19.25 18.8023 18.8023 19.25 18.25 19.25H14.75C14.1977 19.25 13.75 18.8023 13.75 18.25V14.75Z">
-                    </path>
-                  </svg>
-                </div>
-                <a href="#"
-                  class="inline-block w-full py-2 pl-8 pr-4 text-xs rounded hover:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:bg-gray-800">Apps</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- auto generate vehicle report -->
-        <div class="pl-6 pr-4 py-4 bg-[#232529] flex items-center justify-between">
-          <div class="flex items-center">
-            <div
-              class="relative w-8 h-8 rounded-full before:absolute before:w-2 before:h-2 before:bg-green-500 before:rounded-full before:right-0 before:bottom-0 before:ring-1 before:ring-white">
-              <img class="rounded-full"
-                src="https://static.vecteezy.com/system/resources/previews/013/196/146/original/illustration-vector-graphic-of-file-document-icon-3d-png.png"
-                alt="" />
-            </div>
-            <div class="flex flex-col pl-3">
-              <div class="text-sm text-gray-50">Auto Generated</div>
-              <span class="text-xs text-[#acacb0] font-light tracking-tight">
-                Vehicle Report
-              </span>
-            </div>
-          </div>
-          <button
-            class="text-gray-400 bg-gray-700 rounded focus:outline-none focus:ring-1 focus:ring-gray-500 focus:text-white">
-            <svg class="w-4 h-4 -rotate-90 stroke-current" fill="none" viewBox="0 0 24 24">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M15.25 10.75L12 14.25L8.75 10.75"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-
+        </aside>
     </div>
 
-    <!--top navbar-->
-    <div
-      class="2xl:pl-[256px]  bg-white items-center grid grid-cols-[1fr_320px] fixed z-[90] top-0 left-0 dark:bg-pmdark w-full h-[65px] border-2 dark:border-gray-800 border-b-[#1A282B]">
 
-      <!-- search & toggle -->
+    <!--top navbar-->
+    <div id="navBar"
+      class="2xl:pl-[256px] bg-white items-center grid grid-cols-[1fr_320px] fixed z-[90] top-0 left-0 dark:bg-pmdark w-full h-[65px] border-2 dark:border-gray-800 border-b-[#1A282B]">
+
+      <!-- menubtn , search & toggle  -->
       <div class="flex relative justify-between items-center ">
+
+        <!--hamburger menu using js onclick fn -->
+
+        <button id="hamBtn" onclick="openLeftMenu()" class="hidden p-2 text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="currentColor"
+              d="M4 18h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0-5h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zM3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1z" />
+          </svg>
+        </button>
+
+        <!-- <button onclick="shrinkMenu()" class="bg-red-500 p-2 ">Shrink &times;</button>
+        <button onclick="expandMenu()" class="bg-gray-500 p-2 ">Expand &times;</button> -->
+
         <!-- search bar  -->
-        <div class="ml-2 relative">
+        <div class="ml-2 hidden relative">
           <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
             <svg class="w-4 h-4 text-gray-500 stroke-current" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -367,16 +301,21 @@
               <div
                 class="absolute right-0 w-48 mt-2 origin-top-right dark:text-white dark:bg-pmdark bg-white border border-gray-200 dark:border-gray-800 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
                 aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
-                <div class="px-4 py-3">
-                  <p class="text-sm text-accent leading-5">Currently Selected</p>
-                  <p class="text-sm font-medium leading-5 dark:text-white text-gray-900 truncate">NIMS Uae</p>
-                </div>
                 <div class="py-1">
                   <a href="javascript:void(0)" tabindex="0"
-                    class=" flex justify-between w-full px-4 py-2 text-sm leading-5 text-left" role="menuitem">NIMS
-                    Sharjah</a>
+                    class=" flex flex-col justify-between w-full px-4 py-2 text-sm leading-5 text-left" role="menuitem">
+                    <p class="text-sm text-accent leading-5">Currently Selected</p>
+                    <p class="text-sm font-medium leading-5 dark:text-white text-gray-900 truncate">NIMS Uae</p>
+                    <div class="h-[1px] mt-4 w-full bg-gray-800"></div>
+                  </a>
+                  <a href="javascript:void(0)" tabindex="0"
+                    class=" flex justify-between w-full px-4 dark:text-gray-300 py-2 text-sm leading-5 text-left"
+                    role="menuitem">NIMS
+                    Sharjah
+                  </a>
                   <a href="javascript:void(0)" tabindex="1"
-                    class=" flex justify-between w-full px-4 py-2 text-sm leading-5 text-left" role="menuitem">TCS
+                    class=" flex justify-between w-full px-4 py-2 text-sm dark:text-gray-300 leading-5 text-left"
+                    role="menuitem">TCS
                     Ajman</a>
                   <span role="menuitem" tabindex="-1"
                     class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left  cursor-not-allowed opacity-50"
@@ -387,25 +326,26 @@
                   <span role="menuitem" tabindex="-1"
                     class="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left  cursor-not-allowed opacity-50"
                     aria-disabled="true">Oxford Tvm (soon)</span>
+                  <a href="javascript:void(0)" tabindex="0"
+                    class=" flex flex-col justify-center  w-full px-4 py-2 text-sm leading-5 text-left" role="menuitem">
+                    <div class="h-[1px] mb-4 w-full bg-gray-800"></div>
+                    <p class="text-sm font-medium leading-5 dark:text-gray-300 text-gray-900 truncate">All Schools</p>
+                  </a>
                 </div>
-                <div class="py-1">
-                  <a href="javascript:void(0)" tabindex="3"
-                    class=" flex justify-between w-full px-4 py-2 text-sm leading-5 text-left" role="menuitem">All
-                    School</a>
-                </div>
+
               </div>
             </div>
           </div>
         </div>
 
-        <input id="inputBox" class="hidden xl:block dark:bg-gray-700 p-1 dark:text-white border border-black"
+        <input id="inputBox" class="hidden xl:block w-12 dark:bg-gray-700  dark:text-white border border-black"
           value="100" type="number" step="5" min="0" max="100" placeholder="progress">
 
-        <input id="inputBoxArrear" class="hidden xl:block dark:bg-gray-700 p-1 dark:text-white border border-black"
+        <input id="inputBoxArrear" class="hidden xl:block w-12 dark:bg-gray-700 dark:text-white border border-black"
           value="60" type="number" step="5" min="0" max="100" placeholder="arrear">
 
         <!-- light & dark toggle button -->
-        <div class="mr-8 flex items-center justify-center space-x-2">
+        <div class="mr-8 relative flex items-center justify-center space-x-2">
           <span class="text-sm text-gray-800 dark:text-gray-500">Light</span>
           <label for="toggle"
             class="flex items-center h-5 p-1 duration-300 ease-in-out bg-gray-300 rounded-full cursor-pointer w-9 dark:bg-gray-600">
@@ -417,6 +357,32 @@
           <input id="toggle" type="checkbox" class="hidden" :value="darkMode" @change="darkMode = !darkMode" />
         </div>
 
+        <!-- menubar checkbox example -->
+        <!-- <input id="menuBtn" type="checkbox" class="peer" checked>
+
+        <label for="menuBtn" class="p-4 bg-yellow-800 peer-checked:rotate-90"></label>
+
+        <div 
+          class="z-[1000] absolute h-full left-0 top-0 dark:text-white bg-red-800 w-[300px] peer-checked:translate-x-[10px]">
+          side menu</div> -->
+
+
+
+        <!-- 
+        <input type="checkbox" id="drawer-toggle" class="relative sr-only peer" checked>
+
+        <label for="drawer-toggle"
+          class="absolute top-0 left-0 inline-block p-4 transition-all duration-500 bg-indigo-500 rounded-lg peer-checked:rotate-180 peer-checked:left-64">
+          <div class="w-6 h-1 mb-3 -rotate-45 bg-white rounded-lg"></div>
+          <div class="w-6 h-1 rotate-45 bg-white rounded-lg"></div>
+        </label>
+        <div
+          class="fixed top-0 left-0 z-20 w-64 h-full transition-all duration-500 transform -translate-x-full bg-white shadow-lg peer-checked:translate-x-0">
+          <div class="px-6 py-4">
+            <h2 class="text-lg font-semibold">Drawer</h2>
+            <p class="text-gray-500">This is a drawer.</p>
+          </div>
+        </div> -->
 
 
       </div>
@@ -556,19 +522,20 @@
       <!-- Crew -->
       <div class="mt-6">
         <p class="text-subtitle">Crew</p>
-        <div class="flex justify-between gap-2 mt-2">
-          <div class="flex items-center w-full rounded-lg  gap-2 bg-scdark p-3">
+        <div class="flex justify-between mt-2 rounded-lg bg-scdark h-[40px]">
+          <div class="flex items-center w-full gap-2  px-2">
             <img src="/assets/profile.webp" class="w-[20px] h-[20px] object-cover rounded-full" alt="">
             <div class="text-small">
               <p>Soleman Fakeeh</p>
               <p class="text-gray-400">Driver</p>
             </div>
           </div>
-          <div class="flex items-center w-full rounded-lg  gap-2 bg-scdark p-3">
+          <div class="w-[1px] h-full bg-gray-800"></div>
+          <div class="flex items-center w-full  gap-2  p-3">
             <img src="/assets/profile.webp" class="w-[20px] h-[20px] object-cover rounded-full" alt="">
             <div class="text-small">
-              <p>Soleman Fakeeh</p>
-              <p class="text-gray-400">Driver</p>
+              <p>Faheem Irshad</p>
+              <p class="text-gray-400">Conductor</p>
             </div>
           </div>
 
@@ -592,7 +559,7 @@
           <p>08:00</p>
           <p>08:00</p>
         </div>
-        <div class="relative h-[20px] w-full bg-scdark mt-3">
+        <div class="relative h-[10px] overflow-hidden w-full bg-gray-700 mt-3">
           <div class="absolute h-full bg-green-500 w-[100px] left-[10px]"></div>
           <div class="absolute h-full bg-red-500 w-[20px] left-[110px]"></div>
           <div class="absolute h-full bg-gray-500 w-[40px] left-[130px]"></div>
@@ -603,9 +570,9 @@
       <div class="mt-6">
         <p class="text-subtitle">Map</p>
         <!-- map integration -->
-        <div class="mt-2 w-full h-[140px] overflow-hidden rounded-lg relative bg-red-800">
+        <div class="mt-2 w-full h-[240px] overflow-hidden rounded-lg relative bg-red-800">
           <img class="w-full h-full transform  object-cover" src="/assets/map-live.png" alt="">
-          <div class="w-[30px] h-[30px] bg-green-500  animate-ping rounded-full absolute top-[100px] right-[125px]">
+          <div class="w-[30px] h-[30px] bg-green-500  animate-ping rounded-full absolute top-[150px] right-[125px]">
           </div>
         </div>
       </div>
@@ -646,7 +613,7 @@
     </div>
 
     <!-- Main section -->
-    <div
+    <div id="mainContentArea"
       class="dark:bg-pmdark dark:text-gray-100 w-full overflow-y-scroll h-full 2xl:pl-[256px] pt-[65px] xl:pr-[320px]">
 
       <!-- two meters -->
@@ -1625,7 +1592,8 @@
             <div class="h-[2px] w-full dark:bg-gray-800 bg-gray-500 "></div>
 
             <div class="flex items-center justify-between">
-              <p class="text-title">No of Vehicles</p>
+
+              <p class=" text-title">No of Vehicles</p>
               <button class="text-subtitleclr dark:text-accent !text-accent ">View all</button>
             </div>
 
@@ -1669,7 +1637,7 @@
 
             <div class="flex items-center justify-between ">
               <div class="flex gap-2">
-                <div class="flex  pt-1 justify-start items-start"><img src="./assets/calndr icon.svg" alt=""></div>
+                <div class="flex  pt-1 justify-start items-start"><img src="./assets/calendar.svg" alt=""></div>
                 <div>
                   <p class="text-subtitleclr text-subtitlecolor">Last Update: <br>
                     <!-- Unauthorized travel last update time -->
@@ -1831,7 +1799,7 @@
 
             <div class="flex items-center justify-between ">
               <div class="flex gap-2">
-                <div class="flex  pt-1 justify-start items-start"><img src="./assets/calndr icon.svg" alt=""></div>
+                <div class="flex  pt-1 justify-start items-start"><img src="./assets/calendar.svg" alt=""></div>
                 <div>
                   <p class="text-subtitleclr text-subtitlecolor">Last Update:
 
@@ -1960,119 +1928,185 @@
 
           <!-- Doc renewal -->
           <div
-            class="min-h-[220px] p-4 flex flex-col justify-between border border-[#e4e4e4] dark:border-[#333333] dark:bg-scdark bg-sclight">
+            class="min-h-[220px] w-full p-4 flex flex-col justify-between border border-[#e4e4e4] dark:border-[#333333] dark:bg-scdark bg-sclight">
 
-            <div id="maindiv" class=" bg-[#1a1c1e] rounded-lg">
-              <div class="flex justify-between py-4 px-3">
-                <p class="text-white">Document Renewals</p>
-                <p class="text-green-700">View all</p>
-              </div>
+            <!-- <div card-stack>
 
-              <div class="flex items-center justify-between px-3 pb-3">
-                <div class="flex items-center justify-center gap-2">
-                  <div class="bg-orange-500 w-[10px] h-[10px] rounded-3xl"></div>
-                  <div>
-                    <p class="text-white">NIMS : 12</p>
-                  </div>
-                </div>
-                <div class="flex items-center justify-center gap-2">
-                  <div class="bg-yellow-500 w-[10px] h-[10px] rounded-3xl"></div>
-                  <div>
-                    <p class="text-white">TOTAL : 13</p>
-                  </div>
+              <input id="card-0" name="card-set" type="radio" checked />
+              <div card>
+                <div class="content">
+                  <h2>Steps to Frontend Success</h2>
+                  <p>A life well lived.</p>
+                  <label for="card-1">Learn More</label>
                 </div>
               </div>
 
-              <div class="stack h-[270px]">
-                <div value="1" class="card w-[350px] h-[170px] bg-green-500">
-                  <div class="w-[280px] pb-">
-                    <div class="flex items-center justify-between">
-                      <p>Mini bus</p>
-                      <p class="font-semibold">Nearest Expiry</p>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <p class="font-semibold">KL 12345</p>
-                      <p>Only <span class="font-semibold">5</span>days left</p>
-                    </div>
-                  </div>
-
-                  <div class="w-[280px]">
-                    <div class="flex items-center justify-between">
-                      <p class="">Document Type</p>
-                      <p class="font-semibold">Expiry Date</p>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <p>Tax permit</p>
-                      <p class="font-semibold">24 Jan 2024</p>
-                    </div>
-                  </div>
-                </div>
-                <div value="3" class="card w-[350px] h-[170px] bg-blue-400">
-                  <div class="w-[280px]">
-                    <div class="flex items-center justify-between">
-                      <p>Mini bus</p>
-                      <p class="font-semibold">Nearest Expiry</p>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <p class="font-semibold">KL 12345</p>
-                      <p>Only <span class="font-semibold">5</span>days left</p>
-                    </div>
-                  </div>
-
-                  <div class="w-[280px]">
-                    <div class="flex items-center justify-between">
-                      <p class="">Document Type</p>
-                      <p class="font-semibold">Expiry Date</p>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <p>Tax permit</p>
-                      <p class="font-semibold">24 Jan 2024</p>
-                    </div>
-                  </div>
-                </div>
-                <div value="3" class="card w-[350px] h-[170px] bg-pink-300">
-                  <div class="w-[280px]">
-                    <div class="flex items-center justify-between">
-                      <p>Mini bus</p>
-                      <p class="font-semibold">Nearest Expiry</p>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <p class="font-semibold">KL 12345</p>
-                      <p>Only <span class="font-semibold">5</span>days left</p>
-                    </div>
-                  </div>
-
-                  <div class="w-[280px]">
-                    <div class="flex items-center justify-between">
-                      <p class="">Document Type</p>
-                      <p class="font-semibold">Expiry Date</p>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <p>Tax permit</p>
-                      <p class="font-semibold">24 Jan 2024</p>
-                    </div>
-                  </div>
+              <input id="card-1" name="card-set" type="radio" />
+              <div card>
+                <div class="content">
+                  <h2>Step 1</h2>
+                  <p>Write some markup.</p>
+                  <label for="card-2">Go to 2</label>
                 </div>
               </div>
+
+              <input id="card-2" name="card-set" type="radio" />
+              <div card>
+                <div class="content">
+                  <h2>Step 2</h2>
+                  <p>Write some CSS.</p>
+                  <label for="card-3">Go to 3</label>
+                </div>
+              </div>
+
+              <input id="card-3" name="card-set" type="radio" />
+              <div card>
+                <div class="content">
+                  <h2>Step 3</h2>
+                  <p>Look up stuff on MDN.</p>
+                  <label for="card-4">Go to 4</label>
+                </div>
+              </div>
+
+              <input id="card-4" name="card-set" type="radio" />
+              <div card>
+                <div class="content">
+                  <h2>Step 4</h2>
+                  <p>Switch Pre-Processors. Because things are starting to get complicated.</p>
+                  <label for="card-5">Go to 5</label>
+                </div>
+              </div>
+
+              <input id="card-5" name="card-set" type="radio" />
+              <div card>
+                <div class="content">
+                  <h2>Step 5</h2>
+                  <p>Thow out your work start over, becasuse this time you definately choose the right framework.</p>
+                  <label for="card-6">Go to 6</label>
+                </div>
+              </div>
+
+              <input id="card-6" name="card-set" type="radio" />
+              <div card>
+                <div class="content">
+                  <h2>Step 6</h2>
+                  <p>Break down and cry.</p>
+                  <label for="card-7">Go to 7</label>
+                </div>
+              </div>
+
+              <input id="card-7" name="card-set" type="radio" />
+              <div card>
+                <div class="content">
+                  <h2>Step 7</h2>
+                  <p>Curl up in fetal position.</p>
+                  <label for="card-8">Go to 8</label>
+                </div>
+              </div>
+
+              <input id="card-8" name="card-set" type="radio" />
+              <div card>
+                <div class="content">
+                  <h2>Step 8</h2>
+                  <p>Write more CSS to cover up your already bad CSS.</p>
+                  <label for="card-0">Start Over</label>
+                </div>
+              </div>
+
             </div>
+ -->
 
+          <img src="assets/card-stack.svg" alt="">
           </div>
 
         </div>
         <!-- end cards -->
 
         <!-- help us tickets -->
-        <div class="px-6 w-full">
-          <div class="min-h-[300px] w-full border border-[#e4e4e4] dark:border-[#333333] dark:bg-scdark bg-sclight">Help
-            us tickets</div>
+        <div class="px-6 py-2 w-full">
+          <div
+            class="min-h-[200px] rounded-lg w-full border border-[#e4e4e4] dark:border-[#333333] dark:bg-scdark bg-sclight flex flex-col justify-between p-4">
+
+            <div class="flex justify-between">
+              <div class="flex gap-10">
+                <p class="text-white">Tickets</p>
+                <div class="flex gap-2 justify-center ">
+                  <img src="assets/calendar.svg" class="h-[18px] w-[18px]" alt="icon">
+                  <p class="flex flex-col md:flex-row text-subtitleclr">Last Update : <span class="text-white">2 days
+                      ago</span></p>
+                </div>
+              </div>
+              <p class="text-green-700">View all</p>
+            </div>
+
+            <div class="flex flex-col gap-4 mt-8 md:flex-row justify-between">
+              <div class="flex md:flex-col gap-6 justify-between">
+                <div class="flex justify-center gap-4">
+                  <img src="/assets/total.svg" class="h-[40px] w-[40px] " alt="open">
+                  <div>
+                    <p class="text-title">4210</p>
+                    <p class="text-subtitleclr">Total</p>
+                  </div>
+                </div>
+
+                <div class="flex justify-center pr-3 md:pr-0 gap-4">
+                  <img src="/assets/closed.svg" class="h-[40px] w-[40px] " alt="open">
+                  <div>
+                    <p class="text-title">4010</p>
+                    <p class="text-subtitleclr">Closed</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-row md:flex-col gap-6 justify-between">
+                <div class="flex justify-center gap-4">
+                  <img src="/assets/rejected.svg" class="h-[40px] w-[40px] " alt="open">
+                  <div>
+                    <p class="text-title">51</p>
+                    <p class="text-subtitleclr">Rejected</p>
+                  </div>
+                </div>
+
+                <div class="flex justify-center gap-4">
+                  <img src="/assets/resolved.svg" class="h-[40px] w-[40px] " alt="open">
+                  <div>
+                    <div class="flex gap-4">
+                      <p class="text-title">124</p>
+                      <!-- <p class="text-small">(by Dept)</p> -->
+                    </div>
+                    <p class="text-subtitleclr">Resolved</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-row md:flex-col gap-6  justify-between md:items-start  md:justify-start">
+                <div class="flex justify-center gap-4">
+                  <img src="/assets/open.svg" class="h-[40px] w-[40px] " alt="open">
+                  <div>
+                    <p class="text-title">66</p>
+                    <p class="text-subtitleclr">Open</p>
+                  </div>
+                </div>
+
+                <div class="flex justify-center gap-4">
+                  <img src="/assets/assigned.svg" class="h-[40px] w-[40px] " alt="open">
+                  <div>
+                    <p class="text-title">11</p>
+                    <p class="text-subtitleclr">Assigned</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
         </div>
 
       </div>
 
     </div>
   </div>
-
-
 
   <script src="/script.js"></script>
 </body>
@@ -2102,5 +2136,6 @@
     transform-origin: 50% 50%;
   }
 </style>
+
 
 </html>
