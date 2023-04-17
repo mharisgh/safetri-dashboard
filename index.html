@@ -72,19 +72,19 @@
 
     <!-- left sidebar -->
     <div id="leftMenu"
-      class="transition-all expandShrink h-screen duration-500 transform absolute  2xl:block hidden  z-[100] w-[256px]">
+      class="transition-all expandShrink h-screen duration-500 transform absolute 2xl:block hidden  z-[100] w-[256px]">
 
       <div
-        class="border px-3 py-4 w-full h-full bg-gray-50 dark:bg-pmdark border-black border-r-gray-700 flex flex-col justify-between"
+        class="border px-3 py-4 w-full h-full bg-gray-50 dark:bg-pmdark dark:border-black dark:border-r-gray-700 flex flex-col justify-between"
         aria-label="Sidebar">
 
-        <!-- left side nav bar contents -->
+        <!-- left sidebar contents -->
         <div>
           <div class="flex mb-10  items-center justify-between">
             <!-- logo -->
             <a href="#" class="flex justify-center items-center gap-4 text-lg ">
               <img src="/assets/safetri-light.svg" alt="">
-              <p class="text-white">Safe<span class="text-gray-400">Tri</span></p>
+              <p class="dark:text-white font-bold">Safe<span class="text-gray-500 dark:text-gray-400">Tri</span></p>
             </a>
             <!-- expand shrink btn old -->
             <!-- <button onclick="closeLeftMenu()"
@@ -99,9 +99,9 @@
             </button> -->
             <!-- expand shrink button -->
             <button onclick="closeLeftMenu()"
-              class="w-[34px] flex justify-center items-center h-[34px] bg-pmdark rounded-full border border-gray-700 focus:outline-none focus:ring-1 focus:ring-gray-500">
-              <svg class="dark:text-white rotate-180 pl-[1px]" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
-                viewBox="0 0 24 24">
+              class="w-[34px] flex justify-center items-center  h-[34px] bg-gray-200 dark:bg-pmdark rounded-full border dark:border-gray-700 border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-500">
+              <svg class="dark:text-white text-gray-700 rotate-180 pl-[1px]" xmlns="http://www.w3.org/2000/svg"
+                width="26" height="26" viewBox="0 0 24 24">
                 <path fill="currentColor"
                   d="M8.7 17.3q-.275-.275-.275-.7t.275-.7l3.9-3.9l-3.9-3.9q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275l4.6 4.6q.15.15.213.325t.062.375q0 .2-.063.375t-.212.325l-4.6 4.6q-.275.275-.7.275t-.7-.275Z" />
               </svg>
@@ -112,9 +112,9 @@
           <!-- <div class="h-[1px] bg-gray-800 w-full"></div> -->
 
           <ul class="space-y-2">
-            <li>
+            <li class="">
               <a href="#"
-                class="flex items-center p-2 text-title font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                class="flex uppercase font-semibold text-subtitle items-center p-2  dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
                 <svg
                   class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                   fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -126,7 +126,7 @@
             </li>
             <li>
               <button type="button"
-                class="flex items-center w-full p-2 text-title font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                class="flex items-center w-full p-2  text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                 aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
                 <svg
                   class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
@@ -135,7 +135,8 @@
                     d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
                     clip-rule="evenodd"></path>
                 </svg>
-                <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item>Vehicle Settings</span>
+                <span class="flex-1  ml-3 text-left whitespace-nowrap uppercase  text-subtitle"
+                  sidebar-toggle-item>Vehicle Settings</span>
                 <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
@@ -168,7 +169,7 @@
                     d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
                   </path>
                 </svg>
-                <span class="flex-1 ml-3 whitespace-nowrap">Contract</span>
+                <span class="uppercase text-subtitle flex-1 ml-3 whitespace-nowrap">Contract</span>
                 <span
                   class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">new</span>
               </a>
@@ -186,7 +187,7 @@
                     d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z">
                   </path>
                 </svg>
-                <span class="flex-1 ml-3 whitespace-nowrap">Vendors</span>
+                <span class="flex-1 ml-3  uppercase text-subtitle whitespace-nowrap">Vendors</span>
                 <span
                   class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">3</span>
               </a>
@@ -200,7 +201,7 @@
                   <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
                   </path>
                 </svg>
-                <span class="flex-1 ml-3 whitespace-nowrap">Student Management</span>
+                <span class="flex-1 ml-3 uppercase text-subtitle whitespace-nowrap">Student Management</span>
               </a>
             </li>
             <li>
@@ -213,7 +214,7 @@
                     d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
                     clip-rule="evenodd"></path>
                 </svg>
-                <span class="flex-1 ml-3 whitespace-nowrap">Documents</span>
+                <span class="flex-1 ml-3 uppercase text-subtitle whitespace-nowrap">Documents</span>
               </a>
             </li>
             <li>
@@ -226,7 +227,7 @@
                     d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
                     clip-rule="evenodd"></path>
                 </svg>
-                <span class="flex-1 ml-3 whitespace-nowrap">User Management</span>
+                <span class="flex-1 ml-3 whitespace-nowrap uppercase text-subtitle">User Management</span>
               </a>
             </li>
             <li>
@@ -239,16 +240,16 @@
                     d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
                     clip-rule="evenodd"></path>
                 </svg>
-                <span class="flex-1 ml-3 whitespace-nowrap">Report</span>
+                <span class="flex-1 ml-3 whitespace-nowrap uppercase text-subtitle">Report</span>
               </a>
             </li>
           </ul>
         </div>
 
-        <div class="flex justify-around text-subtitle rounded-lg bg-[#282a2c] py-3">
+        <div class="flex justify-around text-subtitle rounded-lg bg-gray-300 dark:bg-[#282a2c] py-3">
           <img src="/assets/auto-generate.svg" alt="">
-          <p class="dark:text-white">Auto Generate <br> Vehicle Report</p>
-          <img src="/assets/double-arrow.svg" alt="">
+          <p class="dark:text-white text-subtitle">Auto Generate <br> Vehicle Report</p>
+          <img src="/assets/double-arrow.svg" class="invert dark:invert-0" alt="">
         </div>
 
       </div>
@@ -257,14 +258,14 @@
 
     <!--top navbar-->
     <div id="navBar"
-      class="2xl:pl-[256px] bg-white items-center grid grid-cols-[1fr_320px] fixed z-[90] top-0 left-0 dark:bg-pmdark w-full h-[65px] border-2 dark:border-gray-800 border-b-[#1A282B]">
+      class="2xl:pl-[256px] bg-white items-center grid grid-cols-[1fr_320px] fixed z-[90] top-0 left-0 dark:bg-pmdark w-full h-[65px] border-2 dark:border-gray-800 dark:border-b-[#1A282B]">
 
       <!-- menubtn , search & toggle  -->
       <div class="flex relative justify-between items-center ">
 
         <!--hamburger menu using js onclick fn -->
 
-        <button id="hamBtn" onclick="openLeftMenu()" class=" p-2 text-white">
+        <button id="hamBtn" onclick="openLeftMenu()" class=" p-2 text-gray-600 dark:text-white">
           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
             <path fill="currentColor"
               d="M4 18h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0-5h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zM3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1z" />
@@ -294,7 +295,7 @@
             <span class="rounded-md shadow-sm">
 
               <button
-                class="flex w-48 items-center px-4 py-2 justify-between dark:text-gray-200 transition duration-150 ease-in-out dark:bg-scdark border border-gray-800 rounded-md dark:hover:text-white focus:outline-none focus:border-green-900 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+                class="flex w-48 items-center px-4 py-2 justify-between dark:text-gray-200 transition duration-150 ease-in-out dark:bg-scdark border dark:border-gray-800 rounded-md dark:hover:text-white focus:outline-none focus:border-green-900 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
                 type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
 
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
@@ -359,11 +360,13 @@
         </div>
 
         <!-- meter working demo -->
-        <input id="inputBox" class="hidden xl:block w-12 dark:bg-gray-700  dark:text-white border border-black"
+        <input id="inputBox"
+          class="hidden xl:block w-14 dark:bg-gray-900  dark:text-white border dark:border-gray-800 border-gray-300 rounded-l px-1"
           value="100" type="number" step="5" min="0" max="100" placeholder="progress">
 
         <!-- meter working demo -->
-        <input id="inputBoxArrear" class="hidden xl:block w-12 dark:bg-gray-700 dark:text-white border border-black"
+        <input id="inputBoxArrear"
+          class=" dark:border-gray-800 border-gray-300 dark:bg-gray-900 hidden xl:block w-12 dark:bg-gray-700 dark:text-white border border-black"
           value="60" type="number" step="5" min="0" max="100" placeholder="arrear">
 
         <!-- light & dark toggle button -->
@@ -426,12 +429,13 @@
 
     <!-- right sidebar | Trips live status -->
     <div
-      class="h-screen hidden xl:block fixed z-[120] mt-[65px] dark:bg-pmdark border-2 right-0  w-[320px] border-black border-l-[#1A282B] ">
+      class="h-screen hidden xl:block fixed z-[120] mt-[65px] dark:bg-pmdark border-2 right-0  w-[320px] dark:border-black dark:border-l-[#1A282B] ">
 
       <!-- expand shrink button -->
       <button
-        class="absolute top-[42px] -left-[18px] w-[34px] flex justify-center items-center h-[34px] bg-pmdark rounded-full border border-gray-700 ">
-        <svg class="dark:text-white" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
+        class="absolute top-[42px] -left-[18px] w-[34px] flex justify-center bg-gray-200 dark:bg-pmdark items-center h-[34px] rounded-full border dark:border-gray-700 border-gray-300">
+        <svg class="ml-1 dark:text-white text-gray-700" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+          viewBox="0 0 24 24">
           <path fill="currentColor"
             d="M8.7 17.3q-.275-.275-.275-.7t.275-.7l3.9-3.9l-3.9-3.9q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275l4.6 4.6q.15.15.213.325t.062.375q0 .2-.063.375t-.212.325l-4.6 4.6q-.275.275-.7.275t-.7-.275Z" />
         </svg>
@@ -471,12 +475,12 @@
               <span class="rounded-md shadow-sm">
 
                 <button
-                  class="flex w-24 items-center px-4 py-2 justify-between dark:text-gray-200 transition duration-150 ease-in-out dark:bg-scdark border border-gray-800 rounded-md dark:hover:text-white focus:outline-none focus:border-green-900 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+                  class="flex w-24 items-center px-4 py-2 justify-between dark:text-gray-200 transition duration-150 ease-in-out dark:bg-scdark border dark:border-gray-800 rounded-md dark:hover:text-white focus:outline-none focus:border-green-900 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
                   type="button" aria-haspopup="true" aria-expanded="true" aria-controls="headlessui-menu-items-117">
 
 
                   <p class="text-subtitle">Bus <span id="busCount" class="">08</span></p>
-                  <img src="/assets/arrow.svg" class="rotate-180
+                  <img src="/assets/arrow.svg" class="invert dark:invert-0 rotate-180
               " alt="">
                 </button>
 
@@ -486,7 +490,7 @@
               <div
                 class="opacity-0 invisible dropdown-menu transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
                 <div
-                  class="absolute right-0 w-24 mt-2 origin-top-right dark:text-white dark:bg-pmdark bg-white border border-gray-200 dark:border-gray-800 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
+                  class="absolute right-0 w-24 mt-2 origin-top-right dark:text-white dark:bg-pmdark bg-white border border-red-500 dark:border-gray-800 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
                   aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
 
                   <div class="py-1">
@@ -512,15 +516,15 @@
             <div class="flex
         ">
               <button
-                class="flex w-8 h-8 items-center justify-center dark:bg-scdark border border-gray-800 rounded-md dark:hover:text-white focus:outline-none focus:border-green-900 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+                class="flex w-8 h-8 items-center justify-center dark:bg-scdark border dark:border-gray-800 rounded-md dark:hover:text-white focus:outline-none focus:border-green-900 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
                 type="button">
-                <img src="/assets/arrow.svg" class="-rotate-90
+                <img src="/assets/arrow.svg" class="invert dark:invert-0 -rotate-90
         " alt="">
               </button>
               <button
-                class="flex w-8 h-8 items-center justify-center dark:bg-scdark border border-gray-800 rounded-md dark:hover:text-white focus:outline-none focus:border-green-900 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+                class="flex w-8 h-8 items-center justify-center dark:bg-scdark border dark:border-gray-800 rounded-md dark:hover:text-white focus:outline-none focus:border-green-900 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
                 type="button">
-                <img src="/assets/arrow.svg" class="rotate-90
+                <img src="/assets/arrow.svg" class="invert dark:invert-0 rotate-90
         " alt="">
               </button>
             </div>
@@ -538,16 +542,21 @@
           <div class="flex justify-center mt-2 items-center">
             <div class="h-[14px] w-[15px] bg-white rounded-full border-[3px] border-green-500 "></div>
             <div class="h-[3px] w-full bg-green-500 rounded-full relative ">
-              <img src="/assets/nav.svg"
-                class="h-[16px] w-[16px] absolute animate-[navMove_10s_ease-in-out_infinite] -top-[7.5px] left-[4px]"
-                alt="">
+              <svg
+                class="text-green-700 dark:text-green-100 absolute animate-[navMove_10s_ease-in-out_infinite] -top-[9.5px] left-[4px]"
+                xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24">
+                <g transform="rotate(90 12 12)">
+                  <path fill="currentColor"
+                    d="M5.675 20.725q-.3.125-.612.063t-.538-.288q-.225-.225-.288-.537t.063-.613l6.8-15.3q.275-.6.925-.6t.925.6l6.8 15.3q.125.3.063.613t-.288.537q-.225.225-.537.288t-.613-.063L12.025 18l-6.35 2.725Z" />
+                </g>
+              </svg>
             </div>
             <div class="h-[14px] bg-white rounded-full border-[3px] border-green-500 w-[15px]"></div>
           </div>
           <!-- route location  -->
           <div class="flex justify-between text-gray-400 text-subtitle mt-2">
             <p>Al Warqa 2</p>
-            <p class="text-gray-700">---------</p>
+            <p class="text-gray-200 dark:text-gray-700">---------</p>
             <p>Al Qusais</p>
           </div>
         </div>
@@ -555,17 +564,17 @@
         <!-- Crew -->
         <div class="mt-6">
           <p class="text-subtitle">Crew</p>
-          <div class="flex justify-between mt-2 rounded-lg bg-scdark h-[40px]">
+          <div class="flex justify-between mt-2 rounded-lg dark:bg-scdark h-[40px] bg-sclight">
             <div class="flex items-center w-full gap-2  px-2">
-              <img src="/assets/profile.webp" class="w-[20px] h-[20px] object-cover rounded-full" alt="">
+              <img src="/assets/driver.png" alt="">
               <div class="text-small">
                 <p>Soleman Fakeeh</p>
                 <p class="text-gray-400">Driver</p>
               </div>
             </div>
-            <div class="w-[1px] h-full bg-gray-800"></div>
+            <div class="w-[1px] h-full bg-gray-300 dark:bg-gray-800"></div>
             <div class="flex items-center w-full  gap-2  p-3">
-              <img src="/assets/profile.webp" class="w-[20px] h-[20px] object-cover rounded-full" alt="">
+              <img src="/assets/conductor.png" class="w-[20px] h-[20px] object-cover rounded-full" alt="">
               <div class="text-small">
                 <p>Faheem Irshad</p>
                 <p class="text-gray-400">Conductor</p>
@@ -592,10 +601,10 @@
             <p>08:00</p>
             <p>08:00</p>
           </div>
-          <div class="relative h-[10px] overflow-hidden w-full bg-gray-700 mt-3">
+          <div class="relative h-[10px] overflow-hidden w-full bg-sclight dark:bg-gray-700 mt-3">
             <div class="absolute h-full bg-green-500 w-[100px] left-[10px]"></div>
             <div class="absolute h-full bg-red-500 w-[20px] left-[110px]"></div>
-            <div class="absolute h-full bg-gray-500 w-[40px] left-[130px]"></div>
+            <div class="absolute h-full bg-gray-300 dark:bg-gray-500 w-[40px] left-[130px]"></div>
           </div>
         </div>
 
@@ -604,7 +613,8 @@
           <p class="text-subtitle">Map</p>
           <!-- map integration -->
           <div class="mt-2 w-full h-[240px] overflow-hidden rounded-lg relative bg-red-800">
-            <img class="w-full h-full transform  object-cover" src="/assets/map-live.png" alt="">
+            <img id="map-dark" class="w-full h-full transform  object-cover" src="/assets/map-live.png" alt="">
+            <img id="map-light" class="w-full h-full  object-cover" src="/assets/map-light.png" alt="">
             <div class="w-[30px] h-[30px] bg-green-500  animate-ping rounded-full absolute top-[150px] right-[125px]">
             </div>
           </div>
@@ -614,19 +624,19 @@
         <div class="mt-6">
           <p class="text-subtitle">Live Camera</p>
           <div>
-            <div class="w-full flex justify-between overflow-hidden rounded-lg mt-2 bg-scdark">
-              <div class="bg-[#232323] p-1 text-center w-full">
+            <div class="w-full flex justify-between overflow-hidden rounded-lg mt-2 bg-sclight dark:bg-scdark">
+              <a href="#camera1" class="bg-gray-300 dark:bg-[#232323] p-1 text-center w-full">
                 <p class="text-subtitle">Camera 1</p>
-                <p class="text-small text-gray-400">CABIN</p>
-              </div>
-              <div class=" w-full p-1 text-center">
+                <p class="text-small text-gray-500">CABIN</p>
+              </a>
+              <a href="#camera2" class=" w-full p-1 text-center">
                 <p class="text-subtitle">Camera 2</p>
-                <p class="text-small text-gray-400">DOOR</p>
-              </div>
-              <div class=" w-full p-1 text-center">
+                <p class="text-small text-gray-500">DOOR</p>
+              </a>
+              <a href="#camera3" class=" w-full p-1 text-center">
                 <p class="text-subtitle">Camera 3</p>
-                <p class="text-small text-gray-400">DRIVER</p>
-              </div>
+                <p class="text-small text-gray-500">DRIVER</p>
+              </a>
             </div>
           </div>
           <div class="relative mt-4 ">
@@ -649,12 +659,12 @@
 
     <!-- Main section -->
     <div id="mainContentArea"
-      class="dark:bg-pmdark dark:text-gray-100 w-full overflow-y-scroll h-full 2xl:pl-[256px] pt-[65px] xl:pr-[320px]">
+      class="dark:bg-pmdark bg-[#f9f9f9] dark:text-gray-100 w-full overflow-y-scroll h-full 2xl:pl-[256px] pt-[65px] xl:pr-[320px]">
 
-      <!-- two meters dark theme -->
+      <!-- two meters  -->
       <div id="meter-dark" class="hidden lg:flex mt-6 justify-evenly w-full">
 
-        <!-- meter 1 | students registered  -->
+        <!-- meter 1 | vacancy  -->
         <div class="flex">
 
           <!-- maintenance meter -->
@@ -1112,7 +1122,7 @@
             </div>
 
             <!-- progress text box -->
-            <div class="p-4 w-[260px] mt-4 rounded-lg bg-scdark flex justify-center items-center ">
+            <div class="p-4 w-[260px] mt-4 rounded-lg bg-gray-200 dark:bg-scdark flex justify-center items-center ">
 
               <p class="text-subtitle text-center">Good Progress. <span class="font-bold text-green-500">2%
                   more</span> students subscribed this week than last week</p>
@@ -1133,15 +1143,13 @@
           <p class="text-subtitle">SHARJAH</p>
         </div>
 
-        <!-- meter 2 | aed collected meter -->
+        <!-- meter 2 | Arrear speedometer -->
         <div class="flex">
 
-          <!-- Arrear meter -->
           <div class="flex flex-col items-center">
-            <!-- Vacancy guage meter -->
             <div class="relative">
 
-              <!-- meter -->
+              <!-- meter dark -->
               <div class="relative flex justify-center">
                 <svg width="270" height="270" viewBox="0 0 573 584" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g filter="url(#filter0_di_151_19034)">
@@ -1370,26 +1378,31 @@
                 </div>
 
               </div>
+
+
+
             </div>
 
             <!-- students count -->
-            <div class="text-2xl flex flex-col justify-center items-center">
+            <div class="text-2xl flex flex-col justify-center font-bold items-center">
               <div class=" flex gap-2">
-                <p class=" font-bold text-green-500" id="currentStudents">27k</p>
-                <p id="totalStudents" class="text-gray-500 font-bold"><span>/ </span>50k</p>
+                <p class=" text-green-500" id="currentArrear">27</p><span class="font-semibold -ml-[6px]">k</span>
+                <p class="text-gray-500 font-bold" id=totalArrear">
+                  / &nbsp<span class="text-gray-s500 -ml-[6px]">50
+                  </span>k</p>
               </div>
               <p class="text-sm text-gray-500">AED Collected</p>
             </div>
 
             <!-- progress text box -->
-            <div class="p-4 w-[260px] mt-4 rounded-lg bg-scdark flex justify-center items-center "">
+            <div class="p-4 w-[260px] mt-4 rounded-lg bg-gray-200 dark:bg-scdark flex justify-center items-center "">
 
               <p class=" text-subtitle text-center">Needs Improvement! <span class="font-bold text-red-500">-3%
                 arrear</span> still pending, not paid</p>
             </div>
           </div>
 
-          <!-- maintenance meter -->
+          <!-- fuel arrear meter -->
           <div class=" flex flex-col justify-center gap-6">
             <div class="flex flex-col items-center">
               <a href="#"><img src="/assets/maintenance.svg" alt=""></a>
@@ -1608,8 +1621,8 @@
 
         <!-- seperator -->
         <div class="w-full mt-4">
-          <div class="h-[2px] w-full bg-black"></div>
-          <div class="h-[2px] w-full bg-gray-800"></div>
+          <div class="h-[2px] w-full bg-gray-200 dark:bg-black"></div>
+          <div class="h-[2px] w-full bg-white dark:bg-gray-800"></div>
         </div>
 
         <!-- cards -->
@@ -1916,7 +1929,7 @@
               <button class="text-subtitleclr dark:text-accent !text-accent ">View all</button>
             </div>
 
-            <div class=" h-full p-4 dark:bg-[#232323] bg-fuchsia-100 flex flex-col justify-between rounded-lg">
+            <div class=" h-full p-4 dark:bg-[#232323] bg-white flex flex-col justify-between rounded-lg">
               <div>
                 <div class="flex justify-between ">
                   <div class="flex items-center gap-2">
@@ -1936,11 +1949,17 @@
                   <p class="text-subtitle"><span>4</span> Vehicles</p>
                   <p class="text-subtitleclr">in maintanence</p>
                 </div>
-                <img class="w-[60px] h-[60px]" src="./assets/maintanence-schedule.svg" alt="">
+                <div class="w-[40px] h-[40px] bg-white shadow-lg rounded-full flex justify-center items-center">
+                  <svg class="text-red-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                      d="M5 20v-2h1.6l1.975-6.575q.2-.65.738-1.038T10.5 10h3q.65 0 1.188.388t.737 1.037L17.4 18H19v2H5Zm6-12V3h2v5h-2Zm5.95 2.475L15.525 9.05l3.55-3.525l1.4 1.4l-3.525 3.55ZM18 15v-2h5v2h-5ZM7.05 10.475l-3.525-3.55l1.4-1.4l3.55 3.525l-1.425 1.425ZM1 15v-2h5v2H1Z" />
+                  </svg>
+                </div>
               </div>
 
 
-              <div class="h-[1px] w-full dark:bg-slate-200 bg-gray-500 my"></div>
+              <div class="h-[1px] w-full dark:bg-slate-200 bg-gray-200 my"></div>
 
 
               <div>
@@ -1963,7 +1982,7 @@
 
           <!-- Doc renewal -->
           <div
-            class="min-h-[220px] w-full p-4 flex flex-col justify-between border border-[#e4e4e4] dark:border-[#333333] dark:bg-scdark bg-sclight">
+            class="min-h-[220px] rounded-lg w-full p-4 flex flex-col justify-between border border-[#e4e4e4] dark:border-[#333333] dark:bg-scdark bg-sclight">
 
             <!-- <div card-stack>
 
@@ -2064,10 +2083,10 @@
 
             <div class="flex justify-between">
               <div class="flex gap-10">
-                <p class="text-white">Tickets</p>
+                <p class="">Tickets</p>
                 <div class="flex gap-2 justify-center ">
                   <img src="assets/calendar.svg" class="h-[18px] w-[18px]" alt="icon">
-                  <p class="flex flex-col md:flex-row text-subtitleclr">Last Update : <span class="text-white">2 days
+                  <p class="flex flex-col md:flex-row text-subtitleclr">Last Update : <span class="">2 days
                       ago</span></p>
                 </div>
               </div>
@@ -2162,12 +2181,12 @@
   }
 
   .progress-ring-arrear {
-    transition: 0.35s stroke-dashoffset;
+    transition: 0.35s stroke-dashoffset-arrear;
     transform: rotate(126deg);
   }
 
   .progress-ring__circle-arrear {
-    transition: 0.35s stroke-dashoffset;
+    transition: 0.35s stroke-dashoffset-arrear;
     /* // axis compensation */
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
