@@ -65,7 +65,7 @@ inputBoxArrear.addEventListener('change', function (e) {
     setProgressArrear(inputBoxArrear.value);
 
     let percentageToAedCollected = Math.trunc(inputBoxArrear.value / 100 * totalArrear);
-  
+
     const val = inputBoxArrear.value;
     const rotAmountArrear = 186 + ((val / 100) * 284);
     currentArrear.innerHTML = percentageToAedCollected;
@@ -74,10 +74,96 @@ inputBoxArrear.addEventListener('change', function (e) {
   }
 });
 
+// dark mode or light mode checking
 
-// map light dark switch
-const mapLight = document.getElementById('#map-light');
-const mapDark = document.getElementById('#map-dark');
+var checkbox = document.getElementById("toggle"); //get the checkbox to a variable
+var meterDark = document.getElementById("meter-dark");
+const mapLight = document.getElementById('map-light');
+const mapDark = document.getElementById('map-dark');
+const meter1Dark = document.getElementById('meter1dark');
+const meter1Light = document.getElementById('meter1light');
+const meter2Dark = document.getElementById('meter2dark');
+const meter2Light = document.getElementById('meter2light');
+
+const smallMeter1Light = document.getElementById('smallMeter1Light');
+const smallMeter1Dark = document.getElementById('smallMeter1Dark');
+const smallMeter2Light = document.getElementById('smallMeter2Light');
+const smallMeter2Dark = document.getElementById('smallMeter2Dark');
+
+// Defining event listener function
+function displayWindowSize() {
+  // Get width and height of the window excluding scrollbars
+  var windowWidth = document.documentElement.clientWidth;
+  if (windowWidth <= 640) {
+  }
+}
+
+// Attaching the event listener function to window's resize event
+window.addEventListener("resize", displayWindowSize);
+// Calling the function for the first time
+displayWindowSize();
+//check storage if dark mode was on or off
+if (sessionStorage.darkMode == "true" || localStorage.darkMode == "true") {
+  console.log("darkmode"); //if dark mode was on, run this funtion
+  mapLight.style.display = "none";
+  mapDark.style.display = "block";
+  meter1Dark.style.display = "block";
+  meter1Light.style.display = "none";
+  meter2Dark.style.display = "block";
+  meter2Light.style.display = "none";
+  smallMeter1Light.style.display = "none";
+  smallMeter2Light.style.display = "none";
+  smallMeter1Dark.style.display = "block";
+  smallMeter2Dark.style.display = "block";
+
+} else if (sessionStorage.darkMode == "false" || localStorage.darkMode == "false") {
+  console.log("lightmode") //else run this funtion
+  mapLight.style.display = "block";
+  mapDark.style.display = "none";
+  meter1Dark.style.display = "none";
+  meter1Light.style.display = "block";
+  meter2Dark.style.display = "none";
+  meter2Light.style.display = "block";
+  smallMeter1Light.style.display = "block";
+  smallMeter2Light.style.display = "block";
+  smallMeter1Dark.style.display = "none";
+  smallMeter2Dark.style.display = "none";
+} else {
+  console.log('Error!! getting sessionStorage')
+}
+
+//if the checkbox state is changed, run a funtion
+checkbox.addEventListener("change", function () {
+  //findout if the checkbox is checked or not
+  if (checkbox.checked) {
+    mapLight.style.display = "none";
+    mapDark.style.display = "block";
+    meter1Dark.style.display = "block";
+    meter1Light.style.display = "none";
+    meter2Dark.style.display = "block";
+    meter2Light.style.display = "none";
+    smallMeter1Dark.style.display = "block";
+    smallMeter2Dark.style.display = "block";
+    smallMeter1Light.style.display = "none";
+    smallMeter2Light.style.display = "none";
+    console.log("checked means dark"); //if the checkbox is checked, run this funtion
+  } else {
+    mapLight.style.display = "block";
+    mapDark.style.display = "none";
+    meter1Dark.style.display = "none";
+    meter1Light.style.display = "block";
+    meter2Dark.style.display = "none";
+    meter2Light.style.display = "block";
+    smallMeter1Dark.style.display = "none";
+    smallMeter2Dark.style.display = "none";
+    smallMeter1Light.style.display = "block";
+    smallMeter2Light.style.display = "block";
+    console.log("unchecked means light"); //else run this funtion
+  }
+
+});
+
+
 
 // nav menu
 // const mainContentArea = document.getElementById("mainContentArea");
