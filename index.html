@@ -26,6 +26,26 @@
       theme: {
         extend: {
           keyframes: {
+            // slideDown: {
+            //   '0%': { transform: 'translateY(-30px)' },
+            //   '100%': { transform: 'translateY(0px)' }
+            // },
+            slideLeft: {
+              '0%': { transform: 'translateX(-100px)' },
+              '100%': { transform: 'translateX(0px)' }
+            },
+            slideRight: {
+              '0%': { transform: 'translateX(100px)' },
+              '100%': { transform: 'translateX(0px)' }
+            },
+            zoomOut: {
+              '0%': { transform: 'translateY(-30px)' },
+              '100%': { transform: 'translateY(0px)' }
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(30px)' },
+              '100%': { transform: 'translateY(0px)' }
+            },
             navMove: {
               '0%': { transform: 'translateX(0px)' },
               '100%': { transform: 'translateX(218px)' },
@@ -80,10 +100,10 @@
 
     <!-- left sidebar -->
     <div id="leftMenu"
-      class="transition-all expandShrink h-screen duration-500 transform absolute 2xl:block hidden  z-[100] w-[256px]">
+      class="animate-[slideLeft_0.6s_ease-in-out] transition-all expandShrink h-screen duration-500 transform absolute 2xl:block hidden  z-[100] w-[256px]">
 
       <div
-        class="border px-3 py-4 w-full h-full bg-gray-50 dark:bg-pmdark dark:border-black dark:border-r-gray-700 flex flex-col justify-between"
+        class="border px-3 py-4 w-full h-full bg-gray-50 shadow-lg dark:bg-pmdark dark:border-black dark:border-r-gray-700 flex flex-col justify-between"
         aria-label="Sidebar">
 
         <!-- left sidebar contents -->
@@ -266,7 +286,7 @@
 
     <!--top navbar-->
     <div id="navBar"
-      class="2xl:pl-[256px] bg-white items-center grid grid-cols-[1fr_320px] fixed z-[90] top-0 left-0 dark:bg-pmdark w-full h-[65px] border-2 dark:border-gray-800 dark:border-b-[#1A282B]">
+      class="animate-[slideDown_0.6s_ease-in-out] 2xl:pl-[256px] bg-white items-center grid grid-cols-[1fr_320px] fixed z-[90] top-0 left-0 dark:bg-pmdark w-full h-[65px] border-2 dark:border-gray-800 dark:border-b-[#1A282B]">
 
       <!-- menubtn , search & toggle  -->
       <div class="flex relative justify-between items-center ">
@@ -437,7 +457,7 @@
 
     <!-- right sidebar | Trips live status -->
     <div
-      class="h-screen hidden xl:block fixed z-[120] mt-[65px] dark:bg-pmdark border-2 right-0  w-[320px] dark:border-black dark:border-l-[#1A282B] ">
+      class="animate-[slideRight_0.6s_ease-in-out] h-screen hidden xl:block fixed z-[120] mt-[65px] bg-white shadow-lg dark:bg-pmdark border-2 right-0  w-[320px] dark:border-black dark:border-l-[#1A282B] ">
 
       <!-- expand shrink button -->
       <button
@@ -670,7 +690,7 @@
       class="dark:bg-pmdark bg-[#f9f9f9] dark:text-gray-100 w-full overflow-y-scroll h-full 2xl:pl-[256px] pt-[65px] xl:pr-[320px]">
 
       <!-- two meters  -->
-      <div id="meter-dark" class="hidden lg:flex mt-6 justify-evenly w-full">
+      <div id="meter-dark" class="animate-[zoomOut_0.6s_ease-in-out] hidden lg:flex mt-6 justify-evenly w-full">
 
         <!-- meter 1 | vacancy  -->
         <div class="flex">
@@ -684,7 +704,7 @@
 
             <div class="relative">
               <img id="smallMeter1Light" src="/assets/small-meter-light.svg" class="w-[138px] h-[138px]" alt="">
-              <img  id="smallMeter1Dark" src="/assets/small-meter-dark.svg" class="w-[138px] h-[138px] " alt="">
+              <img id="smallMeter1Dark" src="/assets/small-meter-dark.svg" class="w-[138px] h-[138px] " alt="">
 
               <!-- Maintenance data -->
               <div class="text-center text-gray-500 absolute top-[36px] left-[40px]">
@@ -816,7 +836,7 @@
 
                 <!-- darkmode -->
                 <div id="meter2dark" class="">
-                <img class=" h-[270px] w-[270px]" src="/assets/meter-dark.svg" alt="">
+                  <img class=" h-[270px] w-[270px]" src="/assets/meter-dark.svg" alt="">
                 </div>
 
                 <!-- lightmode -->
@@ -916,14 +936,15 @@
             </div>
 
             <div class="relative">
-              
+
               <img id="smallMeter2Light" src="/assets/small-meter-light.svg" class="w-[138px] h-[138px] " alt="">
               <img id="smallMeter2Dark" src="/assets/small-meter-dark.svg" class="w-[138px] h-[138px] " alt="">
 
               <!-- Maintenance data -->
               <div class="text-center text-gray-500 absolute top-[44px] left-[40px]">
                 <p class="text-xs">Qty / Amt</p>
-                <p class="text-lg text-black font-semibold dark:text-white">21 <span class="text-subtitle">ltr</span></p>
+                <p class="text-lg text-black font-semibold dark:text-white">21 <span class="text-subtitle">ltr</span>
+                </p>
               </div>
 
             </div>
@@ -932,15 +953,14 @@
         </div>
 
       </div>
+      <!-- seperator -->
+      <div class="w-full mt-4">
+        <div class="h-[2px] w-full bg-gray-200 dark:bg-black"></div>
+        <div class="h-[2px] w-full bg-white dark:bg-gray-800"></div>
+      </div>
 
       <!--All cards -->
-      <div>
-
-        <!-- seperator -->
-        <div class="w-full mt-4">
-          <div class="h-[2px] w-full bg-gray-200 dark:bg-black"></div>
-          <div class="h-[2px] w-full bg-white dark:bg-gray-800"></div>
-        </div>
+      <div class="animate-[slideUp_0.6s_ease-in-out]">
 
         <!-- cards -->
         <div class="px-6 py-4 grid md:grid-cols-2 lg:grid-cols-3 flex-col gap-6">
@@ -1099,7 +1119,7 @@
                   </div>
                 </div>
               </div>
-              
+
             </div>
 
             <div class="relative ">
@@ -1508,6 +1528,33 @@
     /* // axis compensation */
     transform: rotate(-90deg);
     transform-origin: 50% 50%;
+  }
+
+
+  :root {
+    --primary: [#1a1c1e];
+    --secondary: gray;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) var(--primary);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--primary);
+    border-radius: 15px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--secondary);
+    border-radius: 14px;
+    border: 3px solid var(--primary);
   }
 </style>
 
