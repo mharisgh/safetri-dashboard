@@ -21,6 +21,9 @@ function setProgress(percent) {
 const inputBox = document.getElementById('inputBox');
 setProgress(inputBox.value);
 
+const rotAmountInit = 186 + ((inputBox.value / 100) * 284);
+target.style.transform = `rotate(${rotAmountInit}deg)`;
+
 inputBox.addEventListener('change', function (e) {
   if (inputBox.value < 101 && inputBox.value > -1) {
     setProgress(inputBox.value);
@@ -31,7 +34,7 @@ inputBox.addEventListener('change', function (e) {
     currentStudents.innerHTML = percentageToStudentsEnrolled;
     vacancy.innerHTML = totalStudents - percentageToStudentsEnrolled;
     target.style.transform = `rotate(${rotAmount}deg)`;
-
+    console.log(rotAmount)
   }
 });
 
@@ -59,6 +62,9 @@ function setProgressArrear(percentArrear) {
 
 const inputBoxArrear = document.getElementById('inputBoxArrear');
 setProgressArrear(inputBoxArrear.value);
+
+const rotAmountInitArrear = 186 + ((inputBoxArrear.value / 100) * 284);
+targetArrear.style.transform = `rotate(${rotAmountInitArrear}deg)`;
 
 inputBoxArrear.addEventListener('change', function (e) {
   if (inputBoxArrear.value < 101 && inputBoxArrear.value > -1) {
@@ -162,6 +168,55 @@ checkbox.addEventListener("change", function () {
   }
 
 });
+
+
+// --------------------------
+// small meter animation
+// --------------------------
+
+window.onload = function onLoad() {
+  var progressBar = 
+    new ProgressBar.Circle('#progress', {
+      color: 'red',
+      strokeWidth: 10,
+      duration: 2000, // milliseconds
+      easing: 'easeInOut'
+    });
+
+  progressBar.animate(0.63); // percent
+};
+
+
+
+
+
+// small meter circle 
+// const percent = document.querySelector('#percent');
+// percent.addEventListener('change', function() {
+//   let val = parseInt(this.value);
+//   const circle = document.querySelector('#svg #bar');
+
+//   if (isNaN(val)) {
+//     val = 100;
+//   } else {
+//     const r = circle.getAttribute('r');
+//     const c = Math.PI * (r * 2);
+
+//     if (val < 0) {
+//       val = 0;
+//     }
+//     if (val > 100) {
+//       val = 100;
+//     }
+
+//     const pct = ((100 - val) / 100) * c;
+
+//     circle.style.strokeDashoffset = pct + 'px';
+
+//     document.querySelector('#cont').setAttribute('data-pct', val);
+//   }
+// });
+
 
 
 
