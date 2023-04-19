@@ -38,8 +38,8 @@
               '100%': { transform: 'translateX(0px)' }
             },
             zoomOut: {
-              '0%': { transform: 'translateY(-30px)' },
-              '100%': { transform: 'translateY(0px)' }
+              '0%': { transform: 'rotate(0deg))' },
+              '100%': { transform: 'rotate(3360deg)' }
             },
             slideUp: {
               '0%': { transform: 'translateY(30px)' },
@@ -682,7 +682,7 @@
       class="dark:bg-pmdark bg-[#f9f9f9] dark:text-gray-100 w-full overflow-y-scroll h-full 2xl:pl-[256px] pt-[65px] xl:pr-[320px]">
 
       <!-- two meters  -->
-      <div id="meter-dark" class="animate-[zoomOut_0.6s_ease-in-out] hidden lg:flex mt-6 justify-evenly w-full">
+      <div id="meter-dark" class="animate-[slideUp_.6s_ease-in-out] hidden lg:flex mt-6 justify-evenly w-full">
 
         <!-- meter 1 | vacancy & maintenance  -->
         <div class="flex">
@@ -935,9 +935,6 @@
                 </div>
 
               </div>
-
-
-
             </div>
 
             <!-- students count -->
@@ -978,7 +975,7 @@
                 <!-- progress & animation -->
                 <div class="absolute top-[0px] left-[2px]">
                   <div class="progress-circle-small">
-                    <svg class="progress-small" viewBox="0 0 100 100">
+                    <svg class="progress-small progress-small-fuel" viewBox="0 0 100 100">
                       <circle class="progress-background" cx="50" cy="50" r="45"></circle>
                       <circle class="progress-bar " cx="50" cy="50" r="45"></circle>
                     </svg>
@@ -995,7 +992,7 @@
                 <div class="absolute top-[0px] left-[2px]">
                   <div class="progress-circle-small">
                     <svg class="progress-small" viewBox="0 0 100 100">
-                      <circle class="progress-background" cx="50" cy="50" r="45"></circle>
+                      <circle class="progress-background progress-background-fuel" cx="50" cy="50" r="45"></circle>
                       <circle class="progress-bar " cx="50" cy="50" r="45"></circle>
                     </svg>
                   </div>
@@ -1470,11 +1467,40 @@
 
             </div>
  -->
+
             <div class="flex pb-6 items-center justify-between">
               <p class="text-title ">Document Renewal</p>
               <button class="text-subtitleclr dark:text-accent !text-accent ">View all</button>
             </div>
-            <img src="assets/card-stack.svg" alt="">
+
+            <div class="flex justify-between">
+              <div class="flex gap-3 ">
+                <div class="flex items-center gap-2">
+                  <div class="h-[10px] w-[10px] rounded-full bg-orange-700"></div>
+                  <p class="text-subtitle">NIMS</p>
+                </div>
+
+                <div class="flex items-baseline gap-2">
+                  <p class="text-title">12</p>
+                </div>
+              </div>
+
+              <div class="flex gap-3 ">
+                <div class="flex items-center gap-2">
+                  <div class="h-[10px] w-[10px] rounded-full bg-yellow-500"></div>
+                  <p class="text-subtitle">TOTAL</p>
+                </div>
+
+                <div class="flex items-baseline gap-2">
+                  <p class="text-title">32</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              
+              <img src="assets/card-stack.svg" alt="">
+            </div>
           </div>
 
         </div>
@@ -1698,6 +1724,10 @@
     fill: none;
     stroke: #ddd;
     stroke-width: 3;
+  }
+
+  .progress-background-fuel {
+    stroke: #23312c !important;
   }
 
   .progress-bar {
