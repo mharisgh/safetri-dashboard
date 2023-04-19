@@ -1497,9 +1497,37 @@
               </div>
             </div>
 
-            <div>
-              
-              <img src="assets/card-stack.svg" alt="">
+            <div id="card-stack" onmouseenter="showBtn()" onmouseleave="hideBtn()" class="relative w-full mt-4 h-[140px] flex justify-center">
+              <div class="bg-[#99d5f4] absolute w-[80%] h-[120px] mt-0 rounded-lg z-[80]"></div>
+              <div class="bg-[#2b7c48] absolute w-[90%] h-[120px] mt-2 rounded-lg z-[90]"></div>
+              <div class="bg-[#99d5f4] absolute w-full h-[120px] mt-4 rounded-lg z-[100] dark:text-black p-2">
+                <div class="flex h-full justify-between relative">
+                  <div class="absolute w-full h-full top-0 flex flex-col py-2 items-center justify-between">
+                    <button id="doc-back-btn"><svg class="hidden text-black/50" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g transform="rotate(90 12 12)"><path fill="currentColor" d="M10 22L0 12L10 2l1.775 1.775L3.55 12l8.225 8.225L10 22Z"/></g></svg></button>
+                    <button id="doc-next-btn"><svg class="hidden text-black/50" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g transform="rotate(-90 12 12)"><path fill="currentColor" d="M10 22L0 12L10 2l1.775 1.775L3.55 12l8.225 8.225L10 22Z"/></g></svg></button>
+                  </div>
+                  <div class="flex flex-col justify-between">
+                    <div>
+                      <p class="text-subtitle">Mini Bus</p>
+                      <p class="text-subtitle font-semibold">KL 123465</p>
+                    </div>
+                    <div>
+                      <p class="text-subtitle">Document</p>
+                      <p class="text-subtitle font-semibold">Tax Permit</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col justify-between">
+                    <div class="text-end">
+                      <p class="text-subtitle font-semibold">Expires in</p>
+                      <p class="text-subtitle">5 Days</p>
+                    </div>
+                    <div class="text-end">
+                      <p class="text-subtitle">Expiry date</p>
+                      <p class="text-subtitle font-semibold">24 June 2024</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

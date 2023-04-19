@@ -95,6 +95,18 @@ const smallMeter1Dark = document.getElementById('smallMeter1Dark');
 const smallMeter2Light = document.getElementById('smallMeter2Light');
 const smallMeter2Dark = document.getElementById('smallMeter2Dark');
 
+const docBackbtn = document.getElementById('doc-back-btn');
+const docNextbtn = document.getElementById('doc-next-btn');
+const cardStack = document.getElementById('card-stack');
+
+function showBtn(){
+  docBackbtn.style.display = "block";
+}
+function hideBtn(){
+  docBackbtn.style.display = "hidden";
+
+}
+
 // Defining event listener function
 function displayWindowSize() {
   // Get width and height of the window excluding scrollbars
