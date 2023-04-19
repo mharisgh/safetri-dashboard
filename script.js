@@ -174,48 +174,32 @@ checkbox.addEventListener("change", function () {
 // small meter animation
 // --------------------------
 
-window.onload = function onLoad() {
-  var progressBar = 
-    new ProgressBar.Circle('#progress', {
-      color: 'red',
-      strokeWidth: 10,
-      duration: 2000, // milliseconds
-      easing: 'easeInOut'
-    });
+function progressCircle(percent) {
+  const circle = document.querySelectorAll('.progress-bar');
+  const circumference = 283;
+  const offset = circumference - percent / 100 * circumference;
 
-  progressBar.animate(0.63); // percent
-};
+  circle[1].style.strokeDashoffset = offset;
+  circle[0].style.strokeDashoffset = offset;
+  circle[2].style.strokeDashoffset = offset;
+  circle[3].style.strokeDashoffset = offset;
 
 
+}
 
+progressCircle(0);
+addEventListener("load", test);
+function test() {
+  for (let i = 0; i <= 100; i++) {
+    progressCircle(i)
 
+    // Example usage:
+    if (i <= 100) {
+      progressCircle(50) // set progress to 75%
+    }
+  }
+}
 
-// small meter circle 
-// const percent = document.querySelector('#percent');
-// percent.addEventListener('change', function() {
-//   let val = parseInt(this.value);
-//   const circle = document.querySelector('#svg #bar');
-
-//   if (isNaN(val)) {
-//     val = 100;
-//   } else {
-//     const r = circle.getAttribute('r');
-//     const c = Math.PI * (r * 2);
-
-//     if (val < 0) {
-//       val = 0;
-//     }
-//     if (val > 100) {
-//       val = 100;
-//     }
-
-//     const pct = ((100 - val) / 100) * c;
-
-//     circle.style.strokeDashoffset = pct + 'px';
-
-//     document.querySelector('#cont').setAttribute('data-pct', val);
-//   }
-// });
 
 
 

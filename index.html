@@ -702,41 +702,46 @@
             </div>
 
             <div class="relative">
+
               <div id="smallMeter1Light">
                 <img src="/assets/small-meter-light.svg" class="w-[138px] h-[138px]" alt="">
                 <div class="circle-animation-small "></div>
+
+                <!-- progress & animation -->
+                <div class="absolute top-[0px] left-[2px]">
+                  <div class="progress-circle-small">
+                    <svg class="progress-small" viewBox="0 0 100 100">
+                      <circle class="progress-background" cx="50" cy="50" r="45"></circle>
+                      <circle class="progress-bar " cx="50" cy="50" r="45"></circle>
+                    </svg>
+                  </div>
+                </div>
+
               </div>
 
               <div id="smallMeter1Dark">
                 <div class="circle-animation-small "></div>
                 <img src="/assets/small-meter-dark.svg" class="w-[138px] h-[138px] " alt="">
-              </div>
 
-              <!-- <div id="cont" class="absolute top-0 left-0 bg-yellow-400" data-pct="100">
-                <svg id="svg" width="100" height="100" viewPort="0 0 100 100" version="1.1"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <circle class="bg-blue-800" r="60" cx="100" cy="100" fill="blue" stroke-dasharray="565.48"
-                    stroke-dashoffset="0">
-                  </circle>
-                  <circle id="bar" r="90" cx="100" cy="100" fill="gray" stroke-dasharray="565.48" stroke-dashoffset="0">
-                  </circle>
-                </svg>
-              </div>
-              <input id="percent" palceholder="small circle" name="percent"> -->
-
-              <div class="box">
-                <div class="progress" id="progress">
-                  <div class="inner">
-                    heart
+                <!-- progress & animation -->
+                <div class="absolute top-[0px] left-[2px]">
+                  <div class="progress-circle-small">
+                    <svg class="progress-small" viewBox="0 0 100 100">
+                      <circle class="progress-background progres-bg-maintenance-dark" cx="50" cy="50" r="45"></circle>
+                      <circle class="progress-bar " cx="50" cy="50" r="45"></circle>
+                    </svg>
                   </div>
                 </div>
+
               </div>
+
 
 
               <!-- Maintenance data -->
               <div class="text-center text-gray-500 absolute top-[36px] left-[40px]">
                 <p class="text-xs">Amount</p>
                 <p class="text-lg font-semibold text-gray-900 dark:text-white">14,000</p>
+                <!-- <p class="percent text-lg font-semibold text-gray-900 dark:text-white">14,000</p> -->
                 <p class="text-xs">AED</p>
               </div>
 
@@ -976,12 +981,32 @@
               <div id="smallMeter2Light">
                 <div class="circle-animation-small "></div>
                 <img src="/assets/small-meter-light.svg" class="w-[138px] h-[138px] " alt="">
+
+                <!-- progress & animation -->
+                <div class="absolute top-[0px] left-[2px]">
+                  <div class="progress-circle-small">
+                    <svg class="progress-small" viewBox="0 0 100 100">
+                      <circle class="progress-background" cx="50" cy="50" r="45"></circle>
+                      <circle class="progress-bar " cx="50" cy="50" r="45"></circle>
+                    </svg>
+                  </div>
+                </div>
               </div>
 
 
               <div id="smallMeter2Dark">
                 <div class="circle-animation-small "></div>
                 <img src="/assets/small-meter-dark.svg" class="w-[138px] h-[138px] " alt="">
+
+                <!-- progress & animation -->
+                <div class="absolute top-[0px] left-[2px]">
+                  <div class="progress-circle-small">
+                    <svg class="progress-small" viewBox="0 0 100 100">
+                      <circle class="progress-background" cx="50" cy="50" r="45"></circle>
+                      <circle class="progress-bar " cx="50" cy="50" r="45"></circle>
+                    </svg>
+                  </div>
+                </div>
               </div>
 
               <!-- Maintenance data -->
@@ -1076,7 +1101,8 @@
                 </div>
 
               </div>
-              <div class="h-[40px] w-[40px] bg-red-100 dark:bg-red-900/30 flex justify-center items-center rounded-full">
+              <div
+                class="h-[40px] w-[40px] bg-red-100 dark:bg-red-900/30 flex justify-center items-center rounded-full">
                 <img class="h-[26px] w-[26px]" src="./assets/unauthorized.svg" alt="">
               </div>
             </div>
@@ -1313,7 +1339,8 @@
               <button class="text-subtitleclr dark:text-accent !text-accent ">View all</button>
             </div>
 
-            <div class=" h-full drop-shadow-[0_0_10px_rgba(0,0,0,0.15)] p-4 dark:bg-[#232323] bg-white flex flex-col justify-between rounded-lg">
+            <div
+              class=" h-full drop-shadow-[0_0_10px_rgba(0,0,0,0.15)] p-4 dark:bg-[#232323] bg-white flex flex-col justify-between rounded-lg">
               <div>
                 <div class="flex justify-between ">
                   <div class="flex items-center gap-2">
@@ -1333,7 +1360,8 @@
                   <p class="text-subtitle"><span>4</span> Vehicles</p>
                   <p class="text-subtitleclr">in maintanence</p>
                 </div>
-                <div class="h-[40px] w-[40px] bg-red-100 dark:bg-red-900/30 flex justify-center items-center rounded-full">
+                <div
+                  class="h-[40px] w-[40px] bg-red-100 dark:bg-red-900/30 flex justify-center items-center rounded-full">
                   <img class="h-[26px] w-[26px]" src="./assets/garage.svg" alt="">
                 </div>
               </div>
@@ -1645,53 +1673,40 @@
   /* -------------------------------------- */
   /* Small meter circle */
   /* -------------------------------------- */
-
-  #svg .circle {
-    stroke-dashoffset: 0;
-    transition: stroke-dashoffset 1s linear;
-    stroke: #d5d6d4;
-    stroke-width: 1em;
-  }
-
-  #svg #bar {
-    stroke: #2db12b;
-    stroke-width: 1em;
-  }
-
-  #cont {
-    /* height: 130px; */
-    /* width: 130px; */
-    background-color: red;
-    box-shadow: 0 0 1em black;
-    border-radius: 100%;
-  }
-
-
-  /* -------------------------------------- */
-  /* Small meter circle CSS new*/
-  /* -------------------------------------- */
-
-  .box {
-    display: inline-block;
-  }
-
-  .progress {
-    width: 100px;
-    height: 100px;
+  .progress-circle-small {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
+    width: 134px;
+    height: 134px;
+    text-align: center;
   }
 
-  .progress>.inner {
+  .progress-small {
     position: absolute;
-    color: red;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(90deg);
   }
 
-  .progress>svg {
-    height: 100%;
-    display: block;
+  .progress-background {
+    fill: none;
+    stroke: #ddd;
+    stroke-width: 3;
+  }
+
+  .progress-bar {
+    fill: none;
+    stroke: rgb(16, 209, 151);
+    stroke-width: 3;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s ease-out;
+  }
+
+  .progres-bg-maintenance-dark {
+    stroke: #23312c !important;
   }
 </style>
 
