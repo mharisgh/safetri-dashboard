@@ -80,8 +80,8 @@ inputBoxArrear.addEventListener('change', function (e) {
   }
 });
 
-// dark mode or light mode checking
 
+// dark mode or light mode checking
 var checkbox = document.getElementById("toggle"); //get the checkbox to a variable
 var meterDark = document.getElementById("meter-dark");
 const mapLight = document.getElementById('map-light');
@@ -90,7 +90,6 @@ const meter1Dark = document.getElementById('meter1dark');
 const meter1Light = document.getElementById('meter1light');
 const meter2Dark = document.getElementById('meter2dark');
 const meter2Light = document.getElementById('meter2light');
-
 const smallMeter1Light = document.getElementById('smallMeter1Light');
 const smallMeter1Dark = document.getElementById('smallMeter1Dark');
 const smallMeter2Light = document.getElementById('smallMeter2Light');
@@ -108,6 +107,7 @@ function displayWindowSize() {
 window.addEventListener("resize", displayWindowSize);
 // Calling the function for the first time
 displayWindowSize();
+
 //check storage if dark mode was on or off
 if (sessionStorage.darkMode == "true" || localStorage.darkMode == "true") {
   console.log("darkmode"); //if dark mode was on, run this funtion
@@ -136,6 +136,16 @@ if (sessionStorage.darkMode == "true" || localStorage.darkMode == "true") {
   smallMeter2Dark.style.display = "none";
 } else {
   console.log('Error!! getting sessionStorage')
+  mapLight.style.display = "block";
+  mapDark.style.display = "none";
+  meter1Light.style.display = "block";
+  meter1Dark.style.display = "none";
+  meter2Light.style.display = "block";
+  meter2Dark.style.display = "none";
+  smallMeter1Light.style.display = "block";
+  smallMeter1Dark.style.display = "none";
+  smallMeter2Light.style.display = "block";
+  smallMeter2Dark.style.display = "none";
 }
 
 //if the checkbox state is changed, run a funtion

@@ -78,14 +78,7 @@
       },
     }
   </script>
-  <!-- <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    } else {
-        document.documentElement.classList.remove('dark')
-    }
-</script> -->
+
 </head>
 
 <body>
@@ -1579,6 +1572,17 @@
 </body>
 
 <style>
+  input:checked~.dot {
+    transform: translateX(100%);
+    /* background-color: #132b50; */
+  }
+
+  .dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    transform: translate(0) scale(1);
+    visibility: visible;
+  }
+
   .progress-ring {
     transition: 0.35s stroke-dashoffset;
     transform: rotate(126deg);
