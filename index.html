@@ -20,8 +20,10 @@
   <!-- Scripts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
   <script>
     tailwind.config = {
+      // prefix: "tw-",
       darkMode: 'class',
       theme: {
         extend: {
@@ -379,16 +381,6 @@
           </div>
         </div>
 
-        <!-- meter working demo -->
-        <input id="inputBox"
-          class="hidden xl:block w-18 dark:bg-gray-900  dark:text-white border dark:border-gray-800 border-gray-300 rounded-lg px-2"
-          value="100" type="number" step="5" min="0" max="100" placeholder="100">
-
-        <!-- meter working demo -->
-        <input id="inputBoxArrear"
-          class=" dark:border-gray-800 border-gray-300 dark:bg-gray-900 hidden xl:block w-12 dark:bg-gray-700 dark:text-white border border-black"
-          value="60" type="number" step="5" min="0" max="100" placeholder="60">
-
         <!-- light & dark toggle button -->
         <div class="mr-8 relative flex items-center justify-center space-x-2">
           <span class="text-sm text-gray-800 dark:text-gray-500">Light</span>
@@ -734,7 +726,6 @@
               <div class="text-center text-gray-500 absolute top-[36px] left-[40px]">
                 <p class="text-xs">Amount</p>
                 <p class="text-lg font-semibold text-gray-900 dark:text-white">14,000</p>
-                <!-- <p class="percent text-lg font-semibold text-gray-900 dark:text-white">14,000</p> -->
                 <p class="text-xs">AED</p>
               </div>
 
@@ -761,7 +752,7 @@
                 </div>
 
                 <!-- progress bar -->
-                <div class="absolute left-[14px] top-[9px] ">
+                <div class="absolute dark:left-[14.5px] dark:top-[9px] left-[16px] top-[11px] ">
                   <svg class="z-40 progress-ring" width="240" height="240">
                     <linearGradient id="aGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="20%" stop-color="#07963A" />
@@ -772,14 +763,15 @@
                       <stop offset="90%" stop-color="#FF3434" />
                     </linearGradient>
 
-                    <circle id="round-progress" stroke="url(#aGradient)" stroke-width="10" fill="transparent" r="77"
+                    <circle id="round-progress" stroke="url(#aGradient)" stroke-width="10" fill="transparent" r="75"
                       cx="120" cy="120" />
                   </svg>
                 </div>
 
                 <!-- vacancy text -->
                 <div class="absolute bottom-[24px] text-center">
-                  <p id="vacancy" class="text-lg font-bold leading-4 dark:text-white">200</p>
+                  <!-- vacancy will be calculated based on current -->
+                  <p id="vacancy" class="text-lg font-bold leading-4 dark:text-white"></p>
                   <p class="text-sm text-gray-500">vacancy</p>
                 </div>
 
@@ -824,8 +816,13 @@
             <!-- students count -->
             <div class="text-2xl flex flex-col justify-center items-center">
               <div class=" flex gap-2">
-                <p class=" font-bold text-green-500" id="currentStudents">1000</p>
-                <p id="totalStudents" class="text-gray-500 font-bold"><span>/ </span>1200</p>
+                
+                <!-- change data here  -->
+                <p class=" font-bold text-green-500" id="currentStudents">600</p>
+                <!-- ---------------- -->
+
+                <p class="text-gray-500 font-bold">/ <span id="totalStudents">1200</span></p>
+
               </div>
               <p class="text-sm font-semibold text-gray-500">Students Registered</p>
             </div>
@@ -876,7 +873,7 @@
                 </div>
 
                 <!-- progress bar -->
-                <div class="absolute left-[14px] top-[9px] ">
+                <div class="absolute dark:left-[14.5px] dark:top-[9px] left-[16px] top-[11px] ">
                   <svg class="z-40 progress-ring-arrear" width="240" height="240">
                     <linearGradient id="aGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="20%" stop-color="#07963A" />
@@ -888,14 +885,19 @@
                     </linearGradient>
 
                     <circle id="round-progress-arrear" stroke="url(#aGradient)" stroke-width="10" fill="transparent"
-                      r="77" cx="120" cy="120" />
+                      r="75" cx="120" cy="120" />
                   </svg>
                 </div>
 
-                <!-- vacancy text -->
-                <div class="absolute bottom-[24px]  text-center">
-                  <p id="arrear" class="text-lg font-bold leading-4 text-white">33<span class="text-subtitle"> K</span>
-                  </p>
+                <!-- arrear text -->
+                <div class="absolute bottom-[24px]">
+                  <div class="flex gap-1 ">
+
+                    <!-- Arrear Remaining will calculated based on total - current -->
+                    <p id="arrear" class="text-lg font-bold leading-4 dark:text-white"></p>
+
+                    <p class="text-subtitle font-semibold"> K</p>
+                  </div>
                   <p class="text-sm text-gray-500">Arrear</p>
                 </div>
 
@@ -939,14 +941,19 @@
 
             <!-- students count -->
             <div class="text-2xl flex flex-col justify-center font-bold items-center">
-              <div class=" flex gap-2">
-                <p class=" text-green-500" id="currentArrear">27</p><span
-                  class="font-semibold text-gray-500 -ml-[6px]">k</span>
-                <p class="text-gray-500 font-bold" id=totalArrear">
-                  / &nbsp
-                  <span class="dark:text-gray-500 -ml-[12px]">50
-                  </span>k
-                </p>
+              <div class=" flex gap-2 font-semibold text-gray-500">
+
+                <!-- arrear aed collected | change here -->
+                <p class=" text-green-500" id="currentArrear">30</p>
+                <!-- ----------------- -->
+
+                <p class="font-semibold -ml-[6px] text-green-500">k</p>
+                <p class="text-gray-500 font-bold"> / &nbsp </p>
+
+                <p class="dark:text-gray-500 -ml-[12px]" id="totalArrear">50</p>
+
+                <p class="-ml-[6px]">k</p>
+
               </div>
               <p class="text-sm text-gray-500">AED Collected</p>
             </div>
@@ -1001,9 +1008,20 @@
 
               <!-- Maintenance data -->
               <div class=" text-center text-gray-500 absolute top-[44px] left-[40px]">
-                <p class="text-xs">Qty / Amt</p>
-                <p class=" text-lg text-black font-semibold dark:text-white">21 <span class="text-subtitle">ltr</span>
-                </p>
+                <!-- <p class="text-xs">Qty / Amt</p> -->
+                <div class="flex gap-1 justify-center items-center">
+                  <p class=" text-lg text-black font-semibold dark:text-white">21
+                  </p>
+                  <p class="text-subtitle">ltr</p>
+                </div>
+
+                <div class=" text-subtitle flex gap-1">
+                  <p class="font-semibold text-black dark:text-white">1500
+                  </p>
+                  <p>AED</p>
+                </div>
+
+
               </div>
 
             </div>
@@ -1497,14 +1515,25 @@
               </div>
             </div>
 
-            <div id="card-stack" onmouseenter="showBtn()" onmouseleave="hideBtn()" class="relative w-full mt-4 h-[140px] flex justify-center">
+            <div id="card-stack" onmouseenter="showBtn()" onmouseleave="hideBtn()"
+              class="relative w-full mt-4 h-[140px] flex justify-center">
               <div class="bg-[#99d5f4] absolute w-[80%] h-[120px] mt-0 rounded-lg z-[80]"></div>
               <div class="bg-[#2b7c48] absolute w-[90%] h-[120px] mt-2 rounded-lg z-[90]"></div>
               <div class="bg-[#99d5f4] absolute w-full h-[120px] mt-4 rounded-lg z-[100] dark:text-black p-2">
                 <div class="flex h-full justify-between relative">
                   <div class="absolute w-full h-full top-0 flex flex-col py-2 items-center justify-between">
-                    <button id="doc-back-btn"><svg class="hidden text-black/50" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g transform="rotate(90 12 12)"><path fill="currentColor" d="M10 22L0 12L10 2l1.775 1.775L3.55 12l8.225 8.225L10 22Z"/></g></svg></button>
-                    <button id="doc-next-btn"><svg class="hidden text-black/50" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g transform="rotate(-90 12 12)"><path fill="currentColor" d="M10 22L0 12L10 2l1.775 1.775L3.55 12l8.225 8.225L10 22Z"/></g></svg></button>
+                    <button id="doc-back-btn"><svg class="hidden text-black/50" xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" viewBox="0 0 24 24">
+                        <g transform="rotate(90 12 12)">
+                          <path fill="currentColor" d="M10 22L0 12L10 2l1.775 1.775L3.55 12l8.225 8.225L10 22Z" />
+                        </g>
+                      </svg></button>
+                    <button id="doc-next-btn"><svg class="hidden text-black/50" xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" viewBox="0 0 24 24">
+                        <g transform="rotate(-90 12 12)">
+                          <path fill="currentColor" d="M10 22L0 12L10 2l1.775 1.775L3.55 12l8.225 8.225L10 22Z" />
+                        </g>
+                      </svg></button>
                   </div>
                   <div class="flex flex-col justify-between">
                     <div>

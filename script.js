@@ -1,10 +1,8 @@
 // vacancy speedometer 1 script
 const vacancy = document.querySelector('#vacancy')
 const target = document.querySelector('#target');
-const input = document.getElementById('#inputBox')
-
-const totalStudents = 1200;
-let currentStudents = document.getElementById('currentStudents');
+let currentStudents = document.getElementById('currentStudents').innerHTML;
+let totalStudents = document.getElementById('totalStudents').innerHTML;
 
 var circle = document.getElementById('round-progress');
 var radius = circle.r.baseVal.value;
@@ -14,39 +12,26 @@ circle.style.strokeDasharray = `${circumference} ${circumference}`;
 circle.style.strokeDashoffset = `${circumference}`;
 
 function setProgress(percent) {
-  const offset = circumference - percent / 126 * circumference;
+  const offset = circumference - percent / 125 * circumference;
   circle.style.strokeDashoffset = offset;
 }
 
-const inputBox = document.getElementById('inputBox');
-setProgress(inputBox.value);
+let studentsEnrolledToPercentage = currentStudents / totalStudents * 100;
+setProgress(studentsEnrolledToPercentage);
 
-const rotAmountInit = 186 + ((inputBox.value / 100) * 284);
+const rotAmountInit = 186 + ((studentsEnrolledToPercentage / 100) * 284);
 target.style.transform = `rotate(${rotAmountInit}deg)`;
-
-inputBox.addEventListener('change', function (e) {
-  if (inputBox.value < 101 && inputBox.value > -1) {
-    setProgress(inputBox.value);
-
-    let percentageToStudentsEnrolled = inputBox.value / 100 * totalStudents;
-    const val = inputBox.value;
-    const rotAmount = 186 + ((val / 100) * 284);
-    currentStudents.innerHTML = percentageToStudentsEnrolled;
-    vacancy.innerHTML = totalStudents - percentageToStudentsEnrolled;
-    target.style.transform = `rotate(${rotAmount}deg)`;
-    console.log(rotAmount)
-  }
-});
+vacancy.innerHTML = totalStudents - currentStudents;
+const rotAmount = 186 + ((studentsEnrolledToPercentage / 100) * 284);
+target.style.transform = `rotate(${rotAmount}deg)`;
 
 
 // arrear speedometer 2 script
-const arrear = document.querySelector('#arrear')
+const arrear = document.querySelector('#arrear');
 const targetArrear = document.querySelector('#target-arrear');
-const inputArrear = document.getElementById('#inputBoxArrear')
-
-let totalArrear = 50;
-let currentArrear = document.getElementById('currentArrear');
-
+let currentArrearRaw = document.getElementById('currentArrear').innerHTML;
+let currentArrear = Math.trunc(currentArrearRaw);
+let totalArrear = document.querySelector('#totalArrear').innerHTML;
 
 var circleArrear = document.getElementById('round-progress-arrear');
 var radiusArrear = circleArrear.r.baseVal.value;
@@ -56,29 +41,18 @@ circleArrear.style.strokeDasharray = `${circumferenceArrear} ${circumferenceArre
 circleArrear.style.strokeDashoffset = `${circumferenceArrear}`;
 
 function setProgressArrear(percentArrear) {
-  const offsetArrear = circumferenceArrear - percentArrear / 126 * circumferenceArrear;
+  const offsetArrear = circumferenceArrear - percentArrear / 125 * circumferenceArrear;
   circleArrear.style.strokeDashoffset = offsetArrear;
 }
 
-const inputBoxArrear = document.getElementById('inputBoxArrear');
-setProgressArrear(inputBoxArrear.value);
+let currentArrearToPercentage = currentArrear / totalArrear * 100;
+setProgressArrear(currentArrearToPercentage);
 
-const rotAmountInitArrear = 186 + ((inputBoxArrear.value / 100) * 284);
+const rotAmountInitArrear = 186 + ((currentArrearToPercentage / 100) * 284);
 targetArrear.style.transform = `rotate(${rotAmountInitArrear}deg)`;
-
-inputBoxArrear.addEventListener('change', function (e) {
-  if (inputBoxArrear.value < 101 && inputBoxArrear.value > -1) {
-    setProgressArrear(inputBoxArrear.value);
-
-    let percentageToAedCollected = Math.trunc(inputBoxArrear.value / 100 * totalArrear);
-
-    const val = inputBoxArrear.value;
-    const rotAmountArrear = 186 + ((val / 100) * 284);
-    currentArrear.innerHTML = percentageToAedCollected;
-    arrear.innerHTML = totalArrear - percentageToAedCollected;
-    targetArrear.style.transform = `rotate(${rotAmountArrear}deg)`;
-  }
-});
+arrear.innerHTML = totalArrear - currentArrear;
+const rotAmountArrear = 186 + ((currentArrearToPercentage / 100) * 284);
+targetArrear.style.transform = `rotate(${rotAmountArrear}deg)`;
 
 
 // dark mode or light mode checking
@@ -217,7 +191,7 @@ function test() {
 
     // Example usage:
     if (i <= 100) {
-      progressCircle(50) // set progress to 75%
+      progressCircle(100) // set progress to 50%
     }
   }
 }
